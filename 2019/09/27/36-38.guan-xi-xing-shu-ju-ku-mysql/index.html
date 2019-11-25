@@ -743,6 +743,10 @@
                                 <span class="chip bg-color">python</span>
                             </a>
                         
+                            <a href="/tags/python-day31-40/" target="_blank">
+                                <span class="chip bg-color">python day31-40</span>
+                            </a>
+                        
                     </div>
                     
                 </div>
@@ -821,7 +825,7 @@
 </li>
 <li><p>ER模型（实体关系模型）和概念模型图。</p>
 <p><strong>ER模型</strong>，全称为<strong>实体关系模型</strong>（Entity-Relationship Model），由美籍华裔计算机科学家陈品山先生提出，是概念数据模型的高层描述方式，如下图所示。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="./res/er_diagram.png" alt=""></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/images/er_diagram.png" alt=""></p>
 <ul>
 <li>实体 - 矩形框</li>
 <li>属性 - 椭圆框</li>
@@ -829,7 +833,7 @@
 <li>重数 - 1:1（一对一） / 1:N（一对多） / M:N（多对多）</li>
 </ul>
 <p>实际项目开发中，我们可以利用数据库建模工具（如：PowerDesigner）来绘制概念数据模型（其本质就是ER模型），然后再设置好目标数据库系统，将概念模型转换成物理模型，最终生成创建二维表的SQL（很多工具都可以根据我们设计的物理模型图以及设定的目标数据库来导出SQL或直接生成数据表）。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="./res/conceptual_model.png" alt=""></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/images/conceptual_model.png" alt=""></p>
 </li>
 <li><p>关系数据库产品。</p>
 <ul>
@@ -2018,20 +2022,18 @@ insert into tb_emp values
 </li>
 <li><p>添加一个部门。</p>
 <pre class="line-numbers language-Python"><code class="language-Python">import pymysql
-
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 </li>
 </ol>
-<p>   def main():<br>       no = int(input(‘编号: ‘))<br>       name = input(‘名字: ‘)<br>       loc = input(‘所在地: ‘)<br>       # 1. 创建数据库连接对象<br>       con = pymysql.connect(host=’localhost’, port=3306,<br>                             database=’hrs’, charset=’utf8’,<br>                             user=’root’, password=’123456’)<br>       try:<br>           # 2. 通过连接对象获取游标<br>           with con.cursor() as cursor:<br>               # 3. 通过游标执行SQL并获得执行结果<br>               result = cursor.execute(<br>                   ‘insert into tb_dept values (%s, %s, %s)’,<br>                   (no, name, loc)<br>               )<br>           if result == 1:<br>               print(‘添加成功!’)<br>           # 4. 操作成功提交事务<br>           con.commit()<br>       finally:<br>           # 5. 关闭连接释放资源<br>           con.close()</p>
-<p>   if <strong>name</strong> == ‘<strong>main</strong>‘:<br>       main()</p>
+<p>def main():<br>       no = int(input(‘编号: ‘))<br>       name = input(‘名字: ‘)<br>       loc = input(‘所在地: ‘)<br>       # 1. 创建数据库连接对象<br>       con = pymysql.connect(host=’localhost’, port=3306,<br>                             database=’hrs’, charset=’utf8’,<br>                             user=’root’, password=’123456’)<br>       try:<br>           # 2. 通过连接对象获取游标<br>           with con.cursor() as cursor:<br>               # 3. 通过游标执行SQL并获得执行结果<br>               result = cursor.execute(<br>                   ‘insert into tb_dept values (%s, %s, %s)’,<br>                   (no, name, loc)<br>               )<br>           if result == 1:<br>               print(‘添加成功!’)<br>           # 4. 操作成功提交事务<br>           con.commit()<br>       finally:<br>           # 5. 关闭连接释放资源<br>           con.close()</p>
+<p>if <strong>name</strong> == ‘<strong>main</strong>‘:<br>       main()</p>
 <pre><code>
 3. 删除一个部门。
 
    ```Python
    import pymysql
 
-
-   def main():
+def main():
        no = int(input('编号: '))
        con = pymysql.connect(host='localhost', port=3306,
                              database='hrs', charset='utf8',
@@ -2048,20 +2050,18 @@ insert into tb_emp values
        finally:
            con.close()
 
-
-   if __name__ == '__main__':
+if __name__ == '__main__':
        main()</code></pre><blockquote>
 <p>说明：如果不希望每次SQL操作之后手动提交或回滚事务，可以像上面的代码那样，在创建连接的时候多加一个名为<code>autocommit</code>的参数并将它的值设置为<code>True</code>，表示每次执行SQL之后自动提交。如果程序中不需要使用事务环境也不希望手动的提交或回滚就可以这么做。</p>
 </blockquote>
 <ol start="4">
 <li><p>更新一个部门。</p>
 <pre class="line-numbers language-Python"><code class="language-Python">import pymysql
-
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 </li>
 </ol>
-<p>   def main():<br>       no = int(input(‘编号: ‘))<br>       name = input(‘名字: ‘)<br>       loc = input(‘所在地: ‘)<br>       con = pymysql.connect(host=’localhost’, port=3306,<br>                             database=’hrs’, charset=’utf8’,<br>                             user=’root’, password=’123456’,<br>                             autocommit=True)<br>       try:<br>           with con.cursor() as cursor:<br>               result = cursor.execute(<br>                   ‘update tb_dept set dname=%s, dloc=%s where dno=%s’,<br>                   (name, loc, no)<br>               )<br>           if result == 1:<br>               print(‘更新成功!’)<br>       finally:<br>           con.close()</p>
-<p>   if <strong>name</strong> == ‘<strong>main</strong>‘:<br>       main()</p>
+<p>def main():<br>       no = int(input(‘编号: ‘))<br>       name = input(‘名字: ‘)<br>       loc = input(‘所在地: ‘)<br>       con = pymysql.connect(host=’localhost’, port=3306,<br>                             database=’hrs’, charset=’utf8’,<br>                             user=’root’, password=’123456’,<br>                             autocommit=True)<br>       try:<br>           with con.cursor() as cursor:<br>               result = cursor.execute(<br>                   ‘update tb_dept set dname=%s, dloc=%s where dno=%s’,<br>                   (name, loc, no)<br>               )<br>           if result == 1:<br>               print(‘更新成功!’)<br>       finally:<br>           con.close()</p>
+<p>if <strong>name</strong> == ‘<strong>main</strong>‘:<br>       main()</p>
 <pre><code>
 5. 查询所有部门。
 
@@ -2069,8 +2069,7 @@ insert into tb_emp values
    import pymysql
    from pymysql.cursors import DictCursor
 
-
-   def main():
+def main():
        con = pymysql.connect(host='localhost', port=3306,
                              database='hrs', charset='utf8',
                              user='root', password='123456')
@@ -2087,17 +2086,15 @@ insert into tb_emp values
        finally:
            con.close()
 
-
-   if __name__ == '__main__':
+if __name__ == '__main__':
        main()</code></pre><ol start="6">
 <li><p>分页查询员工信息。</p>
 <pre class="line-numbers language-Python"><code class="language-Python">import pymysql
 from pymysql.cursors import DictCursor
-
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 </li>
 </ol>
-<p>   class Emp(object):</p>
+<p>class Emp(object):</p>
 <pre><code>   def __init__(self, no, name, job, sal):
        self.no = no
        self.name = name
@@ -2105,8 +2102,8 @@ from pymysql.cursors import DictCursor
        self.sal = sal
 
    def __str__(self):
-       return f'\n编号：{self.no}\n姓名：{self.name}\n职位：{self.job}\n月薪：{self.sal}\n'</code></pre><p>   def main():<br>       page = int(input(‘页码: ‘))<br>       size = int(input(‘大小: ‘))<br>       con = pymysql.connect(host=’localhost’, port=3306,<br>                             database=’hrs’, charset=’utf8’,<br>                             user=’root’, password=’123456’)<br>       try:<br>           with con.cursor() as cursor:<br>               cursor.execute(<br>                   ‘select eno as no, ename as name, job, sal from tb_emp limit %s,%s’,<br>                   ((page - 1) * size, size)<br>               )<br>               for emp_tuple in cursor.fetchall():<br>                   emp = Emp(*emp_tuple)<br>                   print(emp)<br>       finally:<br>           con.close()</p>
-<p>   if <strong>name</strong> == ‘<strong>main</strong>‘:<br>       main()</p>
+       return f'\n编号：{self.no}\n姓名：{self.name}\n职位：{self.job}\n月薪：{self.sal}\n'</code></pre><p>def main():<br>       page = int(input(‘页码: ‘))<br>       size = int(input(‘大小: ‘))<br>       con = pymysql.connect(host=’localhost’, port=3306,<br>                             database=’hrs’, charset=’utf8’,<br>                             user=’root’, password=’123456’)<br>       try:<br>           with con.cursor() as cursor:<br>               cursor.execute(<br>                   ‘select eno as no, ename as name, job, sal from tb_emp limit %s,%s’,<br>                   ((page - 1) * size, size)<br>               )<br>               for emp_tuple in cursor.fetchall():<br>                   emp = Emp(*emp_tuple)<br>                   print(emp)<br>       finally:<br>           con.close()</p>
+<p>if <strong>name</strong> == ‘<strong>main</strong>‘:<br>       main()</p>
 <pre><code></code></pre><script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -2659,6 +2656,10 @@ from pymysql.cursors import DictCursor
                         <span class="chip bg-color">python</span>
                     </a>
                     
+                    <a href="/tags/python-day31-40/" target="_blank">
+                        <span class="chip bg-color">python day31-40</span>
+                    </a>
+                    
                 </div>
                 
             </div>
@@ -2707,6 +2708,10 @@ from pymysql.cursors import DictCursor
                     
                     <a href="/tags/python/" target="_blank">
                         <span class="chip bg-color">python</span>
+                    </a>
+                    
+                    <a href="/tags/python-day31-40/" target="_blank">
+                        <span class="chip bg-color">python day31-40</span>
                     </a>
                     
                 </div>
@@ -2881,7 +2886,7 @@ from pymysql.cursors import DictCursor
 
             
                 &nbsp; | &nbsp;字数统计:&nbsp;
-                <span class="white-color">82.4k</span> 字
+                <span class="white-color">81.2k</span> 字
             
 
             

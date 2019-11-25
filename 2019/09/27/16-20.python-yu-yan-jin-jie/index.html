@@ -748,6 +748,10 @@
                                 <span class="chip bg-color">python</span>
                             </a>
                         
+                            <a href="/tags/python-day11-20/" target="_blank">
+                                <span class="chip bg-color">python day11-20</span>
+                            </a>
+                        
                     </div>
                     
                 </div>
@@ -782,14 +786,14 @@
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        7.7k
+                        6.4k
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        33 分
+                        28 分
                     </div>
                     
                 
@@ -824,8 +828,8 @@
 <li><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="http://latex.codecogs.com/gif.latex?O(2^n)"> - 几何级数时间复杂度 - 汉诺塔</li>
 <li><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="http://latex.codecogs.com/gif.latex?O(n!)"> - 阶乘时间复杂度 - 旅行经销商问题 - NP</li>
 </ul>
-<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="./res/algorithm_complexity_1.png" alt=""></p>
-<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="./res/algorithm_complexity_2.png" alt=""></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/images/algorithm_complexity_1.png" alt=""></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/images/algorithm_complexity_2.png" alt=""></p>
 </li>
 <li><p>排序算法（选择、冒泡和归并）和查找算法（顺序和折半）</p>
 <pre class="line-numbers language-Python"><code class="language-Python">def select_sort(origin_items, comp=lambda x, y: x < y):
@@ -865,50 +869,39 @@
     right = merge_sort(items[mid:], comp)
     return merge(left, right, comp)
 
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+def merge(items1, items2, comp):
+    """合并(将两个有序的列表合并成一个有序的列表)"""
+    items = []
+    index1, index2 = 0, 0
+    while index1 < len(items1) and index2 < len(items2):
+        if comp(items1[index1], items2[index2]):
+            items.append(items1[index1])
+            index1 += 1
+        else:
+            items.append(items2[index2])
+            index2 += 1
+    items += items1[index1:]
+    items += items2[index2:]
+    return items<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-Python"><code class="language-Python">def seq_search(items, key):
+    """顺序查找"""
+    for index, item in enumerate(items):
+        if item == key:
+            return index
+    return -1<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-Python"><code class="language-Python">def bin_search(items, key):
+    """折半查找"""
+    start, end = 0, len(items) - 1
+    while start <= end:
+        mid = (start + end) // 2
+        if key > items[mid]:
+            start = mid + 1
+        elif key < items[mid]:
+            end = mid - 1
+        else:
+            return mid
+    return -1<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
-</ul>
-</li>
-</ol>
-<pre><code> def merge(items1, items2, comp):
-     """合并(将两个有序的列表合并成一个有序的列表)"""
-     items = []
-     index1, index2 = 0, 0
-     while index1 &lt; len(items1) and index2 &lt; len(items2):
-         if comp(items1[index1], items2[index2]):
-             items.append(items1[index1])
-             index1 += 1
-         else:
-             items.append(items2[index2])
-             index2 += 1
-     items += items1[index1:]
-     items += items2[index2:]
-     return items
- ```
-
- ```Python
- def seq_search(items, key):
-     """顺序查找"""
-     for index, item in enumerate(items):
-         if item == key:
-             return index
-     return -1
- ```
-
- ```Python
- def bin_search(items, key):
-     """折半查找"""
-     start, end = 0, len(items) - 1
-     while start &lt;= end:
-         mid = (start + end) // 2
-         if key &gt; items[mid]:
-             start = mid + 1
-         elif key &lt; items[mid]:
-             end = mid - 1
-         else:
-             return mid
-     return -1
- ```</code></pre><ul>
 <li><p>使用生成式（推导式）语法</p>
 <pre class="line-numbers language-Python"><code class="language-Python">prices = {
     'AAPL': 191.88,
@@ -1083,165 +1076,134 @@ class Thing(object):
         """价格重量比"""
         return self.price / self.weight
 
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+def input_thing():
+    """输入物品信息"""
+    name_str, price_str, weight_str = input().split()
+    return name_str, int(price_str), int(weight_str)
+
+def main():
+    """主函数"""
+    max_weight, num_of_things = map(int, input().split())
+    all_things = []
+    for _ in range(num_of_things):
+        all_things.append(Thing(*input_thing()))
+    all_things.sort(key=lambda x: x.value, reverse=True)
+    total_weight = 0
+    total_price = 0
+    for thing in all_things:
+        if total_weight + thing.weight <= max_weight:
+            print(f'小偷拿走了{thing.name}')
+            total_weight += thing.weight
+            total_price += thing.price
+    print(f'总价值: {total_price}美元')
+
+if __name__ == '__main__':
+    main()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>分治法例子：<a href="https://zh.wikipedia.org/zh/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F" target="_blank" rel="noopener">快速排序</a>。</p>
+<pre class="line-numbers language-Python"><code class="language-Python">"""
+快速排序 - 选择枢轴对元素进行划分，左边都比枢轴小右边都比枢轴大
+"""
+def quick_sort(origin_items, comp=lambda x, y: x <= y):
+    items = origin_items[:]
+    _quick_sort(items, 0, len(items) - 1, comp)
+    return items
+
+def _quick_sort(items, start, end, comp):
+    if start < end:
+        pos = _partition(items, start, end, comp)
+        _quick_sort(items, start, pos - 1, comp)
+        _quick_sort(items, pos + 1, end, comp)
+
+def _partition(items, start, end, comp):
+    pivot = items[end]
+    i = start - 1
+    for j in range(start, end):
+        if comp(items[j], pivot):
+            i += 1
+            items[i], items[j] = items[j], items[i]
+    items[i + 1], items[end] = items[end], items[i + 1]
+    return i + 1<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>回溯法例子：<a href="https://zh.wikipedia.org/zh/%E9%AA%91%E5%A3%AB%E5%B7%A1%E9%80%BB" target="_blank" rel="noopener">骑士巡逻</a>。</p>
+<pre class="line-numbers language-Python"><code class="language-Python">"""
+递归回溯法：叫称为试探法，按选优条件向前搜索，当搜索到某一步，发现原先选择并不优或达不到目标时，就退回一步重新选择，比较经典的问题包括骑士巡逻、八皇后和迷宫寻路等。
+"""
+import sys
+import time
+
+SIZE = 5
+total = 0
+
+def print_board(board):
+    for row in board:
+        for col in row:
+            print(str(col).center(4), end='')
+        print()
+
+def patrol(board, row, col, step=1):
+    if row >= 0 and row < SIZE and \
+        col >= 0 and col < SIZE and \
+        board[row][col] == 0:
+        board[row][col] = step
+        if step == SIZE * SIZE:
+            global total
+            total += 1
+            print(f'第{total}种走法: ')
+            print_board(board)
+        patrol(board, row - 2, col - 1, step + 1)
+        patrol(board, row - 1, col - 2, step + 1)
+        patrol(board, row + 1, col - 2, step + 1)
+        patrol(board, row + 2, col - 1, step + 1)
+        patrol(board, row + 2, col + 1, step + 1)
+        patrol(board, row + 1, col + 2, step + 1)
+        patrol(board, row - 1, col + 2, step + 1)
+        patrol(board, row - 2, col + 1, step + 1)
+        board[row][col] = 0
+
+def main():
+    board = [[0] * SIZE for _ in range(SIZE)]
+    patrol(board, SIZE - 1, SIZE - 1)
+
+if __name__ == '__main__':
+    main()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>动态规划例子1：<a href="">斐波拉切数列</a>。（不使用动态规划将会是几何级数复杂度）</p>
+<pre class="line-numbers language-Python"><code class="language-Python">"""
+动态规划 - 适用于有重叠子问题和最优子结构性质的问题
+使用动态规划方法所耗时间往往远少于朴素解法(用空间换取时间)
+"""
+def fib(num, temp={}):
+    """用递归计算Fibonacci数"""
+    if num in (1, 2):
+        return 1
+    try:
+        return temp[num]
+    except KeyError:
+        temp[num] = fib(num - 1) + fib(num - 2)
+        return temp[num]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>动态规划例子2：子列表元素之和的最大值。（使用动态规划可以避免二重循环）</p>
+<blockquote>
+<p>说明：子列表指的是列表中索引（下标）连续的元素构成的列表；列表中的元素是int类型，可能包含正整数、0、负整数；程序输入列表中的元素，输出子列表元素求和的最大值，例如：</p>
+<p>输入：1 -2 3 5 -3 2</p>
+<p>输出：8</p>
+<p>输入：0 -2 3 5 -1 2</p>
+<p>输出：9</p>
+<p>输入：-9 -2 -3 -5 -3</p>
+<p>输出：-2</p>
+</blockquote>
+<pre class="line-numbers language-Python"><code class="language-Python">def main():
+    items = list(map(int, input().split()))
+    size = len(items)
+    overall, partial = {}, {}
+    overall[size - 1] = partial[size - 1] = items[size - 1]
+    for i in range(size - 2, -1, -1):
+        partial[i] = max(items[i], partial[i + 1] + items[i])
+        overall[i] = max(partial[i], overall[i + 1])
+    print(overall[0])
+
+if __name__ == '__main__':
+    main()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
 </ul>
-<pre><code> def input_thing():
-     """输入物品信息"""
-     name_str, price_str, weight_str = input().split()
-     return name_str, int(price_str), int(weight_str)
-
-
- def main():
-     """主函数"""
-     max_weight, num_of_things = map(int, input().split())
-     all_things = []
-     for _ in range(num_of_things):
-         all_things.append(Thing(*input_thing()))
-     all_things.sort(key=lambda x: x.value, reverse=True)
-     total_weight = 0
-     total_price = 0
-     for thing in all_things:
-         if total_weight + thing.weight &lt;= max_weight:
-             print(f'小偷拿走了{thing.name}')
-             total_weight += thing.weight
-             total_price += thing.price
-     print(f'总价值: {total_price}美元')
-
-
- if __name__ == '__main__':
-     main()
- ```
-
- 分治法例子：[快速排序](https://zh.wikipedia.org/zh/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F)。
-
- ```Python
- """
- 快速排序 - 选择枢轴对元素进行划分，左边都比枢轴小右边都比枢轴大
- """
- def quick_sort(origin_items, comp=lambda x, y: x &lt;= y):
-     items = origin_items[:]
-     _quick_sort(items, 0, len(items) - 1, comp)
-     return items
-
-
- def _quick_sort(items, start, end, comp):
-     if start &lt; end:
-         pos = _partition(items, start, end, comp)
-         _quick_sort(items, start, pos - 1, comp)
-         _quick_sort(items, pos + 1, end, comp)
-
-
- def _partition(items, start, end, comp):
-     pivot = items[end]
-     i = start - 1
-     for j in range(start, end):
-         if comp(items[j], pivot):
-             i += 1
-             items[i], items[j] = items[j], items[i]
-     items[i + 1], items[end] = items[end], items[i + 1]
-     return i + 1
- ```
-
- 回溯法例子：[骑士巡逻](https://zh.wikipedia.org/zh/%E9%AA%91%E5%A3%AB%E5%B7%A1%E9%80%BB)。
-
- ```Python
- """
- 递归回溯法：叫称为试探法，按选优条件向前搜索，当搜索到某一步，发现原先选择并不优或达不到目标时，就退回一步重新选择，比较经典的问题包括骑士巡逻、八皇后和迷宫寻路等。
- """
- import sys
- import time
-
- SIZE = 5
- total = 0
-
-
- def print_board(board):
-     for row in board:
-         for col in row:
-             print(str(col).center(4), end='')
-         print()
-
-
- def patrol(board, row, col, step=1):
-     if row &gt;= 0 and row &lt; SIZE and \
-         col &gt;= 0 and col &lt; SIZE and \
-         board[row][col] == 0:
-         board[row][col] = step
-         if step == SIZE * SIZE:
-             global total
-             total += 1
-             print(f'第{total}种走法: ')
-             print_board(board)
-         patrol(board, row - 2, col - 1, step + 1)
-         patrol(board, row - 1, col - 2, step + 1)
-         patrol(board, row + 1, col - 2, step + 1)
-         patrol(board, row + 2, col - 1, step + 1)
-         patrol(board, row + 2, col + 1, step + 1)
-         patrol(board, row + 1, col + 2, step + 1)
-         patrol(board, row - 1, col + 2, step + 1)
-         patrol(board, row - 2, col + 1, step + 1)
-         board[row][col] = 0
-
-
- def main():
-     board = [[0] * SIZE for _ in range(SIZE)]
-     patrol(board, SIZE - 1, SIZE - 1)
-
-
- if __name__ == '__main__':
-     main()
- ```
-
- 动态规划例子1：[斐波拉切数列]()。（不使用动态规划将会是几何级数复杂度）
-
- ```Python
- """
- 动态规划 - 适用于有重叠子问题和最优子结构性质的问题
- 使用动态规划方法所耗时间往往远少于朴素解法(用空间换取时间)
- """
- def fib(num, temp={}):
-     """用递归计算Fibonacci数"""
-     if num in (1, 2):
-         return 1
-     try:
-         return temp[num]
-     except KeyError:
-         temp[num] = fib(num - 1) + fib(num - 2)
-         return temp[num]
- ```
-
- 动态规划例子2：子列表元素之和的最大值。（使用动态规划可以避免二重循环）
-
- &gt; 说明：子列表指的是列表中索引（下标）连续的元素构成的列表；列表中的元素是int类型，可能包含正整数、0、负整数；程序输入列表中的元素，输出子列表元素求和的最大值，例如：
- &gt;
- &gt; 输入：1 -2 3 5 -3 2
- &gt;
- &gt; 输出：8
- &gt;
- &gt; 输入：0 -2 3 5 -1 2
- &gt;
- &gt; 输出：9
- &gt;
- &gt; 输入：-9 -2 -3 -5 -3
- &gt;
- &gt; 输出：-2
-
- ```Python
- def main():
-     items = list(map(int, input().split()))
-     size = len(items)
-     overall, partial = {}, {}
-     overall[size - 1] = partial[size - 1] = items[size - 1]
-     for i in range(size - 2, -1, -1):
-         partial[i] = max(items[i], partial[i + 1] + items[i])
-         overall[i] = max(partial[i], overall[i + 1])
-     print(overall[0])
-
-
- if __name__ == '__main__':
-     main()
- ```</code></pre><ol start="2">
+</li>
 <li><p>函数的使用方式</p>
 <ul>
 <li><p>将函数视为“一等公民”</p>
@@ -1288,100 +1250,85 @@ items2 = [x ** 2 for x in range(1, 10) if x % 2]<span aria-hidden="true" class="
 <pre class="line-numbers language-Python"><code class="language-Python">from functools import wraps
 from time import time
 
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+def record(output):
+    """自定义带参数的装饰器"""
+
+    def decorate(func):
+
+        @wraps(func)
+        def wrapper(*args, **kwargs):
+            start = time()
+            result = func(*args, **kwargs)
+            output(func.__name__, time() - start)
+            return result
+
+        return wrapper
+
+    return decorate<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-Python"><code class="language-Python">from functools import wraps
+from time import time
+
+class Record():
+    """自定义装饰器类(通过__call__魔术方法使得对象可以当成函数调用)"""
+
+    def __init__(self, output):
+        self.output = output
+
+    def __call__(self, func):
+
+        @wraps(func)
+        def wrapper(*args, **kwargs):
+            start = time()
+            result = func(*args, **kwargs)
+            self.output(func.__name__, time() - start)
+            return result
+
+        return wrapper<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<blockquote>
+<p>说明：由于对带装饰功能的函数添加了@wraps装饰器，可以通过<code>func.__wrapped__</code>方式获得被装饰之前的函数或类来取消装饰器的作用。</p>
+</blockquote>
+<p>例子：用装饰器来实现单例模式。</p>
+<pre class="line-numbers language-Python"><code class="language-Python">from functools import wraps
+
+def singleton(cls):
+    """装饰类的装饰器"""
+    instances = {}
+
+    @wraps(cls)
+    def wrapper(*args, **kwargs):
+        if cls not in instances:
+            instances[cls] = cls(*args, **kwargs)
+        return instances[cls]
+
+    return wrapper
+
+@singleton
+class President():
+    """总统(单例类)"""
+    pass<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<blockquote>
+<p>说明：上面的代码中用到了闭包（closure），不知道你是否已经意识到了。还没有一个小问题就是，上面的代码并没有实现线程安全的单例，如果要实现线程安全的单例应该怎么做呢？</p>
+</blockquote>
+<pre class="line-numbers language-Python"><code class="language-Python">from functools import wraps
+from threading import Lock
+
+def singleton(cls):
+    """线程安全的单例装饰器"""
+    instances = {}
+    locker = Lock()
+
+    @wraps(cls)
+    def wrapper(*args, **kwargs):
+        if cls not in instances:
+            with locker:
+                if cls not in instances:
+                    instances[cls] = cls(*args, **kwargs)
+        return instances[cls]
+
+    return wrapper<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
 </ul>
 </li>
-</ol>
-<pre><code> def record(output):
-     """自定义带参数的装饰器"""
-
-     def decorate(func):
-
-         @wraps(func)
-         def wrapper(*args, **kwargs):
-             start = time()
-             result = func(*args, **kwargs)
-             output(func.__name__, time() - start)
-             return result
-
-         return wrapper
-
-     return decorate
- ```
-
- ```Python
- from functools import wraps
- from time import time
-
-
- class Record():
-     """自定义装饰器类(通过__call__魔术方法使得对象可以当成函数调用)"""
-
-     def __init__(self, output):
-         self.output = output
-
-     def __call__(self, func):
-
-         @wraps(func)
-         def wrapper(*args, **kwargs):
-             start = time()
-             result = func(*args, **kwargs)
-             self.output(func.__name__, time() - start)
-             return result
-
-         return wrapper
- ```
-
- &gt; 说明：由于对带装饰功能的函数添加了@wraps装饰器，可以通过`func.__wrapped__`方式获得被装饰之前的函数或类来取消装饰器的作用。
-
- 例子：用装饰器来实现单例模式。
-
- ```Python
- from functools import wraps
-
-
- def singleton(cls):
-     """装饰类的装饰器"""
-     instances = {}
-
-     @wraps(cls)
-     def wrapper(*args, **kwargs):
-         if cls not in instances:
-             instances[cls] = cls(*args, **kwargs)
-         return instances[cls]
-
-     return wrapper
-
-
- @singleton
- class President():
-     """总统(单例类)"""
-     pass
- ```
-
- &gt; 说明：上面的代码中用到了闭包（closure），不知道你是否已经意识到了。还没有一个小问题就是，上面的代码并没有实现线程安全的单例，如果要实现线程安全的单例应该怎么做呢？
-
- ```Python
- from functools import wraps
- from threading import Lock
-
-
- def singleton(cls):
-     """线程安全的单例装饰器"""
-     instances = {}
-     locker = Lock()
-
-     @wraps(cls)
-     def wrapper(*args, **kwargs):
-         if cls not in instances:
-             with locker:
-                 if cls not in instances:
-                     instances[cls] = cls(*args, **kwargs)
-         return instances[cls]
-
-     return wrapper
- ```</code></pre><ol start="3">
 <li><p>面向对象相关知识</p>
 <ul>
 <li><p>三大支柱：封装、继承、多态</p>
@@ -1391,84 +1338,73 @@ from time import time
 """
 from abc import ABCMeta, abstractmethod
 
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+class Employee(metaclass=ABCMeta):
+    """员工(抽象类)"""
+
+    def __init__(self, name):
+        self.name = name
+
+    @abstractmethod
+    def get_salary(self):
+        """结算月薪(抽象方法)"""
+        pass
+
+class Manager(Employee):
+    """部门经理"""
+
+    def get_salary(self):
+        return 15000.0
+
+class Programmer(Employee):
+    """程序员"""
+
+    def __init__(self, name, working_hour=0):
+        self.working_hour = working_hour
+        super().__init__(name)
+
+    def get_salary(self):
+        return 200.0 * self.working_hour
+
+class Salesman(Employee):
+    """销售员"""
+
+    def __init__(self, name, sales=0.0):
+        self.sales = sales
+        super().__init__(name)
+
+    def get_salary(self):
+        return 1800.0 + self.sales * 0.05
+
+class EmployeeFactory():
+    """创建员工的工厂（工厂模式 - 通过工厂实现对象使用者和对象之间的解耦合）"""
+
+    @staticmethod
+    def create(emp_type, *args, **kwargs):
+        """创建员工"""
+        emp_type = emp_type.upper()
+        emp = None
+        if emp_type == 'M':
+            emp = Manager(*args, **kwargs)
+        elif emp_type == 'P':
+            emp = Programmer(*args, **kwargs)
+        elif emp_type == 'S':
+            emp = Salesman(*args, **kwargs)
+        return emp
+
+def main():
+    """主函数"""
+    emps = [
+        EmployeeFactory.create('M', '曹操'), 
+        EmployeeFactory.create('P', '荀彧', 120),
+        EmployeeFactory.create('P', '郭嘉', 85), 
+        EmployeeFactory.create('S', '典韦', 123000),
+    ]
+    for emp in emps:
+        print('%s: %.2f元' % (emp.name, emp.get_salary()))
+
+if __name__ == '__main__':
+    main()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
-</ul>
-</li>
-</ol>
-<pre><code> class Employee(metaclass=ABCMeta):
-     """员工(抽象类)"""
-
-     def __init__(self, name):
-         self.name = name
-
-     @abstractmethod
-     def get_salary(self):
-         """结算月薪(抽象方法)"""
-         pass
-
-
- class Manager(Employee):
-     """部门经理"""
-
-     def get_salary(self):
-         return 15000.0
-
-
- class Programmer(Employee):
-     """程序员"""
-
-     def __init__(self, name, working_hour=0):
-         self.working_hour = working_hour
-         super().__init__(name)
-
-     def get_salary(self):
-         return 200.0 * self.working_hour
-
-
- class Salesman(Employee):
-     """销售员"""
-
-     def __init__(self, name, sales=0.0):
-         self.sales = sales
-         super().__init__(name)
-
-     def get_salary(self):
-         return 1800.0 + self.sales * 0.05
-
-
- class EmployeeFactory():
-     """创建员工的工厂（工厂模式 - 通过工厂实现对象使用者和对象之间的解耦合）"""
-
-     @staticmethod
-     def create(emp_type, *args, **kwargs):
-         """创建员工"""
-         emp_type = emp_type.upper()
-         emp = None
-         if emp_type == 'M':
-             emp = Manager(*args, **kwargs)
-         elif emp_type == 'P':
-             emp = Programmer(*args, **kwargs)
-         elif emp_type == 'S':
-             emp = Salesman(*args, **kwargs)
-         return emp
-
-
- def main():
-     """主函数"""
-     emps = [
-         EmployeeFactory.create('M', '曹操'), 
-         EmployeeFactory.create('P', '荀彧', 120),
-         EmployeeFactory.create('P', '郭嘉', 85), 
-         EmployeeFactory.create('S', '典韦', 123000),
-     ]
-     for emp in emps:
-         print('%s: %.2f元' % (emp.name, emp.get_salary()))
-
-
- if __name__ == '__main__':
-     main()
- ```</code></pre><ul>
 <li><p>类与类之间的关系</p>
 <ul>
 <li>is-a关系：继承</li>
@@ -1483,100 +1419,93 @@ from enum import Enum, unique
 
 import random
 
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+@unique
+class Suite(Enum):
+    """花色"""
+
+    SPADE, HEART, CLUB, DIAMOND = range(4)
+
+    def __lt__(self, other):
+        return self.value < other.value
+
+class Card():
+    """牌"""
+
+    def __init__(self, suite, face):
+        """初始化方法"""
+        self.suite = suite
+        self.face = face
+
+    def show(self):
+        """显示牌面"""
+        suites = ['♠️', '♥️', '♣️', '♦️']
+        faces = ['', 'A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K']
+        return f'{suites[self.suite.value]} {faces[self.face]}'
+
+    def __str__(self):
+        return self.show()
+
+    def __repr__(self):
+        return self.show()
+
+class Poker():
+    """扑克"""
+
+    def __init__(self):
+        self.index = 0
+        self.cards = [Card(suite, face)
+                      for suite in Suite
+                      for face in range(1, 14)]
+
+    def shuffle(self):
+        """洗牌（随机乱序）"""
+        random.shuffle(self.cards)
+        self.index = 0
+
+    def deal(self):
+        """发牌"""
+        card = self.cards[self.index]
+        self.index += 1
+        return card
+
+    @property
+    def has_more(self):
+        return self.index < len(self.cards)
+
+class Player():
+    """玩家"""
+
+    def __init__(self, name):
+        self.name = name
+        self.cards = []
+
+    def get_one(self, card):
+        """摸一张牌"""
+        self.cards.append(card)
+
+    def sort(self, comp=lambda card: (card.suite, card.face)):
+        """整理手上的牌"""
+        self.cards.sort(key=comp)
+
+def main():
+    """主函数"""
+    poker = Poker()
+    poker.shuffle()
+    players = [Player('东邪'), Player('西毒'), Player('南帝'), Player('北丐')]
+    while poker.has_more:
+        for player in players:
+                player.get_one(poker.deal())
+    for player in players:
+        player.sort()
+        print(player.name, end=': ')
+        print(player.cards)
+
+if __name__ == '__main__':
+    main()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<blockquote>
+<p>说明：上面的代码中使用了Emoji字符来表示扑克牌的四种花色，在某些不支持Emoji字符的系统上可能无法显示。</p>
+</blockquote>
 </li>
-</ul>
-<pre><code> @unique
- class Suite(Enum):
-     """花色"""
-
-     SPADE, HEART, CLUB, DIAMOND = range(4)
-
-     def __lt__(self, other):
-         return self.value &lt; other.value
-
-
- class Card():
-     """牌"""
-
-     def __init__(self, suite, face):
-         """初始化方法"""
-         self.suite = suite
-         self.face = face
-
-     def show(self):
-         """显示牌面"""
-         suites = ['♠️', '♥️', '♣️', '♦️']
-         faces = ['', 'A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K']
-         return f'{suites[self.suite.value]} {faces[self.face]}'
-
-     def __str__(self):
-         return self.show()
-
-     def __repr__(self):
-         return self.show()
-
-
- class Poker():
-     """扑克"""
-
-     def __init__(self):
-         self.index = 0
-         self.cards = [Card(suite, face)
-                       for suite in Suite
-                       for face in range(1, 14)]
-
-     def shuffle(self):
-         """洗牌（随机乱序）"""
-         random.shuffle(self.cards)
-         self.index = 0
-
-     def deal(self):
-         """发牌"""
-         card = self.cards[self.index]
-         self.index += 1
-         return card
-
-     @property
-     def has_more(self):
-         return self.index &lt; len(self.cards)
-
-
- class Player():
-     """玩家"""
-
-     def __init__(self, name):
-         self.name = name
-         self.cards = []
-
-     def get_one(self, card):
-         """摸一张牌"""
-         self.cards.append(card)
-
-     def sort(self, comp=lambda card: (card.suite, card.face)):
-         """整理手上的牌"""
-         self.cards.sort(key=comp)
-
-
- def main():
-     """主函数"""
-     poker = Poker()
-     poker.shuffle()
-     players = [Player('东邪'), Player('西毒'), Player('南帝'), Player('北丐')]
-     while poker.has_more:
-         for player in players:
-                 player.get_one(poker.deal())
-     for player in players:
-         player.sort()
-         print(player.name, end=': ')
-         print(player.cards)
-
-
- if __name__ == '__main__':
-     main()
- ```
-
- &gt; 说明：上面的代码中使用了Emoji字符来表示扑克牌的四种花色，在某些不支持Emoji字符的系统上可能无法显示。</code></pre><ul>
 <li><p>对象的复制（深复制/深拷贝/深度克隆和浅复制/浅拷贝/影子克隆）</p>
 </li>
 <li><p>垃圾回收、循环引用和弱引用</p>
@@ -1646,50 +1575,42 @@ list2.append(list1)<span aria-hidden="true" class="line-numbers-rows"><span></sp
             raise KeyError(str(key) + ' already set')
         return super().__setitem__(key, value)
 
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+class SetOnceDict(SetOnceMappingMixin, dict):
+    """自定义字典"""
+    pass
+
+my_dict= SetOnceDict()
+try:
+    my_dict['username'] = 'jackfrued'
+    my_dict['username'] = 'hellokitty'
+except KeyError:
+    pass
+print(my_dict)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
-</ul>
-<pre><code> class SetOnceDict(SetOnceMappingMixin, dict):
-     """自定义字典"""
-     pass
-
-
- my_dict= SetOnceDict()
- try:
-     my_dict['username'] = 'jackfrued'
-     my_dict['username'] = 'hellokitty'
- except KeyError:
-     pass
- print(my_dict)
- ```</code></pre><ul>
 <li><p>元编程和元类</p>
 <p>例子：用元类实现单例模式。</p>
 <pre class="line-numbers language-Python"><code class="language-Python">import threading
 
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+class SingletonMeta(type):
+    """自定义元类"""
+
+    def __init__(cls, *args, **kwargs):
+        cls.__instance = None
+        cls.__lock = threading.Lock()
+        super().__init__(*args, **kwargs)
+
+    def __call__(cls, *args, **kwargs):
+        if cls.__instance is None:
+            with cls.__lock:
+                if cls.__instance is None:
+                    cls.__instance = super().__call__(*args, **kwargs)
+        return cls.__instance
+
+class President(metaclass=SingletonMeta):
+    """总统(单例类)"""
+
+    pass<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
-</ul>
-<pre><code> class SingletonMeta(type):
-     """自定义元类"""
-
-     def __init__(cls, *args, **kwargs):
-         cls.__instance = None
-         cls.__lock = threading.Lock()
-         super().__init__(*args, **kwargs)
-
-     def __call__(cls, *args, **kwargs):
-         if cls.__instance is None:
-             with cls.__lock:
-                 if cls.__instance is None:
-                     cls.__instance = super().__call__(*args, **kwargs)
-         return cls.__instance
-
-
- class President(metaclass=SingletonMeta):
-     """总统(单例类)"""
-
-     pass
- ```</code></pre><ul>
 <li><p>面向对象设计原则</p>
 <ul>
 <li>单一职责原则 （<strong>S</strong>RP）- 一个类只做该做的事情（类的设计要高内聚）</li>
@@ -1737,12 +1658,11 @@ def main():
     with open('Python-3.7.1.tgz', 'rb') as stream:
         print(hasher2(stream))
 
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+if __name__ == '__main__':
+    main()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
 </ul>
-<pre><code> if __name__ == '__main__':
-     main()
- ```</code></pre><ol start="4">
+</li>
 <li><p>迭代器和生成器</p>
 <ul>
 <li><p>和迭代器相关的魔术方法（<code>__iter__</code>和<code>__next__</code>）</p>
@@ -1755,29 +1675,26 @@ def main():
         a, b = b, a + b
         yield a
 
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+class Fib(object):
+    """迭代器"""
+
+    def __init__(self, num):
+        self.num = num
+        self.a, self.b = 0, 1
+        self.idx = 0
+
+    def __iter__(self):
+        return self
+
+    def __next__(self):
+        if self.idx < self.num:
+            self.a, self.b = self.b, self.a + self.b
+            self.idx += 1
+            return self.a
+        raise StopIteration()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
 </ul>
 </li>
-</ol>
-<pre><code> class Fib(object):
-     """迭代器"""
-
-     def __init__(self, num):
-         self.num = num
-         self.a, self.b = 0, 1
-         self.idx = 0
-
-     def __iter__(self):
-         return self
-
-     def __next__(self):
-         if self.idx &lt; self.num:
-             self.a, self.b = self.b, self.a + self.b
-             self.idx += 1
-             return self.a
-         raise StopIteration()
- ```</code></pre><ol start="5">
 <li><p>并发编程</p>
 <p>Python中实现并发编程的三种方案：多线程、多进程和异步I/O。并发编程的好处在于可以提升程序的执行效率以及改善用户体验；坏处在于并发的程序不容易开发和调试，同时对其他程序来说它并不友好。</p>
 <ul>
@@ -1798,178 +1715,155 @@ from PIL import Image
 
 PREFIX = 'thumbnails'
 
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+def generate_thumbnail(infile, size, format='PNG'):
+    """生成指定图片文件的缩略图"""
+    file, ext = os.path.splitext(infile)
+    file = file[file.rfind('/') + 1:]
+    outfile = f'{PREFIX}/{file}_{size[0]}_{size[1]}.{ext}'
+    img = Image.open(infile)
+    img.thumbnail(size, Image.ANTIALIAS)
+    img.save(outfile, format)
+
+def main():
+    """主函数"""
+    if not os.path.exists(PREFIX):
+        os.mkdir(PREFIX)
+    for infile in glob.glob('images/*.png'):
+        for size in (32, 64, 128):
+            # 创建并启动线程
+            threading.Thread(
+                target=generate_thumbnail, 
+                args=(infile, (size, size))
+            ).start()
+
+if __name__ == '__main__':
+    main()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>多个线程竞争资源的情况</p>
+<pre class="line-numbers language-Python"><code class="language-Python">"""
+多线程程序如果没有竞争资源处理起来通常也比较简单
+当多个线程竞争临界资源的时候如果缺乏必要的保护措施就会导致数据错乱
+说明：临界资源就是被多个线程竞争的资源
+"""
+import time
+import threading
+
+from concurrent.futures import ThreadPoolExecutor
+
+class Account(object):
+    """银行账户"""
+
+    def __init__(self):
+        self.balance = 0.0
+        self.lock = threading.Lock()
+
+    def deposit(self, money):
+        # 通过锁保护临界资源
+        with self.lock:
+            new_balance = self.balance + money
+            time.sleep(0.001)
+            self.balance = new_balance
+
+class AddMoneyThread(threading.Thread):
+    """自定义线程类"""
+
+    def __init__(self, account, money):
+        self.account = account
+        self.money = money
+        # 自定义线程的初始化方法中必须调用父类的初始化方法
+        super().__init__()
+
+    def run(self):
+        # 线程启动之后要执行的操作
+        self.account.deposit(self.money)
+
+def main():
+    """主函数"""
+    account = Account()
+    # 创建线程池
+    pool = ThreadPoolExecutor(max_workers=10)
+    futures = []
+    for _ in range(100):
+        # 创建线程的第1种方式
+        # threading.Thread(
+        #     target=account.deposit, args=(1, )
+        # ).start()
+        # 创建线程的第2种方式
+        # AddMoneyThread(account, 1).start()
+        # 创建线程的第3种方式
+        # 调用线程池中的线程来执行特定的任务
+        future = pool.submit(account.deposit, 1)
+        futures.append(future)
+    # 关闭线程池
+    pool.shutdown()
+    for future in futures:
+        future.result()
+    print(account.balance)
+
+if __name__ == '__main__':
+    main()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>修改上面的程序，启动5个线程向账户中存钱，5个线程从账户中取钱，取钱时如果余额不足就暂停线程进行等待。为了达到上述目标，需要对存钱和取钱的线程进行调度，在余额不足时取钱的线程暂停并释放锁，而存钱的线程将钱存入后要通知取钱的线程，使其从暂停状态被唤醒。可以使用<code>threading</code>模块的Condition来实现线程调度，该对象也是基于锁来创建的，代码如下所示：</p>
+<pre class="line-numbers language-Python"><code class="language-Python">"""
+多个线程竞争一个资源 - 保护临界资源 - 锁（Lock/RLock）
+多个线程竞争多个资源（线程数>资源数） - 信号量（Semaphore）
+多个线程的调度 - 暂停线程执行/唤醒等待中的线程 - Condition
+"""
+from concurrent.futures import ThreadPoolExecutor
+from random import randint
+from time import sleep
+
+import threading
+
+class Account():
+    """银行账户"""
+
+    def __init__(self, balance=0):
+        self.balance = balance
+        lock = threading.Lock()
+        self.condition = threading.Condition(lock)
+
+    def withdraw(self, money):
+        """取钱"""
+        with self.condition:
+            while money > self.balance:
+                self.condition.wait()
+            new_balance = self.balance - money
+            sleep(0.001)
+            self.balance = new_balance
+
+    def deposit(self, money):
+        """存钱"""
+        with self.condition:
+            new_balance = self.balance + money
+            sleep(0.001)
+            self.balance = new_balance
+            self.condition.notify_all()
+
+def add_money(account):
+    while True:
+        money = randint(5, 10)
+        account.deposit(money)
+        print(threading.current_thread().name, 
+              ':', money, '====>', account.balance)
+        sleep(0.5)
+
+def sub_money(account):
+    while True:
+        money = randint(10, 30)
+        account.withdraw(money)
+        print(threading.current_thread().name, 
+              ':', money, '<====', account.balance)
+        sleep(1)
+
+def main():
+    account = Account()
+    with ThreadPoolExecutor(max_workers=10) as pool:
+        for _ in range(5):
+            pool.submit(add_money, account)
+            pool.submit(sub_money, account)
+
+if __name__ == '__main__':
+    main()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
-</ul>
-</li>
-</ol>
-<pre><code> def generate_thumbnail(infile, size, format='PNG'):
-     """生成指定图片文件的缩略图"""
-     file, ext = os.path.splitext(infile)
-     file = file[file.rfind('/') + 1:]
-     outfile = f'{PREFIX}/{file}_{size[0]}_{size[1]}.{ext}'
-     img = Image.open(infile)
-     img.thumbnail(size, Image.ANTIALIAS)
-     img.save(outfile, format)
-
-
- def main():
-     """主函数"""
-     if not os.path.exists(PREFIX):
-         os.mkdir(PREFIX)
-     for infile in glob.glob('images/*.png'):
-         for size in (32, 64, 128):
-             # 创建并启动线程
-             threading.Thread(
-                 target=generate_thumbnail, 
-                 args=(infile, (size, size))
-             ).start()
-
-
- if __name__ == '__main__':
-     main()
- ```
-
- 多个线程竞争资源的情况
-
- ```Python
- """
- 多线程程序如果没有竞争资源处理起来通常也比较简单
- 当多个线程竞争临界资源的时候如果缺乏必要的保护措施就会导致数据错乱
- 说明：临界资源就是被多个线程竞争的资源
- """
- import time
- import threading
-
- from concurrent.futures import ThreadPoolExecutor
-
-
- class Account(object):
-     """银行账户"""
-
-     def __init__(self):
-         self.balance = 0.0
-         self.lock = threading.Lock()
-
-     def deposit(self, money):
-         # 通过锁保护临界资源
-         with self.lock:
-             new_balance = self.balance + money
-             time.sleep(0.001)
-             self.balance = new_balance
-
-
- class AddMoneyThread(threading.Thread):
-     """自定义线程类"""
-
-     def __init__(self, account, money):
-         self.account = account
-         self.money = money
-         # 自定义线程的初始化方法中必须调用父类的初始化方法
-         super().__init__()
-
-     def run(self):
-         # 线程启动之后要执行的操作
-         self.account.deposit(self.money)
-
- def main():
-     """主函数"""
-     account = Account()
-     # 创建线程池
-     pool = ThreadPoolExecutor(max_workers=10)
-     futures = []
-     for _ in range(100):
-         # 创建线程的第1种方式
-         # threading.Thread(
-         #     target=account.deposit, args=(1, )
-         # ).start()
-         # 创建线程的第2种方式
-         # AddMoneyThread(account, 1).start()
-         # 创建线程的第3种方式
-         # 调用线程池中的线程来执行特定的任务
-         future = pool.submit(account.deposit, 1)
-         futures.append(future)
-     # 关闭线程池
-     pool.shutdown()
-     for future in futures:
-         future.result()
-     print(account.balance)
-
-
- if __name__ == '__main__':
-     main()
- ```
-
- 修改上面的程序，启动5个线程向账户中存钱，5个线程从账户中取钱，取钱时如果余额不足就暂停线程进行等待。为了达到上述目标，需要对存钱和取钱的线程进行调度，在余额不足时取钱的线程暂停并释放锁，而存钱的线程将钱存入后要通知取钱的线程，使其从暂停状态被唤醒。可以使用`threading`模块的Condition来实现线程调度，该对象也是基于锁来创建的，代码如下所示：
-
- ```Python
- """
- 多个线程竞争一个资源 - 保护临界资源 - 锁（Lock/RLock）
- 多个线程竞争多个资源（线程数&gt;资源数） - 信号量（Semaphore）
- 多个线程的调度 - 暂停线程执行/唤醒等待中的线程 - Condition
- """
- from concurrent.futures import ThreadPoolExecutor
- from random import randint
- from time import sleep
-
- import threading
-
-
- class Account():
-     """银行账户"""
-
-     def __init__(self, balance=0):
-         self.balance = balance
-         lock = threading.Lock()
-         self.condition = threading.Condition(lock)
-
-     def withdraw(self, money):
-         """取钱"""
-         with self.condition:
-             while money &gt; self.balance:
-                 self.condition.wait()
-             new_balance = self.balance - money
-             sleep(0.001)
-             self.balance = new_balance
-
-     def deposit(self, money):
-         """存钱"""
-         with self.condition:
-             new_balance = self.balance + money
-             sleep(0.001)
-             self.balance = new_balance
-             self.condition.notify_all()
-
-
- def add_money(account):
-     while True:
-         money = randint(5, 10)
-         account.deposit(money)
-         print(threading.current_thread().name, 
-               ':', money, '====&gt;', account.balance)
-         sleep(0.5)
-
-
- def sub_money(account):
-     while True:
-         money = randint(10, 30)
-         account.withdraw(money)
-         print(threading.current_thread().name, 
-               ':', money, '&lt;====', account.balance)
-         sleep(1)
-
-
- def main():
-     account = Account()
-     with ThreadPoolExecutor(max_workers=10) as pool:
-         for _ in range(5):
-             pool.submit(add_money, account)
-             pool.submit(sub_money, account)
-
-
- if __name__ == '__main__':
-     main()
- ```</code></pre><ul>
 <li><p>多进程：多进程可以有效的解决GIL的问题，实现多进程主要的类是Process，其他辅助的类跟threading模块中的类似，进程间共享数据可以使用管道、套接字等，在multiprocessing模块中有一个Queue类，它基于管道和锁机制提供了多个进程共享的队列。下面是官方文档上关于多进程和进程池的一个示例。</p>
 <pre class="line-numbers language-Python"><code class="language-Python">"""
 多进程和进程池的使用
@@ -2001,146 +1895,130 @@ PRIMES = [
     1099726899285419
 ] * 5
 
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+def is_prime(n):
+    """判断素数"""
+    if n % 2 == 0:
+        return False
+
+    sqrt_n = int(math.floor(math.sqrt(n)))
+    for i in range(3, sqrt_n + 1, 2):
+        if n % i == 0:
+            return False
+    return True
+
+def main():
+    """主函数"""
+    with concurrent.futures.ProcessPoolExecutor() as executor:
+        for number, prime in zip(PRIMES, executor.map(is_prime, PRIMES)):
+            print('%d is prime: %s' % (number, prime))
+
+if __name__ == '__main__':
+    main()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<blockquote>
+<p>说明：<strong>多线程和多进程的比较</strong>。</p>
+<p>以下情况需要使用多线程：</p>
+<ol>
+<li>程序需要维护许多共享的状态（尤其是可变状态），Python中的列表、字典、集合都是线程安全的，所以使用线程而不是进程维护共享状态的代价相对较小。</li>
+<li>程序会花费大量时间在I/O操作上，没有太多并行计算的需求且不需占用太多的内存。</li>
+</ol>
+<p>以下情况需要使用多进程：</p>
+<ol>
+<li>程序执行计算密集型任务（如：字节码操作、数据处理、科学计算）。</li>
+<li>程序的输入可以并行的分成块，并且可以将运算结果合并。</li>
+<li>程序在内存使用方面没有任何限制且不强依赖于I/O操作（如：读写文件、套接字等）。</li>
+</ol>
+</blockquote>
 </li>
-</ul>
-<pre><code> def is_prime(n):
-     """判断素数"""
-     if n % 2 == 0:
-         return False
-
-     sqrt_n = int(math.floor(math.sqrt(n)))
-     for i in range(3, sqrt_n + 1, 2):
-         if n % i == 0:
-             return False
-     return True
-
-
- def main():
-     """主函数"""
-     with concurrent.futures.ProcessPoolExecutor() as executor:
-         for number, prime in zip(PRIMES, executor.map(is_prime, PRIMES)):
-             print('%d is prime: %s' % (number, prime))
-
-
- if __name__ == '__main__':
-     main()
- ```
-
- &gt; 说明：**多线程和多进程的比较**。
- &gt;
- &gt; 以下情况需要使用多线程：
- &gt;
- &gt; 1. 程序需要维护许多共享的状态（尤其是可变状态），Python中的列表、字典、集合都是线程安全的，所以使用线程而不是进程维护共享状态的代价相对较小。
- &gt; 2. 程序会花费大量时间在I/O操作上，没有太多并行计算的需求且不需占用太多的内存。
- &gt;
- &gt; 以下情况需要使用多进程：
- &gt;
- &gt; 1. 程序执行计算密集型任务（如：字节码操作、数据处理、科学计算）。
- &gt; 2. 程序的输入可以并行的分成块，并且可以将运算结果合并。
- &gt; 3. 程序在内存使用方面没有任何限制且不强依赖于I/O操作（如：读写文件、套接字等）。</code></pre><ul>
 <li><p>异步处理：从调度程序的任务队列中挑选任务，该调度程序以交叉的形式执行这些任务，我们并不能保证任务将以某种顺序去执行，因为执行顺序取决于队列中的一项任务是否愿意将CPU处理时间让位给另一项任务。异步任务通常通过多任务协作处理的方式来实现，由于执行时间和顺序的不确定，因此需要通过回调式编程或者<code>future</code>对象来获取任务执行的结果。Python 3通过<code>asyncio</code>模块和<code>await</code>和<code>async</code>关键字（在Python 3.7中正式被列为关键字）来支持异步处理。</p>
 <pre class="line-numbers language-Python"><code class="language-Python">"""
 异步I/O - async / await
 """
 import asyncio
 
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+def num_generator(m, n):
+    """指定范围的数字生成器"""
+    yield from range(m, n + 1)
+
+async def prime_filter(m, n):
+    """素数过滤器"""
+    primes = []
+    for i in num_generator(m, n):
+        flag = True
+        for j in range(2, int(i ** 0.5 + 1)):
+            if i % j == 0:
+                flag = False
+                break
+        if flag:
+            print('Prime =>', i)
+            primes.append(i)
+
+        await asyncio.sleep(0.001)
+    return tuple(primes)
+
+async def square_mapper(m, n):
+    """平方映射器"""
+    squares = []
+    for i in num_generator(m, n):
+        print('Square =>', i * i)
+        squares.append(i * i)
+
+        await asyncio.sleep(0.001)
+    return squares
+
+def main():
+    """主函数"""
+    loop = asyncio.get_event_loop()
+    future = asyncio.gather(prime_filter(2, 100), square_mapper(1, 100))
+    future.add_done_callback(lambda x: print(x.result()))
+    loop.run_until_complete(future)
+    loop.close()
+
+if __name__ == '__main__':
+    main()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<blockquote>
+<p>说明：上面的代码使用<code>get_event_loop</code>函数获得系统默认的事件循环，通过<code>gather</code>函数可以获得一个<code>future</code>对象，<code>future</code>对象的<code>add_done_callback</code>可以添加执行完成时的回调函数，<code>loop</code>对象的<code>run_until_complete</code>方法可以等待通过<code>future</code>对象获得协程执行结果。</p>
+</blockquote>
+<p>Python中有一个名为<code>aiohttp</code>的三方库，它提供了异步的HTTP客户端和服务器，这个三方库可以跟<code>asyncio</code>模块一起工作，并提供了对<code>Future</code>对象的支持。Python 3.6中引入了async和await来定义异步执行的函数以及创建异步上下文，在Python 3.7中它们正式成为了关键字。下面的代码异步的从5个URL中获取页面并通过正则表达式的命名捕获组提取了网站的标题。</p>
+<pre class="line-numbers language-Python"><code class="language-Python">import asyncio
+import re
+
+import aiohttp
+
+PATTERN = re.compile(r'\<title\>(?P<title>.*)\<\/title\>')
+
+async def fetch_page(session, url):
+    async with session.get(url, ssl=False) as resp:
+        return await resp.text()
+
+async def show_title(url):
+    async with aiohttp.ClientSession() as session:
+        html = await fetch_page(session, url)
+        print(PATTERN.search(html).group('title'))
+
+def main():
+    urls = ('https://www.python.org/',
+            'https://git-scm.com/',
+            'https://www.jd.com/',
+            'https://www.taobao.com/',
+            'https://www.douban.com/')
+    loop = asyncio.get_event_loop()
+    tasks = [show_title(url) for url in urls]
+    loop.run_until_complete(asyncio.wait(tasks))
+    loop.close()
+
+if __name__ == '__main__':
+    main()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<blockquote>
+<p>说明：<strong>异步I/O与多进程的比较</strong>。</p>
+<p>当程序不需要真正的并发性或并行性，而是更多的依赖于异步处理和回调时，asyncio就是一种很好的选择。如果程序中有大量的等待与休眠时，也应该考虑asyncio，它很适合编写没有实时数据处理需求的Web应用服务器。</p>
+</blockquote>
+<p>Python还有很多用于处理并行任务的三方库，例如：joblib、PyMP等。实际开发中，要提升系统的可扩展性和并发性通常有垂直扩展（增加单个节点的处理能力）和水平扩展（将单个节点变成多个节点）两种做法。可以通过消息队列来实现应用程序的解耦合，消息队列相当于是多线程同步队列的扩展版本，不同机器上的应用程序相当于就是线程，而共享的分布式消息队列就是原来程序中的Queue。消息队列（面向消息的中间件）的最流行和最标准化的实现是AMQP（高级消息队列协议），AMQP源于金融行业，提供了排队、路由、可靠传输、安全等功能，最著名的实现包括：Apache的ActiveMQ、RabbitMQ等。</p>
+<p>要实现任务的异步化，可以使用名为Celery的三方库。Celery是Python编写的分布式任务队列，它使用分布式消息进行工作，可以基于RabbitMQ或Redis来作为后端的消息代理。</p>
 </li>
 </ul>
-<pre><code> def num_generator(m, n):
-     """指定范围的数字生成器"""
-     yield from range(m, n + 1)
-
-
- async def prime_filter(m, n):
-     """素数过滤器"""
-     primes = []
-     for i in num_generator(m, n):
-         flag = True
-         for j in range(2, int(i ** 0.5 + 1)):
-             if i % j == 0:
-                 flag = False
-                 break
-         if flag:
-             print('Prime =&gt;', i)
-             primes.append(i)
-
-         await asyncio.sleep(0.001)
-     return tuple(primes)
-
-
- async def square_mapper(m, n):
-     """平方映射器"""
-     squares = []
-     for i in num_generator(m, n):
-         print('Square =&gt;', i * i)
-         squares.append(i * i)
-
-         await asyncio.sleep(0.001)
-     return squares
-
-
- def main():
-     """主函数"""
-     loop = asyncio.get_event_loop()
-     future = asyncio.gather(prime_filter(2, 100), square_mapper(1, 100))
-     future.add_done_callback(lambda x: print(x.result()))
-     loop.run_until_complete(future)
-     loop.close()
-
-
- if __name__ == '__main__':
-     main()
- ```
-
- &gt; 说明：上面的代码使用`get_event_loop`函数获得系统默认的事件循环，通过`gather`函数可以获得一个`future`对象，`future`对象的`add_done_callback`可以添加执行完成时的回调函数，`loop`对象的`run_until_complete`方法可以等待通过`future`对象获得协程执行结果。
-
- Python中有一个名为`aiohttp`的三方库，它提供了异步的HTTP客户端和服务器，这个三方库可以跟`asyncio`模块一起工作，并提供了对`Future`对象的支持。Python 3.6中引入了async和await来定义异步执行的函数以及创建异步上下文，在Python 3.7中它们正式成为了关键字。下面的代码异步的从5个URL中获取页面并通过正则表达式的命名捕获组提取了网站的标题。
-
- ```Python
- import asyncio
- import re
-
- import aiohttp
-
- PATTERN = re.compile(r'\&lt;title\&gt;(?P&lt;title&gt;.*)\&lt;\/title\&gt;')
-
-
- async def fetch_page(session, url):
-     async with session.get(url, ssl=False) as resp:
-         return await resp.text()
-
-
- async def show_title(url):
-     async with aiohttp.ClientSession() as session:
-         html = await fetch_page(session, url)
-         print(PATTERN.search(html).group('title'))
-
-
- def main():
-     urls = ('https://www.python.org/',
-             'https://git-scm.com/',
-             'https://www.jd.com/',
-             'https://www.taobao.com/',
-             'https://www.douban.com/')
-     loop = asyncio.get_event_loop()
-     tasks = [show_title(url) for url in urls]
-     loop.run_until_complete(asyncio.wait(tasks))
-     loop.close()
-
-
- if __name__ == '__main__':
-     main()
- ```
-
- &gt; 说明：**异步I/O与多进程的比较**。
- &gt;
- &gt; 当程序不需要真正的并发性或并行性，而是更多的依赖于异步处理和回调时，asyncio就是一种很好的选择。如果程序中有大量的等待与休眠时，也应该考虑asyncio，它很适合编写没有实时数据处理需求的Web应用服务器。
-
- Python还有很多用于处理并行任务的三方库，例如：joblib、PyMP等。实际开发中，要提升系统的可扩展性和并发性通常有垂直扩展（增加单个节点的处理能力）和水平扩展（将单个节点变成多个节点）两种做法。可以通过消息队列来实现应用程序的解耦合，消息队列相当于是多线程同步队列的扩展版本，不同机器上的应用程序相当于就是线程，而共享的分布式消息队列就是原来程序中的Queue。消息队列（面向消息的中间件）的最流行和最标准化的实现是AMQP（高级消息队列协议），AMQP源于金融行业，提供了排队、路由、可靠传输、安全等功能，最著名的实现包括：Apache的ActiveMQ、RabbitMQ等。
-
- 要实现任务的异步化，可以使用名为Celery的三方库。Celery是Python编写的分布式任务队列，它使用分布式消息进行工作，可以基于RabbitMQ或Redis来作为后端的消息代理。</code></pre><script>
+</li>
+</ol>
+<script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }
@@ -2693,6 +2571,10 @@ import asyncio
                         <span class="chip bg-color">python</span>
                     </a>
                     
+                    <a href="/tags/python-day21-30/" target="_blank">
+                        <span class="chip bg-color">python day21-30</span>
+                    </a>
+                    
                 </div>
                 
             </div>
@@ -2742,6 +2624,10 @@ import asyncio
                     
                     <a href="/tags/python/" target="_blank">
                         <span class="chip bg-color">python</span>
+                    </a>
+                    
+                    <a href="/tags/python-day11-20/" target="_blank">
+                        <span class="chip bg-color">python day11-20</span>
                     </a>
                     
                 </div>
@@ -2916,7 +2802,7 @@ import asyncio
 
             
                 &nbsp; | &nbsp;字数统计:&nbsp;
-                <span class="white-color">82.4k</span> 字
+                <span class="white-color">81.2k</span> 字
             
 
             

@@ -738,6 +738,10 @@
                                 <span class="chip bg-color">python</span>
                             </a>
                         
+                            <a href="/tags/python-day11-20/" target="_blank">
+                                <span class="chip bg-color">python day11-20</span>
+                            </a>
+                        
                     </div>
                     
                 </div>
@@ -835,16 +839,15 @@
 </tr>
 </tbody></table>
 <p>下面这张图来自于<a href="http://www.runoob.com" target="_blank" rel="noopener">菜鸟教程</a>网站，它展示了如果根据应用程序的需要来设置操作模式。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="./res/file-open-mode.png" alt=""></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/images/file-open-mode.png" alt=""></p>
 <h3 id="读写文本文件"><a href="#读写文本文件" class="headerlink" title="读写文本文件"></a>读写文本文件</h3><p>读取文本文件时，需要在使用<code>open</code>函数时指定好带路径的文件名（可以使用相对路径或绝对路径）并将文件模式设置为<code>'r'</code>（如果不指定，默认值也是<code>'r'</code>），然后通过<code>encoding</code>参数指定编码（如果不指定，默认值是None，那么在读取文件时使用的是操作系统默认的编码），如果不能保证保存文件时使用的编码方式与encoding参数指定的编码方式是一致的，那么就可能因无法解码字符而导致读取失败。下面的例子演示了如何读取一个纯文本文件。</p>
 <pre class="line-numbers language-Python"><code class="language-Python">def main():
     f = open('致橡树.txt', 'r', encoding='utf-8')
     print(f.read())
     f.close()
 
-
 if __name__ == '__main__':
-    main()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    main()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>请注意上面的代码，如果<code>open</code>函数指定的文件并不存在或者无法打开，那么将引发异常状况导致程序崩溃。为了让代码有一定的健壮性和容错性，我们可以使用Python的异常机制对可能在运行时发生状况的代码进行适当的处理，如下所示。</p>
 <pre class="line-numbers language-Python"><code class="language-Python">def main():
     f = None
@@ -861,9 +864,8 @@ if __name__ == '__main__':
         if f:
             f.close()
 
-
 if __name__ == '__main__':
-    main()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    main()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>在Python中，我们可以将那些在运行时可能会出现状况的代码放在<code>try</code>代码块中，在<code>try</code>代码块的后面可以跟上一个或多个<code>except</code>来捕获可能出现的异常状况。例如在上面读取文件的过程中，文件找不到会引发<code>FileNotFoundError</code>，指定了未知的编码会引发<code>LookupError</code>，而如果读取文件时无法按指定方式解码会引发<code>UnicodeDecodeError</code>，我们在<code>try</code>后面跟上了三个<code>except</code>分别处理这三种不同的异常状况。最后我们使用<code>finally</code>代码块来关闭打开的文件，释放掉程序中获取的外部资源，由于<code>finally</code>块的代码不论程序正常还是异常都会执行到（甚至是调用了<code>sys</code>模块的<code>exit</code>函数退出Python环境，<code>finally</code>块都会被执行，因为<code>exit</code>函数实质上是引发了<code>SystemExit</code>异常），因此我们通常把<code>finally</code>块称为“总是执行代码块”，它最适合用来做释放外部资源的操作。如果不愿意在<code>finally</code>代码块中关闭文件对象释放资源，也可以使用上下文语法，通过<code>with</code>关键字指定文件对象的上下文环境并在离开上下文环境时自动释放文件资源，代码如下所示。</p>
 <pre class="line-numbers language-Python"><code class="language-Python">def main():
     try:
@@ -876,12 +878,10 @@ if __name__ == '__main__':
     except UnicodeDecodeError:
         print('读取文件时解码错误!')
 
-
 if __name__ == '__main__':
-    main()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    main()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>除了使用文件对象的<code>read</code>方法读取文件之外，还可以使用<code>for-in</code>循环逐行读取或者用<code>readlines</code>方法将文件按行读取到一个列表容器中，代码如下所示。</p>
 <pre class="line-numbers language-Python"><code class="language-Python">import time
-
 
 def main():
     # 一次性读取整个文件内容
@@ -900,12 +900,10 @@ def main():
         lines = f.readlines()
     print(lines)
 
-
 if __name__ == '__main__':
-    main()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    main()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>要将文本信息写入文件文件也非常简单，在使用<code>open</code>函数时指定好文件名并将文件模式设置为<code>'w'</code>即可。注意如果需要对文件内容进行追加式写入，应该将模式设置为<code>'a'</code>。如果要写入的文件不存在会自动创建文件而不是引发异常。下面的例子演示了如何将1-9999之间的素数分别写入三个文件中（1-99之间的素数保存在a.txt中，100-999之间的素数保存在b.txt中，1000-9999之间的素数保存在c.txt中）。</p>
 <pre class="line-numbers language-Python"><code class="language-Python">from math import sqrt
-
 
 def is_prime(n):
     """判断素数的函数"""
@@ -914,7 +912,6 @@ def is_prime(n):
         if n % factor == 0:
             return False
     return True if n != 1 else False
-
 
 def main():
     filenames = ('a.txt', 'b.txt', 'c.txt')
@@ -938,9 +935,8 @@ def main():
             fs.close()
     print('操作完成!')
 
-
 if __name__ == '__main__':
-    main()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    main()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="读写二进制文件"><a href="#读写二进制文件" class="headerlink" title="读写二进制文件"></a>读写二进制文件</h3><p>知道了如何读写文本文件要读写二进制文件也就很简单了，下面的代码实现了复制图片文件的功能。</p>
 <pre class="line-numbers language-Python"><code class="language-Python">def main():
     try:
@@ -955,9 +951,8 @@ if __name__ == '__main__':
         print('读写文件时出现错误.')
     print('程序执行结束.')
 
-
 if __name__ == '__main__':
-    main()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    main()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="读写JSON文件"><a href="#读写JSON文件" class="headerlink" title="读写JSON文件"></a>读写JSON文件</h3><p>通过上面的讲解，我们已经知道如何将文本数据和二进制数据保存到文件中，那么这里还有一个问题，如果希望把一个列表或者一个字典中的数据保存到文件中又该怎么做呢？答案是将数据以JSON格式进行保存。JSON是“JavaScript Object Notation”的缩写，它本来是JavaScript语言中创建对象的一种字面量语法，现在已经被广泛的应用于跨平台跨语言的数据交换，原因很简单，因为JSON也是纯文本，任何系统任何编程语言处理纯文本都是没有问题的。目前JSON基本上已经取代了XML作为异构系统间交换数据的事实标准。关于JSON的知识，更多的可以参考<a href="http://json.org" target="_blank" rel="noopener">JSON的官方网站</a>，从这个网站也可以了解到每种语言处理JSON数据格式可以使用的工具或三方库，下面是一个JSON的简单例子。</p>
 <pre class="line-numbers language-JSON"><code class="language-JSON">{
     "name": "骆昊",
@@ -1038,7 +1033,6 @@ if __name__ == '__main__':
 <p>我们使用Python中的json模块就可以将字典或列表以JSON格式保存到文件中，代码如下所示。</p>
 <pre class="line-numbers language-Python"><code class="language-Python">import json
 
-
 def main():
     mydict = {
         'name': '骆昊',
@@ -1058,9 +1052,8 @@ def main():
         print(e)
     print('保存数据完成!')
 
-
 if __name__ == '__main__':
-    main()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    main()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>json模块主要有四个比较重要的函数，分别是：</p>
 <ul>
 <li><code>dump</code> - 将Python对象按照JSON格式序列化到文件中</li>
@@ -1073,16 +1066,14 @@ if __name__ == '__main__':
 <pre class="line-numbers language-Python"><code class="language-Python">import requests
 import json
 
-
 def main():
     resp = requests.get('http://api.tianapi.com/guonei/?key=APIKey&num=10')
     data_model = json.loads(resp.text)
     for news in data_model['newslist']:
         print(news['title'])
 
-
 if __name__ == '__main__':
-    main()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    main()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>在Python中要实现序列化和反序列化除了使用json模块之外，还可以使用pickle和shelve模块，但是这两个模块是使用特有的序列化协议来序列化数据，因此序列化后的数据只能被Python识别。关于这两个模块的相关知识可以自己看看网络上的资料。另外，如果要了解更多的关于Python异常机制的知识，可以看看segmentfault上面的文章<a href="https://segmentfault.com/a/1190000007736783" target="_blank" rel="noopener">《总结：Python中的异常处理》</a>，这篇文章不仅介绍了Python中异常机制的使用，还总结了一系列的最佳实践，很值得一读。</p>
 <script>
         document.querySelectorAll('.github-emoji')
@@ -1636,6 +1627,10 @@ if __name__ == '__main__':
                         <span class="chip bg-color">python</span>
                     </a>
                     
+                    <a href="/tags/python-day11-20/" target="_blank">
+                        <span class="chip bg-color">python day11-20</span>
+                    </a>
+                    
                 </div>
                 
             </div>
@@ -1683,6 +1678,10 @@ if __name__ == '__main__':
                     
                     <a href="/tags/python/" target="_blank">
                         <span class="chip bg-color">python</span>
+                    </a>
+                    
+                    <a href="/tags/python-day01-10/" target="_blank">
+                        <span class="chip bg-color">python day01-10</span>
                     </a>
                     
                 </div>
@@ -1857,7 +1856,7 @@ if __name__ == '__main__':
 
             
                 &nbsp; | &nbsp;字数统计:&nbsp;
-                <span class="white-color">82.4k</span> 字
+                <span class="white-color">81.2k</span> 字
             
 
             
