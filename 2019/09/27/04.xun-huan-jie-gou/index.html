@@ -30,13 +30,6 @@
     
     <style type="text/css">
         
-            
-            code[class*="language-"],
-            pre[class*="language-"] {
-                white-space: pre !important;
-            }
-
-        
     </style>
 
     <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
@@ -70,8 +63,7 @@
         </script>
     
 
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+<link rel="stylesheet" href="/css/prism-darcula.css" type="text/css"></head>
 
     <body>
 
@@ -803,17 +795,17 @@
                 <h2 id="循环结构"><a href="#循环结构" class="headerlink" title="循环结构"></a>循环结构</h2><h3 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h3><p>如果在程序中我们需要重复的执行某条或某些指令，例如用程序控制机器人踢足球，如果机器人持球而且还没有进入射门范围，那么我们就要一直发出让机器人向球门方向奔跑的指令。当然你可能已经注意到了，刚才的描述中不仅仅有需要重复的动作，还需要用到上一章讲的分支结构。再举一个简单的例子，我们要实现一个每隔1秒中在屏幕上打印一次"hello, world"并持续打印一个小时的程序，我们肯定不能够直接把<code>print('hello, world')</code>这句代码写3600遍，如果真的要这样做，那么编程的工作就太无聊乏味了。因此，我们还需要了解一下循环结构，有了循环结构我们就可以轻松的控制某件事或者某些事重复、重复、再重复的去执行。</p>
 <p>在Python中构造循环结构有两种做法，一种是<code>for-in</code>循环，一种是<code>while</code>循环。</p>
 <h3 id="for-in循环"><a href="#for-in循环" class="headerlink" title="for-in循环"></a>for-in循环</h3><p>如果明确的知道循环执行的次数或者要对一个容器进行迭代（后面会讲到），那么我们推荐使用<code>for-in</code>循环，例如下面代码中计算1~100求和的结果（$\displaystyle \sum \limits_{n=1}^{100}n$）。 </p>
-<pre class="line-numbers language-Python"><code class="language-Python">"""
+<pre class=" language-python"><code class="language-python"><span class="token triple-quoted-string string">"""
 用for循环实现1~100求和
 
 Version: 0.1
 Author: 骆昊
-"""
+"""</span>
 
-sum = 0
-for x in range(101):
-    sum += x
-print(sum)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+sum <span class="token operator">=</span> <span class="token number">0</span>
+<span class="token keyword">for</span> x <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">101</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    sum <span class="token operator">+=</span> x
+<span class="token keyword">print</span><span class="token punctuation">(</span>sum<span class="token punctuation">)</span></code></pre>
 <p>需要说明的是上面代码中的<code>range(101)</code>可以用来构造一个从0到100的取值范围，这样就可以构造出一个整数的序列并用于循环中，例如：</p>
 <ul>
 <li><code>range(101)</code>可以产生一个0到100的整数序列。</li>
@@ -821,115 +813,115 @@ print(sum)<span aria-hidden="true" class="line-numbers-rows"><span></span><span>
 <li><code>range(1, 100, 2)</code>可以产生一个1到99的奇数序列，其中2是步长，即数值序列的增量。</li>
 </ul>
 <p>知道了这一点，我们可以用下面的代码来实现1~100之间的偶数求和。</p>
-<pre class="line-numbers language-Python"><code class="language-Python">"""
+<pre class=" language-python"><code class="language-python"><span class="token triple-quoted-string string">"""
 用for循环实现1~100之间的偶数求和
 
 Version: 0.1
 Author: 骆昊
-"""
+"""</span>
 
-sum = 0
-for x in range(2, 101, 2):
-    sum += x
-print(sum)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+sum <span class="token operator">=</span> <span class="token number">0</span>
+<span class="token keyword">for</span> x <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">101</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    sum <span class="token operator">+=</span> x
+<span class="token keyword">print</span><span class="token punctuation">(</span>sum<span class="token punctuation">)</span></code></pre>
 <p>也可以通过在循环中使用分支结构的方式来实现相同的功能，代码如下所示。</p>
-<pre class="line-numbers language-Python"><code class="language-Python">"""
+<pre class=" language-python"><code class="language-python"><span class="token triple-quoted-string string">"""
 用for循环实现1~100之间的偶数求和
 
 Version: 0.1
 Author: 骆昊
-"""
+"""</span>
 
-sum = 0
-for x in range(1, 101):
-    if x % 2 == 0:
-        sum += x
-print(sum)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+sum <span class="token operator">=</span> <span class="token number">0</span>
+<span class="token keyword">for</span> x <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">101</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">if</span> x <span class="token operator">%</span> <span class="token number">2</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">:</span>
+        sum <span class="token operator">+=</span> x
+<span class="token keyword">print</span><span class="token punctuation">(</span>sum<span class="token punctuation">)</span></code></pre>
 <h3 id="while循环"><a href="#while循环" class="headerlink" title="while循环"></a>while循环</h3><p>如果要构造不知道具体循环次数的循环结构，我们推荐使用<code>while</code>循环。<code>while</code>循环通过一个能够产生或转换出<code>bool</code>值的表达式来控制循环，表达式的值为<code>True</code>循环继续，表达式的值为<code>False</code>循环结束。下面我们通过一个“猜数字”的小游戏（计算机出一个1~100之间的随机数，人输入自己猜的数字，计算机给出对应的提示信息，直到人猜出计算机出的数字）来看看如何使用<code>while</code>循环。</p>
-<pre class="line-numbers language-Python"><code class="language-Python">"""
+<pre class=" language-python"><code class="language-python"><span class="token triple-quoted-string string">"""
 猜数字游戏
 计算机出一个1~100之间的随机数由人来猜
 计算机根据人猜的数字分别给出提示大一点/小一点/猜对了
 
 Version: 0.1
 Author: 骆昊
-"""
+"""</span>
 
-import random
+<span class="token keyword">import</span> random
 
-answer = random.randint(1, 100)
-counter = 0
-while True:
-    counter += 1
-    number = int(input('请输入: '))
-    if number < answer:
-        print('大一点')
-    elif number > answer:
-        print('小一点')
-    else:
-        print('恭喜你猜对了!')
-        break
-print('你总共猜了%d次' % counter)
-if counter > 7:
-    print('你的智商余额明显不足')<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+answer <span class="token operator">=</span> random<span class="token punctuation">.</span>randint<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">)</span>
+counter <span class="token operator">=</span> <span class="token number">0</span>
+<span class="token keyword">while</span> <span class="token boolean">True</span><span class="token punctuation">:</span>
+    counter <span class="token operator">+=</span> <span class="token number">1</span>
+    number <span class="token operator">=</span> int<span class="token punctuation">(</span>input<span class="token punctuation">(</span><span class="token string">'请输入: '</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token keyword">if</span> number <span class="token operator">&lt;</span> answer<span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'大一点'</span><span class="token punctuation">)</span>
+    <span class="token keyword">elif</span> number <span class="token operator">></span> answer<span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'小一点'</span><span class="token punctuation">)</span>
+    <span class="token keyword">else</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'恭喜你猜对了!'</span><span class="token punctuation">)</span>
+        <span class="token keyword">break</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'你总共猜了%d次'</span> <span class="token operator">%</span> counter<span class="token punctuation">)</span>
+<span class="token keyword">if</span> counter <span class="token operator">></span> <span class="token number">7</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'你的智商余额明显不足'</span><span class="token punctuation">)</span></code></pre>
 <p>上面的代码中使用了<code>break</code>关键字来提前终止循环，需要注意的是<code>break</code>只能终止它所在的那个循环，这一点在使用嵌套的循环结构（下面会讲到）需要引起注意。除了<code>break</code>之外，还有另一个关键字是<code>continue</code>，它可以用来放弃本次循环后续的代码直接让循环进入下一轮。</p>
 <p>和分支结构一样，循环结构也是可以嵌套的，也就是说在循环中还可以构造循环结构。下面的例子演示了如何通过嵌套的循环来输出一个九九乘法表。</p>
-<pre class="line-numbers language-Python"><code class="language-Python">"""
+<pre class=" language-python"><code class="language-python"><span class="token triple-quoted-string string">"""
 输出乘法口诀表(九九表)
 
 Version: 0.1
 Author: 骆昊
-"""
+"""</span>
 
-for i in range(1, 10):
-    for j in range(1, i + 1):
-        print('%d*%d=%d' % (i, j, i * j), end='\t')
-    print()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">for</span> j <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'%d*%d=%d'</span> <span class="token operator">%</span> <span class="token punctuation">(</span>i<span class="token punctuation">,</span> j<span class="token punctuation">,</span> i <span class="token operator">*</span> j<span class="token punctuation">)</span><span class="token punctuation">,</span> end<span class="token operator">=</span><span class="token string">'\t'</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
 <h3 id="练习"><a href="#练习" class="headerlink" title="练习"></a>练习</h3><h4 id="练习1：输入一个正整数判断是不是素数。"><a href="#练习1：输入一个正整数判断是不是素数。" class="headerlink" title="练习1：输入一个正整数判断是不是素数。"></a>练习1：输入一个正整数判断是不是素数。</h4><blockquote>
 <p><strong>提示</strong>：素数指的是只能被1和自身整除的大于1的整数。</p>
 </blockquote>
 <p>参考答案：</p>
-<pre class="line-numbers language-Python"><code class="language-Python">"""
+<pre class=" language-python"><code class="language-python"><span class="token triple-quoted-string string">"""
 输入一个正整数判断它是不是素数
 
 Version: 0.1
 Author: 骆昊
 Date: 2018-03-01
-"""
-from math import sqrt
+"""</span>
+<span class="token keyword">from</span> math <span class="token keyword">import</span> sqrt
 
-num = int(input('请输入一个正整数: '))
-end = int(sqrt(num))
-is_prime = True
-for x in range(2, end + 1):
-    if num % x == 0:
-        is_prime = False
-        break
-if is_prime and num != 1:
-    print('%d是素数' % num)
-else:
-    print('%d不是素数' % num)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+num <span class="token operator">=</span> int<span class="token punctuation">(</span>input<span class="token punctuation">(</span><span class="token string">'请输入一个正整数: '</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+end <span class="token operator">=</span> int<span class="token punctuation">(</span>sqrt<span class="token punctuation">(</span>num<span class="token punctuation">)</span><span class="token punctuation">)</span>
+is_prime <span class="token operator">=</span> <span class="token boolean">True</span>
+<span class="token keyword">for</span> x <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> end <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">if</span> num <span class="token operator">%</span> x <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">:</span>
+        is_prime <span class="token operator">=</span> <span class="token boolean">False</span>
+        <span class="token keyword">break</span>
+<span class="token keyword">if</span> is_prime <span class="token operator">and</span> num <span class="token operator">!=</span> <span class="token number">1</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'%d是素数'</span> <span class="token operator">%</span> num<span class="token punctuation">)</span>
+<span class="token keyword">else</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'%d不是素数'</span> <span class="token operator">%</span> num<span class="token punctuation">)</span></code></pre>
 <h4 id="练习2：输入两个正整数，计算它们的最大公约数和最小公倍数。"><a href="#练习2：输入两个正整数，计算它们的最大公约数和最小公倍数。" class="headerlink" title="练习2：输入两个正整数，计算它们的最大公约数和最小公倍数。"></a>练习2：输入两个正整数，计算它们的最大公约数和最小公倍数。</h4><p>参考答案：</p>
-<pre class="line-numbers language-Python"><code class="language-Python">"""
+<pre class=" language-python"><code class="language-python"><span class="token triple-quoted-string string">"""
 输入两个正整数计算它们的最大公约数和最小公倍数
 
 Version: 0.1
 Author: 骆昊
 Date: 2018-03-01
-"""
+"""</span>
 
-x = int(input('x = '))
-y = int(input('y = '))
-# 如果x大于y就交换x和y的值
-if x > y:
-    # 通过下面的操作将y的值赋给x, 将x的值赋给y
-    x, y = y, x
-# 从两个数中较的数开始做递减的循环
-for factor in range(x, 0, -1):
-    if x % factor == 0 and y % factor == 0:
-        print('%d和%d的最大公约数是%d' % (x, y, factor))
-        print('%d和%d的最小公倍数是%d' % (x, y, x * y // factor))
-        break<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+x <span class="token operator">=</span> int<span class="token punctuation">(</span>input<span class="token punctuation">(</span><span class="token string">'x = '</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+y <span class="token operator">=</span> int<span class="token punctuation">(</span>input<span class="token punctuation">(</span><span class="token string">'y = '</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 如果x大于y就交换x和y的值</span>
+<span class="token keyword">if</span> x <span class="token operator">></span> y<span class="token punctuation">:</span>
+    <span class="token comment" spellcheck="true"># 通过下面的操作将y的值赋给x, 将x的值赋给y</span>
+    x<span class="token punctuation">,</span> y <span class="token operator">=</span> y<span class="token punctuation">,</span> x
+<span class="token comment" spellcheck="true"># 从两个数中较的数开始做递减的循环</span>
+<span class="token keyword">for</span> factor <span class="token keyword">in</span> range<span class="token punctuation">(</span>x<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">if</span> x <span class="token operator">%</span> factor <span class="token operator">==</span> <span class="token number">0</span> <span class="token operator">and</span> y <span class="token operator">%</span> factor <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'%d和%d的最大公约数是%d'</span> <span class="token operator">%</span> <span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">,</span> factor<span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'%d和%d的最小公倍数是%d'</span> <span class="token operator">%</span> <span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">,</span> x <span class="token operator">*</span> y <span class="token operator">//</span> factor<span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token keyword">break</span></code></pre>
 <h4 id="练习3：打印如下所示的三角形图案。"><a href="#练习3：打印如下所示的三角形图案。" class="headerlink" title="练习3：打印如下所示的三角形图案。"></a>练习3：打印如下所示的三角形图案。</h4><pre><code>*
 **
 ***
@@ -943,33 +935,33 @@ for factor in range(x, 0, -1):
   *****
  *******
 *********</code></pre><p>参考答案：</p>
-<pre class="line-numbers language-Python"><code class="language-Python">"""
+<pre class=" language-python"><code class="language-python"><span class="token triple-quoted-string string">"""
 打印三角形图案
 
 Version: 0.1
 Author: 骆昊
-"""
+"""</span>
 
-row = int(input('请输入行数: '))
-for i in range(row):
-    for _ in range(i + 1):
-        print('*', end='')
-    print()
+row <span class="token operator">=</span> int<span class="token punctuation">(</span>input<span class="token punctuation">(</span><span class="token string">'请输入行数: '</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>row<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">for</span> _ <span class="token keyword">in</span> range<span class="token punctuation">(</span>i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'*'</span><span class="token punctuation">,</span> end<span class="token operator">=</span><span class="token string">''</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 
-for i in range(row):
-    for j in range(row):
-        if j < row - i - 1:
-            print(' ', end='')
-        else:
-            print('*', end='')
-    print()
+<span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>row<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">for</span> j <span class="token keyword">in</span> range<span class="token punctuation">(</span>row<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">if</span> j <span class="token operator">&lt;</span> row <span class="token operator">-</span> i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">:</span>
+            <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">' '</span><span class="token punctuation">,</span> end<span class="token operator">=</span><span class="token string">''</span><span class="token punctuation">)</span>
+        <span class="token keyword">else</span><span class="token punctuation">:</span>
+            <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'*'</span><span class="token punctuation">,</span> end<span class="token operator">=</span><span class="token string">''</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 
-for i in range(row):
-    for _ in range(row - i - 1):
-        print(' ', end='')
-    for _ in range(2 * i + 1):
-        print('*', end='')
-    print()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>row<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">for</span> _ <span class="token keyword">in</span> range<span class="token punctuation">(</span>row <span class="token operator">-</span> i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">' '</span><span class="token punctuation">,</span> end<span class="token operator">=</span><span class="token string">''</span><span class="token punctuation">)</span>
+    <span class="token keyword">for</span> _ <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">2</span> <span class="token operator">*</span> i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'*'</span><span class="token punctuation">,</span> end<span class="token operator">=</span><span class="token string">''</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -1751,7 +1743,7 @@ for i in range(row):
 
             
                 &nbsp; | &nbsp;字数统计:&nbsp;
-                <span class="white-color">81.2k</span> 字
+                <span class="white-color">88.5k</span> 字
             
 
             
@@ -1923,38 +1915,6 @@ $(function () {
         
 
         <!-- 在线聊天工具   MissStar add 2019.09.11 -->
-        
-            <script src="//code.tidio.co/xfbwhpmnuosuvdgs72u7tuuxzcg74v3f.js"></script>
-            <!--  在线聊天位置自定义   MissStar add 2019.09.13  -->
-            <script> 
-                $(document).ready(function () {
-
-                    setInterval(change_Tidio, 50);  
-                    function change_Tidio() { 
-
-                        var tidio=$("#tidio-chat iframe");
-                        if(tidio.css("display")=="block"&& $(window).width()>977 ){
-                            document.getElementById("tidio-chat-iframe").style.bottom= ($("div#backTop.top-scroll").css("display")=="none" &&$(window).width()>977)>0? "-40px" : ($("div.toc-title").length&&$(window).width()>977)>0?"80px":"20px";   
-                            document.getElementById("tidio-chat-iframe").style.right="-15px";   
-                            document.getElementById("tidio-chat-iframe").style.height=parseInt(tidio.css("height"))>=520?"520px":tidio.css("height");
-                            document.getElementById("tidio-chat-iframe").style.zIndex="997";
-                        } 
-                        else if(tidio.css("display")=="block"&&$(window).width()>601 &&$(window).width()<992 ){
-                            document.getElementById("tidio-chat-iframe").style.bottom= ($("div#backTop.top-scroll").css("display")=="none" && 601< $(window).width()<992)>0? "-40px":"20px" ;   
-                            document.getElementById("tidio-chat-iframe").style.right="-15px"; 
-                            document.getElementById("tidio-chat-iframe").style.zIndex="997";
-                        }
-                        else if(tidio.css("display")=="block"&&$(window).width()<601 && parseInt(tidio.css("height"))<230){
-                            document.getElementById("tidio-chat-iframe").style.bottom= ($("div#backTop.top-scroll").css("display")=="none" && $(window).width()<601)>0? "-10px":"45px" ;   
-                            document.getElementById("tidio-chat-iframe").style.zIndex="997";
-                        }
-
-                        if( tidio.css("display")=="block"&&$(window).width()<601 && parseInt(tidio.css("height"))>=230){
-                            document.getElementById("tidio-chat-iframe").style.zIndex="998";
-                        }
-                    } 
-                }); 
-            </script>
         
 
         <!-- 背景 canvas-nest   shw 2018  add 2019.09.15-->

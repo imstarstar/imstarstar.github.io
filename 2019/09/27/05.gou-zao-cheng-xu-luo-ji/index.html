@@ -30,13 +30,6 @@
     
     <style type="text/css">
         
-            
-            code[class*="language-"],
-            pre[class*="language-"] {
-                white-space: pre !important;
-            }
-
-        
     </style>
 
     <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
@@ -70,8 +63,7 @@
         </script>
     
 
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+<link rel="stylesheet" href="/css/prism-darcula.css" type="text/css"></head>
 
     <body>
 
@@ -776,14 +768,14 @@
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        1.1k
+                        1.6k
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        4 分
+                        6 分
                     </div>
                     
                 
@@ -807,97 +799,97 @@
 <blockquote>
 <p><strong>说明</strong>：水仙花数也被称为超完全数字不变数、自恋数、自幂数、阿姆斯特朗数，它是一个3位数，该数字每个位上数字的立方之和正好等于它本身，例如：$1^3 + 5^3+ 3^3=153$。</p>
 </blockquote>
-<pre class="line-numbers language-Python"><code class="language-Python">"""
+<pre class=" language-python"><code class="language-python"><span class="token triple-quoted-string string">"""
 找出所有水仙花数
 
 Version: 0.1
 Author: 骆昊
-"""
+"""</span>
 
-for num in range(100, 1000):
-    low = num % 10
-    mid = num // 10 % 10
-    high = num // 100
-    if num == low ** 3 + mid ** 3 + high ** 3:
-        print(num)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token keyword">for</span> num <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    low <span class="token operator">=</span> num <span class="token operator">%</span> <span class="token number">10</span>
+    mid <span class="token operator">=</span> num <span class="token operator">//</span> <span class="token number">10</span> <span class="token operator">%</span> <span class="token number">10</span>
+    high <span class="token operator">=</span> num <span class="token operator">//</span> <span class="token number">100</span>
+    <span class="token keyword">if</span> num <span class="token operator">==</span> low <span class="token operator">**</span> <span class="token number">3</span> <span class="token operator">+</span> mid <span class="token operator">**</span> <span class="token number">3</span> <span class="token operator">+</span> high <span class="token operator">**</span> <span class="token number">3</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>num<span class="token punctuation">)</span></code></pre>
 <p>在上面的代码中，我们通过整除和求模运算分别找出了一个三位数的个位、十位和百位，这种小技巧在实际开发中还是常用的。用类似的方法，我们还可以实现将一个正整数反转，例如：将12345变成54321，代码如下所示。</p>
-<pre class="line-numbers language-Python"><code class="language-Python">"""
+<pre class=" language-python"><code class="language-python"><span class="token triple-quoted-string string">"""
 正整数的反转
 
 Version: 0.1
 Author: 骆昊
-"""
+"""</span>
 
-num = int(input('num = '))
-reversed_num = 0
-while num > 0:
-    reversed_num = reversed_num * 10 + num % 10
-    num //= 10
-print(reversed_num)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+num <span class="token operator">=</span> int<span class="token punctuation">(</span>input<span class="token punctuation">(</span><span class="token string">'num = '</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+reversed_num <span class="token operator">=</span> <span class="token number">0</span>
+<span class="token keyword">while</span> num <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">:</span>
+    reversed_num <span class="token operator">=</span> reversed_num <span class="token operator">*</span> <span class="token number">10</span> <span class="token operator">+</span> num <span class="token operator">%</span> <span class="token number">10</span>
+    num <span class="token operator">//=</span> <span class="token number">10</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>reversed_num<span class="token punctuation">)</span></code></pre>
 </li>
 <li><p><strong>百钱百鸡</strong>问题。</p>
 <blockquote>
 <p><strong>说明</strong>：百钱百鸡是我国古代数学家<a href="https://baike.baidu.com/item/%E5%BC%A0%E4%B8%98%E5%BB%BA/10246238" target="_blank" rel="noopener">张丘建</a>在《算经》一书中提出的数学问题：鸡翁一值钱五，鸡母一值钱三，鸡雏三值钱一。百钱买百鸡，问鸡翁、鸡母、鸡雏各几何？翻译成现代文是：公鸡5元一只，母鸡3元一只，小鸡1元三只，用100块钱买一百只鸡，问公鸡、母鸡、小鸡各有多少只？</p>
 </blockquote>
-<pre class="line-numbers language-Python"><code class="language-Python">"""
+<pre class=" language-python"><code class="language-python"><span class="token triple-quoted-string string">"""
 《百钱百鸡》问题
 
 Version: 0.1
 Author: 骆昊
-"""
+"""</span>
 
-for x in range(0, 20):
-    for y in range(0, 33):
-        z = 100 - x - y
-        if 5 * x + 3 * y + z / 3 == 100:
-            print('公鸡: %d只, 母鸡: %d只, 小鸡: %d只' % (x, y, z))<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token keyword">for</span> x <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">for</span> y <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">33</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        z <span class="token operator">=</span> <span class="token number">100</span> <span class="token operator">-</span> x <span class="token operator">-</span> y
+        <span class="token keyword">if</span> <span class="token number">5</span> <span class="token operator">*</span> x <span class="token operator">+</span> <span class="token number">3</span> <span class="token operator">*</span> y <span class="token operator">+</span> z <span class="token operator">/</span> <span class="token number">3</span> <span class="token operator">==</span> <span class="token number">100</span><span class="token punctuation">:</span>
+            <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'公鸡: %d只, 母鸡: %d只, 小鸡: %d只'</span> <span class="token operator">%</span> <span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">,</span> z<span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
 <p>上面使用的方法叫做<strong>穷举法</strong>，也称为<strong>暴力搜索法</strong>，这种方法通过一项一项的列举备选解决方案中所有可能的候选项并检查每个候选项是否符合问题的描述，最终得到问题的解。这种方法看起来比较笨拙，但对于运算能力非常强大的计算机来说，通常都是一个可行的甚至是不错的选择，而且问题的解如果存在，这种方法一定能够找到它。</p>
 </li>
 <li><p><strong>CRAPS赌博游戏</strong>。</p>
 <blockquote>
 <p><strong>说明</strong>：CRAPS又称花旗骰，是美国拉斯维加斯非常受欢迎的一种的桌上赌博游戏。该游戏使用两粒骰子，玩家通过摇两粒骰子获得点数进行游戏。简单的规则是：玩家第一次摇骰子如果摇出了7点或11点，玩家胜；玩家第一次如果摇出2点、3点或12点，庄家胜；其他点数玩家继续摇骰子，如果玩家摇出了7点，庄家胜；如果玩家摇出了第一次摇的点数，玩家胜；其他点数，玩家继续要骰子，直到分出胜负。</p>
 </blockquote>
-<pre class="line-numbers language-Python"><code class="language-Python">"""
+<pre class=" language-python"><code class="language-python"><span class="token triple-quoted-string string">"""
 Craps赌博游戏
 我们设定玩家开始游戏时有1000元的赌注
 游戏结束的条件是玩家输光所有的赌注
 
 Version: 0.1
 Author: 骆昊
-"""
-from random import randint
+"""</span>
+<span class="token keyword">from</span> random <span class="token keyword">import</span> randint
 
-money = 1000
-while money > 0:
-    print('你的总资产为:', money)
-    needs_go_on = False
-    while True:
-        debt = int(input('请下注: '))
-        if 0 < debt <= money:
-            break
-    first = randint(1, 6) + randint(1, 6)
-    print('玩家摇出了%d点' % first)
-    if first == 7 or first == 11:
-        print('玩家胜!')
-        money += debt
-    elif first == 2 or first == 3 or first == 12:
-        print('庄家胜!')
-        money -= debt
-    else:
-        needs_go_on = True
-    while needs_go_on:
-        needs_go_on = False
-        current = randint(1, 6) + randint(1, 6)
-        print('玩家摇出了%d点' % current)
-        if current == 7:
-            print('庄家胜')
-            money -= debt
-        elif current == first:
-            print('玩家胜')
-            money += debt
-        else:
-            needs_go_on = True
-print('你破产了, 游戏结束!')<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+money <span class="token operator">=</span> <span class="token number">1000</span>
+<span class="token keyword">while</span> money <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'你的总资产为:'</span><span class="token punctuation">,</span> money<span class="token punctuation">)</span>
+    needs_go_on <span class="token operator">=</span> <span class="token boolean">False</span>
+    <span class="token keyword">while</span> <span class="token boolean">True</span><span class="token punctuation">:</span>
+        debt <span class="token operator">=</span> int<span class="token punctuation">(</span>input<span class="token punctuation">(</span><span class="token string">'请下注: '</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token keyword">if</span> <span class="token number">0</span> <span class="token operator">&lt;</span> debt <span class="token operator">&lt;=</span> money<span class="token punctuation">:</span>
+            <span class="token keyword">break</span>
+    first <span class="token operator">=</span> randint<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">)</span> <span class="token operator">+</span> randint<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'玩家摇出了%d点'</span> <span class="token operator">%</span> first<span class="token punctuation">)</span>
+    <span class="token keyword">if</span> first <span class="token operator">==</span> <span class="token number">7</span> <span class="token operator">or</span> first <span class="token operator">==</span> <span class="token number">11</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'玩家胜!'</span><span class="token punctuation">)</span>
+        money <span class="token operator">+=</span> debt
+    <span class="token keyword">elif</span> first <span class="token operator">==</span> <span class="token number">2</span> <span class="token operator">or</span> first <span class="token operator">==</span> <span class="token number">3</span> <span class="token operator">or</span> first <span class="token operator">==</span> <span class="token number">12</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'庄家胜!'</span><span class="token punctuation">)</span>
+        money <span class="token operator">-=</span> debt
+    <span class="token keyword">else</span><span class="token punctuation">:</span>
+        needs_go_on <span class="token operator">=</span> <span class="token boolean">True</span>
+    <span class="token keyword">while</span> needs_go_on<span class="token punctuation">:</span>
+        needs_go_on <span class="token operator">=</span> <span class="token boolean">False</span>
+        current <span class="token operator">=</span> randint<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">)</span> <span class="token operator">+</span> randint<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'玩家摇出了%d点'</span> <span class="token operator">%</span> current<span class="token punctuation">)</span>
+        <span class="token keyword">if</span> current <span class="token operator">==</span> <span class="token number">7</span><span class="token punctuation">:</span>
+            <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'庄家胜'</span><span class="token punctuation">)</span>
+            money <span class="token operator">-=</span> debt
+        <span class="token keyword">elif</span> current <span class="token operator">==</span> first<span class="token punctuation">:</span>
+            <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'玩家胜'</span><span class="token punctuation">)</span>
+            money <span class="token operator">+=</span> debt
+        <span class="token keyword">else</span><span class="token punctuation">:</span>
+            needs_go_on <span class="token operator">=</span> <span class="token boolean">True</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'你破产了, 游戏结束!'</span><span class="token punctuation">)</span></code></pre>
 </li>
 </ol>
 <p>###有用的练习 </p>
@@ -1704,7 +1696,7 @@ print('你破产了, 游戏结束!')<span aria-hidden="true" class="line-numbers
 
             
                 &nbsp; | &nbsp;字数统计:&nbsp;
-                <span class="white-color">81.2k</span> 字
+                <span class="white-color">88.5k</span> 字
             
 
             
@@ -1876,38 +1868,6 @@ $(function () {
         
 
         <!-- 在线聊天工具   MissStar add 2019.09.11 -->
-        
-            <script src="//code.tidio.co/xfbwhpmnuosuvdgs72u7tuuxzcg74v3f.js"></script>
-            <!--  在线聊天位置自定义   MissStar add 2019.09.13  -->
-            <script> 
-                $(document).ready(function () {
-
-                    setInterval(change_Tidio, 50);  
-                    function change_Tidio() { 
-
-                        var tidio=$("#tidio-chat iframe");
-                        if(tidio.css("display")=="block"&& $(window).width()>977 ){
-                            document.getElementById("tidio-chat-iframe").style.bottom= ($("div#backTop.top-scroll").css("display")=="none" &&$(window).width()>977)>0? "-40px" : ($("div.toc-title").length&&$(window).width()>977)>0?"80px":"20px";   
-                            document.getElementById("tidio-chat-iframe").style.right="-15px";   
-                            document.getElementById("tidio-chat-iframe").style.height=parseInt(tidio.css("height"))>=520?"520px":tidio.css("height");
-                            document.getElementById("tidio-chat-iframe").style.zIndex="997";
-                        } 
-                        else if(tidio.css("display")=="block"&&$(window).width()>601 &&$(window).width()<992 ){
-                            document.getElementById("tidio-chat-iframe").style.bottom= ($("div#backTop.top-scroll").css("display")=="none" && 601< $(window).width()<992)>0? "-40px":"20px" ;   
-                            document.getElementById("tidio-chat-iframe").style.right="-15px"; 
-                            document.getElementById("tidio-chat-iframe").style.zIndex="997";
-                        }
-                        else if(tidio.css("display")=="block"&&$(window).width()<601 && parseInt(tidio.css("height"))<230){
-                            document.getElementById("tidio-chat-iframe").style.bottom= ($("div#backTop.top-scroll").css("display")=="none" && $(window).width()<601)>0? "-10px":"45px" ;   
-                            document.getElementById("tidio-chat-iframe").style.zIndex="997";
-                        }
-
-                        if( tidio.css("display")=="block"&&$(window).width()<601 && parseInt(tidio.css("height"))>=230){
-                            document.getElementById("tidio-chat-iframe").style.zIndex="998";
-                        }
-                    } 
-                }); 
-            </script>
         
 
         <!-- 背景 canvas-nest   shw 2018  add 2019.09.15-->

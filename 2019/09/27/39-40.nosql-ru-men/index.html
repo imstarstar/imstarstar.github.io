@@ -30,13 +30,6 @@
     
     <style type="text/css">
         
-            
-            code[class*="language-"],
-            pre[class*="language-"] {
-                white-space: pre !important;
-            }
-
-        
     </style>
 
     <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
@@ -70,8 +63,7 @@
         </script>
     
 
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+<link rel="stylesheet" href="/css/prism-darcula.css" type="text/css"></head>
 
     <body>
 
@@ -859,13 +851,13 @@
 <li>消息队列 - 消息队列和高速缓存一样，是一个大型网站不可缺少的基础服务，可以实现业务解耦和非实时业务削峰等特性，这些我们都会在后面的项目中为大家展示。</li>
 </ol>
 <h4 id="Redis的安装和配置"><a href="#Redis的安装和配置" class="headerlink" title="Redis的安装和配置"></a>Redis的安装和配置</h4><p>可以使用Linux系统的包管理工具（如yum）来安装Redis，也可以通过在Redis的<a href="https://redis.io/" target="_blank" rel="noopener">官方网站</a>下载Redis的源代码，解压缩解归档之后通过make工具对源代码进行构建并安装，在更新这篇文档时，Redis官方提供的最新稳定版本是<a href="http://download.redis.io/releases/redis-5.0.4.tar.gz" target="_blank" rel="noopener">Redis 5.0.4</a>。</p>
-<pre class="line-numbers language-Shell"><code class="language-Shell">wget http://download.redis.io/releases/redis-5.0.4.tar.gz
+<pre class=" language-shell"><code class="language-shell">wget http://download.redis.io/releases/redis-5.0.4.tar.gz
 gunzip redis-5.0.4.tar.gz
 tar -xvf redis-5.0.4.tar
 cd redis-5.0.4
-make && make install<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+make && make install</code></pre>
 <p>在redis源代码目录下有一个名为redis.conf的配置文件，我们可以先查看一下该文件。</p>
-<pre class="line-numbers language-Shell"><code class="language-Shell">vim redis.conf<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class=" language-shell"><code class="language-shell">vim redis.conf</code></pre>
 <p>配置将Redis服务绑定到指定的IP地址和端口。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/imstarstar/cdn@v1.0/loading-spinning-bubbles.svg" data-original="/images/redis-bind-and-port.png" alt=""></p>
 <p>配置底层有多少个数据库。</p>
@@ -883,30 +875,30 @@ make && make install<span aria-hidden="true" class="line-numbers-rows"><span></s
 <p><img src="https://cdn.jsdelivr.net/gh/imstarstar/cdn@v1.0/loading-spinning-bubbles.svg" data-original="/images/redis-slow-logs.png" alt=""></p>
 <p>上面这些内容就是Redis的基本配置，如果你对上面的内容感到困惑也没有关系，先把Redis用起来再回头去推敲这些内容就行了。如果想找一些参考书，<a href="https://item.jd.com/12121730.html" target="_blank" rel="noopener">《Redis开发与运维》</a>是一本不错的入门读物，而<a href="https://item.jd.com/11791607.html" target="_blank" rel="noopener">《Redis实战》</a>是不错的进阶读物。</p>
 <h4 id="Redis的服务器和客户端"><a href="#Redis的服务器和客户端" class="headerlink" title="Redis的服务器和客户端"></a>Redis的服务器和客户端</h4><p>接下来启动Redis服务器，下面的方式将以默认的配置启动Redis服务。</p>
-<pre class="line-numbers language-Shell"><code class="language-Shell">redis-server<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class=" language-shell"><code class="language-shell">redis-server</code></pre>
 <p>如果希望修改Redis的配置（如端口、认证口令、持久化方式等），可以通过下面两种方式。</p>
 <p>方式一：通过参数指定认证口令和AOF持久化方式。</p>
-<pre class="line-numbers language-Shell"><code class="language-Shell">redis-server --requirepass 1qaz2wsx --appendonly yes<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class=" language-shell"><code class="language-shell">redis-server --requirepass 1qaz2wsx --appendonly yes</code></pre>
 <p>方式二：通过指定的配置文件来修改Redis的配置。</p>
-<pre class="line-numbers language-Shell"><code class="language-Shell">redis-server /root/redis-5.0.4/redis.conf<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class=" language-shell"><code class="language-shell">redis-server /root/redis-5.0.4/redis.conf</code></pre>
 <p>下面我们使用第一种方式来启动Redis并将其置于后台运行，将Redis产生的输出重定向到名为redis.log的文件中。</p>
-<pre class="line-numbers language-Shell"><code class="language-Shell">redis-server --requirepass 1qaz2wsx > redis.log &<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class=" language-shell"><code class="language-shell">redis-server --requirepass 1qaz2wsx > redis.log &</code></pre>
 <p>可以通过ps或者netstat来检查Redis服务器是否启动成功。</p>
-<pre class="line-numbers language-Shell"><code class="language-Shell">ps -ef | grep redis-server
-netstat -nap | grep redis-server<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class=" language-shell"><code class="language-shell">ps -ef | grep redis-server
+netstat -nap | grep redis-server</code></pre>
 <p>接下来，我们尝试用Redis客户端去连接服务器。</p>
-<pre class="line-numbers language-Shell"><code class="language-Shell">redis-cli
+<pre class=" language-shell"><code class="language-shell">redis-cli
 127.0.0.1:6379> auth 1qaz2wsx
 OK
 127.0.0.1:6379> ping
 PONG
-127.0.0.1:6379><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+127.0.0.1:6379></code></pre>
 <p>Redis有着非常丰富的数据类型，也有很多的命令来操作这些数据，具体的内容可以查看<a href="http://redisdoc.com/" target="_blank" rel="noopener">Redis命令参考</a>，在这个网站上，除了Redis的命令参考，还有Redis的详细文档，其中包括了通知、事务、主从复制、持久化、哨兵、集群等内容。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/imstarstar/cdn@v1.0/loading-spinning-bubbles.svg" data-original="/images/redis-data-types.png" alt=""></p>
 <blockquote>
 <p>说明：上面的插图来自付磊和张益军先生编著的《Redis开发与运维》一书。</p>
 </blockquote>
-<pre class="line-numbers language-Shell"><code class="language-Shell">127.0.0.1:6379> set username admin
+<pre class=" language-shell"><code class="language-shell">127.0.0.1:6379> set username admin
 OK
 127.0.0.1:6379> get username
 "admin"
@@ -1019,29 +1011,29 @@ OK
 "14.1230"
 127.0.0.1:6379> georadius pois 116.86499108288572 40.40149669363615 50 km withdist
 1) 1) "gubeishuizhen"
-   2) "44.7408"<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+   2) "44.7408"</code></pre>
 <h4 id="在Python程序中使用Redis"><a href="#在Python程序中使用Redis" class="headerlink" title="在Python程序中使用Redis"></a>在Python程序中使用Redis</h4><p>可以使用pip安装redis模块。redis模块的核心是名为Redis的类，该类的对象代表一个Redis客户端，通过该客户端可以向Redis服务器发送命令并获取执行的结果。上面我们在Redis客户端中使用的命令基本上就是Redis对象可以接收的消息，所以如果了解了Redis的命令就可以在Python中玩转Redis。</p>
-<pre class="line-numbers language-Shell"><code class="language-Shell">pip3 install redis
-python3<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<pre class="line-numbers language-Python"><code class="language-Python">>>> import redis
->>> client = redis.Redis(host='1.2.3.4', port=6379, password='1qaz2wsx')
->>> client.set('username', 'admin')
-True
->>> client.hset('student', 'name', 'hao')
-1
->>> client.hset('student', 'age', 38)
-1
->>> client.keys('*')
-[b'username', b'student']
->>> client.get('username')
-b'admin'
->>> client.hgetall('student')
-{b'name': b'hao', b'age': b'38'}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class=" language-shell"><code class="language-shell">pip3 install redis
+python3</code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token operator">>></span><span class="token operator">></span> <span class="token keyword">import</span> redis
+<span class="token operator">>></span><span class="token operator">></span> client <span class="token operator">=</span> redis<span class="token punctuation">.</span>Redis<span class="token punctuation">(</span>host<span class="token operator">=</span><span class="token string">'1.2.3.4'</span><span class="token punctuation">,</span> port<span class="token operator">=</span><span class="token number">6379</span><span class="token punctuation">,</span> password<span class="token operator">=</span><span class="token string">'1qaz2wsx'</span><span class="token punctuation">)</span>
+<span class="token operator">>></span><span class="token operator">></span> client<span class="token punctuation">.</span>set<span class="token punctuation">(</span><span class="token string">'username'</span><span class="token punctuation">,</span> <span class="token string">'admin'</span><span class="token punctuation">)</span>
+<span class="token boolean">True</span>
+<span class="token operator">>></span><span class="token operator">></span> client<span class="token punctuation">.</span>hset<span class="token punctuation">(</span><span class="token string">'student'</span><span class="token punctuation">,</span> <span class="token string">'name'</span><span class="token punctuation">,</span> <span class="token string">'hao'</span><span class="token punctuation">)</span>
+<span class="token number">1</span>
+<span class="token operator">>></span><span class="token operator">></span> client<span class="token punctuation">.</span>hset<span class="token punctuation">(</span><span class="token string">'student'</span><span class="token punctuation">,</span> <span class="token string">'age'</span><span class="token punctuation">,</span> <span class="token number">38</span><span class="token punctuation">)</span>
+<span class="token number">1</span>
+<span class="token operator">>></span><span class="token operator">></span> client<span class="token punctuation">.</span>keys<span class="token punctuation">(</span><span class="token string">'*'</span><span class="token punctuation">)</span>
+<span class="token punctuation">[</span>b<span class="token string">'username'</span><span class="token punctuation">,</span> b<span class="token string">'student'</span><span class="token punctuation">]</span>
+<span class="token operator">>></span><span class="token operator">></span> client<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'username'</span><span class="token punctuation">)</span>
+b<span class="token string">'admin'</span>
+<span class="token operator">>></span><span class="token operator">></span> client<span class="token punctuation">.</span>hgetall<span class="token punctuation">(</span><span class="token string">'student'</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>b<span class="token string">'name'</span><span class="token punctuation">:</span> b<span class="token string">'hao'</span><span class="token punctuation">,</span> b<span class="token string">'age'</span><span class="token punctuation">:</span> b<span class="token string">'38'</span><span class="token punctuation">}</span></code></pre>
 <h3 id="MongoDB概述"><a href="#MongoDB概述" class="headerlink" title="MongoDB概述"></a>MongoDB概述</h3><h4 id="MongoDB简介"><a href="#MongoDB简介" class="headerlink" title="MongoDB简介"></a>MongoDB简介</h4><p>MongoDB是2009年问世的一个面向文档的数据库管理系统，由C++语言编写，旨在为Web应用提供可扩展的高性能数据存储解决方案。虽然在划分类别的时候后，MongoDB被认为是NoSQL的产品，但是它更像一个介于关系数据库和非关系数据库之间的产品，在非关系数据库中它功能最丰富，最像关系数据库。</p>
 <p>MongoDB将数据存储为一个文档，一个文档由一系列的“键值对”组成，其文档类似于JSON对象，但是MongoDB对JSON进行了二进制处理（能够更快的定位key和value），因此其文档的存储格式称为BSON。关于JSON和BSON的差别大家可以看看MongoDB官方网站的文章<a href="https://www.mongodb.com/json-and-bson" target="_blank" rel="noopener">《JSON and BSON》</a>。</p>
 <p>目前，MongoDB已经提供了对Windows、MacOS、Linux、Solaris等多个平台的支持，而且也提供了多种开发语言的驱动程序，Python当然是其中之一。</p>
 <h4 id="MongoDB的安装和配置"><a href="#MongoDB的安装和配置" class="headerlink" title="MongoDB的安装和配置"></a>MongoDB的安装和配置</h4><p>可以从MongoDB的<a href="https://www.mongodb.com/download-center#community" target="_blank" rel="noopener">官方下载链接</a>下载MongoDB，官方为Windows系统提供了一个Installer程序，而Linux和MacOS则提供了压缩文件。下面简单说一下Linux系统如何安装和配置MongoDB。</p>
-<pre class="line-numbers language-Shell"><code class="language-Shell">wget https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-amazon-3.6.5.tgz
+<pre class=" language-shell"><code class="language-shell">wget https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-amazon-3.6.5.tgz
 gunzip mongodb-linux-x86_64-amazon-3.6.5.tgz
 mkdir mongodb-3.6.5
 tar -xvf mongodb-linux-x86_64-amazon-3.6.5.tar --strip-components 1 -C mongodb-3.6.5/
@@ -1054,7 +1046,7 @@ mongod --bind_ip 172.18.61.250
 2018-06-03T18:03:28.232+0800 I CONTROL  [initandlisten] git version: a20ecd3e3a174162052ff99913bc2ca9a839d618
 2018-06-03T18:03:28.232+0800 I CONTROL  [initandlisten] OpenSSL version: OpenSSL 1.0.0-fips29 Mar 2010
 ...
-2018-06-03T18:03:28.945+0800 I NETWORK  [initandlisten] waiting for connections on port 27017<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+2018-06-03T18:03:28.945+0800 I NETWORK  [initandlisten] waiting for connections on port 27017</code></pre>
 <blockquote>
 <p>说明：上面的操作中，export命令是设置PATH环境变量，这样可以在任意路径下执行mongod来启动MongoDB服务器。MongoDB默认保存数据的路径是/data/db目录，为此要提前创建该目录。此外，在使用mongod启动MongoDB服务器时，–bind_ip参数用来将服务绑定到指定的IP地址，也可以用–port参数来指定端口，默认端口为27017。</p>
 </blockquote>
@@ -1104,13 +1096,13 @@ mongod --bind_ip 172.18.61.250
 </tr>
 </tbody></table>
 <h4 id="通过Shell操作MongoDB"><a href="#通过Shell操作MongoDB" class="headerlink" title="通过Shell操作MongoDB"></a>通过Shell操作MongoDB</h4><p>启动服务器后可以使用交互式环境跟服务器通信，如下所示。</p>
-<pre class="line-numbers language-shell"><code class="language-shell">mongo --host 172.18.61.250
+<pre class=" language-shell"><code class="language-shell">mongo --host 172.18.61.250
 
 MongoDB shell version v3.6.5
-connecting to: mongodb://172.18.61.250:27017/<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+connecting to: mongodb://172.18.61.250:27017/</code></pre>
 <ol>
 <li><p>查看、创建和删除数据库。</p>
-<pre class="line-numbers language-JavaScript"><code class="language-JavaScript">> // 显示所有数据库
+<pre class=" language-JavaScript"><code class="language-JavaScript">> // 显示所有数据库
 > show dbs
 admin   0.000GB
 config  0.000GB
@@ -1121,10 +1113,10 @@ switched to db school
 > // 删除当前数据库
 > db.dropDatabase()
 { "ok" : 1 }
-><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+></code></pre>
 </li>
 <li><p>创建、删除和查看集合。</p>
-<pre class="line-numbers language-JavaScript"><code class="language-JavaScript">> // 创建并切换到school数据库
+<pre class=" language-JavaScript"><code class="language-JavaScript">> // 创建并切换到school数据库
 > use school
 switched to db school
 > // 创建colleges集合
@@ -1140,13 +1132,13 @@ students
 > // 删除colleges集合
 > db.colleges.drop()
 true
-> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+> </code></pre>
 <blockquote>
 <p>说明：在MongoDB中插入文档时如果集合不存在会自动创建集合，所以也可以按照下面的方式通过创建文档来创建集合。</p>
 </blockquote>
 </li>
 <li><p>文档的CRUD操作。</p>
-<pre class="line-numbers language-JavaScript"><code class="language-JavaScript">> // 向students集合插入文档
+<pre class=" language-JavaScript"><code class="language-JavaScript">> // 向students集合插入文档
 > db.students.insert({stuid: 1001, name: '骆昊', age: 38})
 WriteResult({ "nInserted" : 1 })
 > // 向students集合插入文档
@@ -1237,56 +1229,56 @@ WriteResult({
         "numIndexesAfter" : 2,
         "ok" : 1
 }
-> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+> </code></pre>
 </li>
 </ol>
 <p>使用MongoDB可以非常方便的配置数据复制，通过冗余数据来实现数据的高可用以及灾难恢复，也可以通过数据分片来应对数据量迅速增长的需求。关于MongoDB更多的操作可以查阅<a href="https://mongodb-documentation.readthedocs.io/en/latest/" target="_blank" rel="noopener">官方文档</a> ，同时推荐大家阅读Kristina Chodorow写的<a href="http://www.ituring.com.cn/book/1172" target="_blank" rel="noopener">《MongoDB权威指南》</a>。</p>
 <h4 id="在Python程序中操作MongoDB"><a href="#在Python程序中操作MongoDB" class="headerlink" title="在Python程序中操作MongoDB"></a>在Python程序中操作MongoDB</h4><p>可以通过pip安装pymongo来实现对MongoDB的操作。</p>
-<pre class="line-numbers language-Shell"><code class="language-Shell">pip3 install pymongo
-python3<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<pre class="line-numbers language-Python"><code class="language-Python">>>> from pymongo import MongoClient
->>> client = MongoClient('mongodb://127.0.0.1:27017') 
->>> db = client.school
->>> for student in db.students.find():
-...     print('学号:', student['stuid'])
-...     print('姓名:', student['name'])
-...     print('电话:', student['tel'])
-... 
-学号: 1001.0
-姓名: 骆昊
-电话: 13566778899
-学号: 1002.0
-姓名: 王大锤
-电话: 13012345678
-学号: 1003.0
-姓名: 白元芳
-电话: 13022223333
->>> db.students.find().count()
-3
->>> db.students.remove()
-{'n': 3, 'ok': 1.0}
->>> db.students.find().count()
-0
->>> coll = db.students
->>> from pymongo import ASCENDING
->>> coll.create_index([('name', ASCENDING)], unique=True)
-'name_1'
->>> coll.insert_one({'stuid': int(1001), 'name': '骆昊', 'gender': True})
-<pymongo.results.InsertOneResult object at 0x1050cc6c8>
->>> coll.insert_many([{'stuid': int(1002), 'name': '王大锤', 'gender': False}, {'stuid': int(1003), 'name': '白元芳', 'gender': True}])
-<pymongo.results.InsertManyResult object at 0x1050cc8c8>
->>> for student in coll.find({'gender': True}):
-...     print('学号:', student['stuid'])
-...     print('姓名:', student['name'])
-...     print('性别:', '男' if student['gender'] else '女')
-... 
-学号: 1001
-姓名: 骆昊
-性别: 男
-学号: 1003
-姓名: 白元芳
-性别: 男
->>> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class=" language-shell"><code class="language-shell">pip3 install pymongo
+python3</code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token operator">>></span><span class="token operator">></span> <span class="token keyword">from</span> pymongo <span class="token keyword">import</span> MongoClient
+<span class="token operator">>></span><span class="token operator">></span> client <span class="token operator">=</span> MongoClient<span class="token punctuation">(</span><span class="token string">'mongodb://127.0.0.1:27017'</span><span class="token punctuation">)</span> 
+<span class="token operator">>></span><span class="token operator">></span> db <span class="token operator">=</span> client<span class="token punctuation">.</span>school
+<span class="token operator">>></span><span class="token operator">></span> <span class="token keyword">for</span> student <span class="token keyword">in</span> db<span class="token punctuation">.</span>students<span class="token punctuation">.</span>find<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>     <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'学号:'</span><span class="token punctuation">,</span> student<span class="token punctuation">[</span><span class="token string">'stuid'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>     <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'姓名:'</span><span class="token punctuation">,</span> student<span class="token punctuation">[</span><span class="token string">'name'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>     <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'电话:'</span><span class="token punctuation">,</span> student<span class="token punctuation">[</span><span class="token string">'tel'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> 
+学号<span class="token punctuation">:</span> <span class="token number">1001.0</span>
+姓名<span class="token punctuation">:</span> 骆昊
+电话<span class="token punctuation">:</span> <span class="token number">13566778899</span>
+学号<span class="token punctuation">:</span> <span class="token number">1002.0</span>
+姓名<span class="token punctuation">:</span> 王大锤
+电话<span class="token punctuation">:</span> <span class="token number">13012345678</span>
+学号<span class="token punctuation">:</span> <span class="token number">1003.0</span>
+姓名<span class="token punctuation">:</span> 白元芳
+电话<span class="token punctuation">:</span> <span class="token number">13022223333</span>
+<span class="token operator">>></span><span class="token operator">></span> db<span class="token punctuation">.</span>students<span class="token punctuation">.</span>find<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>count<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token number">3</span>
+<span class="token operator">>></span><span class="token operator">></span> db<span class="token punctuation">.</span>students<span class="token punctuation">.</span>remove<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span><span class="token string">'n'</span><span class="token punctuation">:</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token string">'ok'</span><span class="token punctuation">:</span> <span class="token number">1.0</span><span class="token punctuation">}</span>
+<span class="token operator">>></span><span class="token operator">></span> db<span class="token punctuation">.</span>students<span class="token punctuation">.</span>find<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>count<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token number">0</span>
+<span class="token operator">>></span><span class="token operator">></span> coll <span class="token operator">=</span> db<span class="token punctuation">.</span>students
+<span class="token operator">>></span><span class="token operator">></span> <span class="token keyword">from</span> pymongo <span class="token keyword">import</span> ASCENDING
+<span class="token operator">>></span><span class="token operator">></span> coll<span class="token punctuation">.</span>create_index<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">(</span><span class="token string">'name'</span><span class="token punctuation">,</span> ASCENDING<span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">,</span> unique<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+<span class="token string">'name_1'</span>
+<span class="token operator">>></span><span class="token operator">></span> coll<span class="token punctuation">.</span>insert_one<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">'stuid'</span><span class="token punctuation">:</span> int<span class="token punctuation">(</span><span class="token number">1001</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">'name'</span><span class="token punctuation">:</span> <span class="token string">'骆昊'</span><span class="token punctuation">,</span> <span class="token string">'gender'</span><span class="token punctuation">:</span> <span class="token boolean">True</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token operator">&lt;</span>pymongo<span class="token punctuation">.</span>results<span class="token punctuation">.</span>InsertOneResult object at <span class="token number">0x1050cc6c8</span><span class="token operator">></span>
+<span class="token operator">>></span><span class="token operator">></span> coll<span class="token punctuation">.</span>insert_many<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">{</span><span class="token string">'stuid'</span><span class="token punctuation">:</span> int<span class="token punctuation">(</span><span class="token number">1002</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">'name'</span><span class="token punctuation">:</span> <span class="token string">'王大锤'</span><span class="token punctuation">,</span> <span class="token string">'gender'</span><span class="token punctuation">:</span> <span class="token boolean">False</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span><span class="token string">'stuid'</span><span class="token punctuation">:</span> int<span class="token punctuation">(</span><span class="token number">1003</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">'name'</span><span class="token punctuation">:</span> <span class="token string">'白元芳'</span><span class="token punctuation">,</span> <span class="token string">'gender'</span><span class="token punctuation">:</span> <span class="token boolean">True</span><span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token operator">&lt;</span>pymongo<span class="token punctuation">.</span>results<span class="token punctuation">.</span>InsertManyResult object at <span class="token number">0x1050cc8c8</span><span class="token operator">></span>
+<span class="token operator">>></span><span class="token operator">></span> <span class="token keyword">for</span> student <span class="token keyword">in</span> coll<span class="token punctuation">.</span>find<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">'gender'</span><span class="token punctuation">:</span> <span class="token boolean">True</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>     <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'学号:'</span><span class="token punctuation">,</span> student<span class="token punctuation">[</span><span class="token string">'stuid'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>     <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'姓名:'</span><span class="token punctuation">,</span> student<span class="token punctuation">[</span><span class="token string">'name'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>     <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'性别:'</span><span class="token punctuation">,</span> <span class="token string">'男'</span> <span class="token keyword">if</span> student<span class="token punctuation">[</span><span class="token string">'gender'</span><span class="token punctuation">]</span> <span class="token keyword">else</span> <span class="token string">'女'</span><span class="token punctuation">)</span>
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> 
+学号<span class="token punctuation">:</span> <span class="token number">1001</span>
+姓名<span class="token punctuation">:</span> 骆昊
+性别<span class="token punctuation">:</span> 男
+学号<span class="token punctuation">:</span> <span class="token number">1003</span>
+姓名<span class="token punctuation">:</span> 白元芳
+性别<span class="token punctuation">:</span> 男
+<span class="token operator">>></span><span class="token operator">></span> </code></pre>
 <p>关于PyMongo更多的知识可以通过它的<a href="https://api.mongodb.com/python/current/tutorial.html" target="_blank" rel="noopener">官方文档</a>进行了解，也可以使用<a href="https://pypi.org/project/mongoengine/" target="_blank" rel="noopener">MongoEngine</a>这样的库来简化Python程序对MongoDB的操作，除此之外，还有以异步I/O方式访问MongoDB的三方库<a href="https://pypi.org/project/motor/" target="_blank" rel="noopener">motor</a>都是不错的选择。</p>
 <script>
         document.querySelectorAll('.github-emoji')
@@ -2076,7 +2068,7 @@ python3<span aria-hidden="true" class="line-numbers-rows"><span></span><span></s
 
             
                 &nbsp; | &nbsp;字数统计:&nbsp;
-                <span class="white-color">81.2k</span> 字
+                <span class="white-color">88.5k</span> 字
             
 
             
@@ -2248,38 +2240,6 @@ $(function () {
         
 
         <!-- 在线聊天工具   MissStar add 2019.09.11 -->
-        
-            <script src="//code.tidio.co/xfbwhpmnuosuvdgs72u7tuuxzcg74v3f.js"></script>
-            <!--  在线聊天位置自定义   MissStar add 2019.09.13  -->
-            <script> 
-                $(document).ready(function () {
-
-                    setInterval(change_Tidio, 50);  
-                    function change_Tidio() { 
-
-                        var tidio=$("#tidio-chat iframe");
-                        if(tidio.css("display")=="block"&& $(window).width()>977 ){
-                            document.getElementById("tidio-chat-iframe").style.bottom= ($("div#backTop.top-scroll").css("display")=="none" &&$(window).width()>977)>0? "-40px" : ($("div.toc-title").length&&$(window).width()>977)>0?"80px":"20px";   
-                            document.getElementById("tidio-chat-iframe").style.right="-15px";   
-                            document.getElementById("tidio-chat-iframe").style.height=parseInt(tidio.css("height"))>=520?"520px":tidio.css("height");
-                            document.getElementById("tidio-chat-iframe").style.zIndex="997";
-                        } 
-                        else if(tidio.css("display")=="block"&&$(window).width()>601 &&$(window).width()<992 ){
-                            document.getElementById("tidio-chat-iframe").style.bottom= ($("div#backTop.top-scroll").css("display")=="none" && 601< $(window).width()<992)>0? "-40px":"20px" ;   
-                            document.getElementById("tidio-chat-iframe").style.right="-15px"; 
-                            document.getElementById("tidio-chat-iframe").style.zIndex="997";
-                        }
-                        else if(tidio.css("display")=="block"&&$(window).width()<601 && parseInt(tidio.css("height"))<230){
-                            document.getElementById("tidio-chat-iframe").style.bottom= ($("div#backTop.top-scroll").css("display")=="none" && $(window).width()<601)>0? "-10px":"45px" ;   
-                            document.getElementById("tidio-chat-iframe").style.zIndex="997";
-                        }
-
-                        if( tidio.css("display")=="block"&&$(window).width()<601 && parseInt(tidio.css("height"))>=230){
-                            document.getElementById("tidio-chat-iframe").style.zIndex="998";
-                        }
-                    } 
-                }); 
-            </script>
         
 
         <!-- 背景 canvas-nest   shw 2018  add 2019.09.15-->

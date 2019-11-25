@@ -30,13 +30,6 @@
     
     <style type="text/css">
         
-            
-            code[class*="language-"],
-            pre[class*="language-"] {
-                white-space: pre !important;
-            }
-
-        
     </style>
 
     <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
@@ -70,8 +63,7 @@
         </script>
     
 
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+<link rel="stylesheet" href="/css/prism-darcula.css" type="text/css"></head>
 
     <body>
 
@@ -776,14 +768,14 @@
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        583
+                        1.4k
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        2 分
+                        5 分
                     </div>
                     
                 
@@ -802,122 +794,122 @@
             <div id="articleContent">
                 <h2 id="分支结构"><a href="#分支结构" class="headerlink" title="分支结构"></a>分支结构</h2><h3 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h3><p>迄今为止，我们写的Python代码都是一条一条语句顺序执行，这种代码结构通常称之为顺序结构。然而仅有顺序结构并不能解决所有的问题，比如我们设计一个游戏，游戏第一关的通关条件是玩家获得1000分，那么在完成本局游戏后，我们要根据玩家得到分数来决定究竟是进入第二关，还是告诉玩家“Game Over”，这里就会产生两个分支，而且这两个分支只有一个会被执行。类似的场景还有很多，我们将这种结构称之为“分支结构”或“选择结构”。给大家一分钟的时间，你应该可以想到至少5个以上这样的例子，赶紧试一试。</p>
 <h3 id="if语句的使用"><a href="#if语句的使用" class="headerlink" title="if语句的使用"></a>if语句的使用</h3><p>在Python中，要构造分支结构可以使用<code>if</code>、<code>elif</code>和<code>else</code>关键字。所谓<strong>关键字</strong>就是有特殊含义的单词，像<code>if</code>和<code>else</code>就是专门用于构造分支结构的关键字，很显然你不能够使用它作为变量名（事实上，用作其他的标识符也是不可以）。下面的例子中演示了如何构造一个分支结构。</p>
-<pre class="line-numbers language-Python"><code class="language-Python">"""
+<pre class=" language-python"><code class="language-python"><span class="token triple-quoted-string string">"""
 用户身份验证
 
 Version: 0.1
 Author: 骆昊
-"""
+"""</span>
 
-username = input('请输入用户名: ')
-password = input('请输入口令: ')
-# 用户名是admin且密码是123456则身份验证成功否则身份验证失败
-if username == 'admin' and password == '123456':
-    print('身份验证成功!')
-else:
-    print('身份验证失败!')<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+username <span class="token operator">=</span> input<span class="token punctuation">(</span><span class="token string">'请输入用户名: '</span><span class="token punctuation">)</span>
+password <span class="token operator">=</span> input<span class="token punctuation">(</span><span class="token string">'请输入口令: '</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 用户名是admin且密码是123456则身份验证成功否则身份验证失败</span>
+<span class="token keyword">if</span> username <span class="token operator">==</span> <span class="token string">'admin'</span> <span class="token operator">and</span> password <span class="token operator">==</span> <span class="token string">'123456'</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'身份验证成功!'</span><span class="token punctuation">)</span>
+<span class="token keyword">else</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'身份验证失败!'</span><span class="token punctuation">)</span></code></pre>
 <p>唯一需要说明的是和C/C++、Java等语言不同，Python中没有用花括号来构造代码块而是使用了缩进的方式来设置代码的层次结构，如果<code>if</code>条件成立的情况下需要执行多条语句，只要保持多条语句具有相同的缩进就可以了，换句话说连续的代码如果又保持了相同的缩进那么它们属于同一个代码块，相当于是一个执行的整体。</p>
 <p>当然如果要构造出更多的分支，可以使用<code>if…elif…else…</code>结构，例如下面的分段函数求值。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/imstarstar/cdn@v1.0/loading-spinning-bubbles.svg" data-original="/images/formula_1.png" alt="$$f(x)=\begin{cases} 3x-5&amp;\text{(x>1)}\\x+2&amp;\text{(-1}\leq\text{x}\leq\text{1)}\\5x+3&amp;\text {(x<-1)}\end{cases}$$"></p>
-<pre class="line-numbers language-Python"><code class="language-Python">"""
+<pre class=" language-python"><code class="language-python"><span class="token triple-quoted-string string">"""
 分段函数求值
 
         3x - 5  (x > 1)
-f(x) =  x + 2   (-1 <= x <= 1)
-        5x + 3  (x < -1)
+f(x) =  x + 2   (-1 &lt;= x &lt;= 1)
+        5x + 3  (x &lt; -1)
 
 Version: 0.1
 Author: 骆昊
-"""
+"""</span>
 
-x = float(input('x = '))
-if x > 1:
-    y = 3 * x - 5
-elif x >= -1:
-    y = x + 2
-else:
-    y = 5 * x + 3
-print('f(%.2f) = %.2f' % (x, y))<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+x <span class="token operator">=</span> float<span class="token punctuation">(</span>input<span class="token punctuation">(</span><span class="token string">'x = '</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">if</span> x <span class="token operator">></span> <span class="token number">1</span><span class="token punctuation">:</span>
+    y <span class="token operator">=</span> <span class="token number">3</span> <span class="token operator">*</span> x <span class="token operator">-</span> <span class="token number">5</span>
+<span class="token keyword">elif</span> x <span class="token operator">>=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">:</span>
+    y <span class="token operator">=</span> x <span class="token operator">+</span> <span class="token number">2</span>
+<span class="token keyword">else</span><span class="token punctuation">:</span>
+    y <span class="token operator">=</span> <span class="token number">5</span> <span class="token operator">*</span> x <span class="token operator">+</span> <span class="token number">3</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'f(%.2f) = %.2f'</span> <span class="token operator">%</span> <span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
 <p>当然根据实际开发的需要，分支结构是可以嵌套的，例如判断是否通关以后还要根据你获得的宝物或者道具的数量对你的表现给出等级（比如点亮两颗或三颗星星），那么我们就需要在<code>if</code>的内部构造出一个新的分支结构，同理<code>elif</code>和<code>else</code>中也可以再构造新的分支，我们称之为嵌套的分支结构，也就是说上面的代码也可以写成下面的样子。</p>
-<pre class="line-numbers language-Python"><code class="language-Python">"""
+<pre class=" language-python"><code class="language-python"><span class="token triple-quoted-string string">"""
 分段函数求值
         3x - 5    (x > 1)
-f(x) =    x + 2    (-1 <= x <= 1)
-        5x + 3    (x < -1)
+f(x) =    x + 2    (-1 &lt;= x &lt;= 1)
+        5x + 3    (x &lt; -1)
 
 Version: 0.1
 Author: 骆昊
-"""
+"""</span>
 
-x = float(input('x = '))
-if x > 1:
-    y = 3 * x - 5
-else:
-    if x >= -1:
-        y = x + 2
-    else:
-        y = 5 * x + 3
-print('f(%.2f) = %.2f' % (x, y))<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+x <span class="token operator">=</span> float<span class="token punctuation">(</span>input<span class="token punctuation">(</span><span class="token string">'x = '</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">if</span> x <span class="token operator">></span> <span class="token number">1</span><span class="token punctuation">:</span>
+    y <span class="token operator">=</span> <span class="token number">3</span> <span class="token operator">*</span> x <span class="token operator">-</span> <span class="token number">5</span>
+<span class="token keyword">else</span><span class="token punctuation">:</span>
+    <span class="token keyword">if</span> x <span class="token operator">>=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">:</span>
+        y <span class="token operator">=</span> x <span class="token operator">+</span> <span class="token number">2</span>
+    <span class="token keyword">else</span><span class="token punctuation">:</span>
+        y <span class="token operator">=</span> <span class="token number">5</span> <span class="token operator">*</span> x <span class="token operator">+</span> <span class="token number">3</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'f(%.2f) = %.2f'</span> <span class="token operator">%</span> <span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
 <blockquote>
 <p><strong>说明：</strong> 大家可以自己感受一下这两种写法到底是哪一种更好。在之前我们提到的Python之禅中有这么一句话“Flat is better than nested.”，之所以提倡代码“扁平化”是因为嵌套结构的嵌套层次多了之后会严重的影响代码的可读性，所以能使用扁平化的结构时就不要使用嵌套。</p>
 </blockquote>
 <h3 id="练习"><a href="#练习" class="headerlink" title="练习"></a>练习</h3><h4 id="练习1：英制单位英寸与公制单位厘米互换。"><a href="#练习1：英制单位英寸与公制单位厘米互换。" class="headerlink" title="练习1：英制单位英寸与公制单位厘米互换。"></a>练习1：英制单位英寸与公制单位厘米互换。</h4><p>参考答案：</p>
-<pre class="line-numbers language-Python"><code class="language-Python">"""
+<pre class=" language-python"><code class="language-python"><span class="token triple-quoted-string string">"""
 英制单位英寸和公制单位厘米互换
 
 Version: 0.1
 Author: 骆昊
-"""
+"""</span>
 
-value = float(input('请输入长度: '))
-unit = input('请输入单位: ')
-if unit == 'in' or unit == '英寸':
-    print('%f英寸 = %f厘米' % (value, value * 2.54))
-elif unit == 'cm' or unit == '厘米':
-    print('%f厘米 = %f英寸' % (value, value / 2.54))
-else:
-    print('请输入有效的单位')<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+value <span class="token operator">=</span> float<span class="token punctuation">(</span>input<span class="token punctuation">(</span><span class="token string">'请输入长度: '</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+unit <span class="token operator">=</span> input<span class="token punctuation">(</span><span class="token string">'请输入单位: '</span><span class="token punctuation">)</span>
+<span class="token keyword">if</span> unit <span class="token operator">==</span> <span class="token string">'in'</span> <span class="token operator">or</span> unit <span class="token operator">==</span> <span class="token string">'英寸'</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'%f英寸 = %f厘米'</span> <span class="token operator">%</span> <span class="token punctuation">(</span>value<span class="token punctuation">,</span> value <span class="token operator">*</span> <span class="token number">2.54</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">elif</span> unit <span class="token operator">==</span> <span class="token string">'cm'</span> <span class="token operator">or</span> unit <span class="token operator">==</span> <span class="token string">'厘米'</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'%f厘米 = %f英寸'</span> <span class="token operator">%</span> <span class="token punctuation">(</span>value<span class="token punctuation">,</span> value <span class="token operator">/</span> <span class="token number">2.54</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">else</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'请输入有效的单位'</span><span class="token punctuation">)</span></code></pre>
 <h4 id="练习2：百分制成绩转换为等级制成绩。"><a href="#练习2：百分制成绩转换为等级制成绩。" class="headerlink" title="练习2：百分制成绩转换为等级制成绩。"></a>练习2：百分制成绩转换为等级制成绩。</h4><blockquote>
 <p><strong>要求</strong>：如果输入的成绩在90分以上（含90分）输出A；80分-90分（不含90分）输出B；70分-80分（不含80分）输出C；60分-70分（不含70分）输出D；60分以下输出E。</p>
 </blockquote>
 <p>参考答案：</p>
-<pre class="line-numbers language-Python"><code class="language-Python">"""
+<pre class=" language-python"><code class="language-python"><span class="token triple-quoted-string string">"""
 百分制成绩转换为等级制成绩
 
 Version: 0.1
 Author: 骆昊
-"""
+"""</span>
 
-score = float(input('请输入成绩: '))
-if score >= 90:
-    grade = 'A'
-elif score >= 80:
-    grade = 'B'
-elif score >= 70:
-    grade = 'C'
-elif score >= 60:
-    grade = 'D'
-else:
-    grade = 'E'
-print('对应的等级是:', grade)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+score <span class="token operator">=</span> float<span class="token punctuation">(</span>input<span class="token punctuation">(</span><span class="token string">'请输入成绩: '</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">if</span> score <span class="token operator">>=</span> <span class="token number">90</span><span class="token punctuation">:</span>
+    grade <span class="token operator">=</span> <span class="token string">'A'</span>
+<span class="token keyword">elif</span> score <span class="token operator">>=</span> <span class="token number">80</span><span class="token punctuation">:</span>
+    grade <span class="token operator">=</span> <span class="token string">'B'</span>
+<span class="token keyword">elif</span> score <span class="token operator">>=</span> <span class="token number">70</span><span class="token punctuation">:</span>
+    grade <span class="token operator">=</span> <span class="token string">'C'</span>
+<span class="token keyword">elif</span> score <span class="token operator">>=</span> <span class="token number">60</span><span class="token punctuation">:</span>
+    grade <span class="token operator">=</span> <span class="token string">'D'</span>
+<span class="token keyword">else</span><span class="token punctuation">:</span>
+    grade <span class="token operator">=</span> <span class="token string">'E'</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'对应的等级是:'</span><span class="token punctuation">,</span> grade<span class="token punctuation">)</span></code></pre>
 <h4 id="练习3：输入三条边长，如果能构成三角形就计算周长和面积。"><a href="#练习3：输入三条边长，如果能构成三角形就计算周长和面积。" class="headerlink" title="练习3：输入三条边长，如果能构成三角形就计算周长和面积。"></a>练习3：输入三条边长，如果能构成三角形就计算周长和面积。</h4><p>参考答案：</p>
-<pre class="line-numbers language-Python"><code class="language-Python">"""
+<pre class=" language-python"><code class="language-python"><span class="token triple-quoted-string string">"""
 判断输入的边长能否构成三角形，如果能则计算出三角形的周长和面积
 
 Version: 0.1
 Author: 骆昊
-"""
+"""</span>
 
-a = float(input('a = '))
-b = float(input('b = '))
-c = float(input('c = '))
-if a + b > c and a + c > b and b + c > a:
-    print('周长: %f' % (a + b + c))
-    p = (a + b + c) / 2
-    area = (p * (p - a) * (p - b) * (p - c)) ** 0.5
-    print('面积: %f' % (area))
-else:
-    print('不能构成三角形')<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+a <span class="token operator">=</span> float<span class="token punctuation">(</span>input<span class="token punctuation">(</span><span class="token string">'a = '</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+b <span class="token operator">=</span> float<span class="token punctuation">(</span>input<span class="token punctuation">(</span><span class="token string">'b = '</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+c <span class="token operator">=</span> float<span class="token punctuation">(</span>input<span class="token punctuation">(</span><span class="token string">'c = '</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">if</span> a <span class="token operator">+</span> b <span class="token operator">></span> c <span class="token operator">and</span> a <span class="token operator">+</span> c <span class="token operator">></span> b <span class="token operator">and</span> b <span class="token operator">+</span> c <span class="token operator">></span> a<span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'周长: %f'</span> <span class="token operator">%</span> <span class="token punctuation">(</span>a <span class="token operator">+</span> b <span class="token operator">+</span> c<span class="token punctuation">)</span><span class="token punctuation">)</span>
+    p <span class="token operator">=</span> <span class="token punctuation">(</span>a <span class="token operator">+</span> b <span class="token operator">+</span> c<span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token number">2</span>
+    area <span class="token operator">=</span> <span class="token punctuation">(</span>p <span class="token operator">*</span> <span class="token punctuation">(</span>p <span class="token operator">-</span> a<span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token punctuation">(</span>p <span class="token operator">-</span> b<span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token punctuation">(</span>p <span class="token operator">-</span> c<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">**</span> <span class="token number">0.5</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'面积: %f'</span> <span class="token operator">%</span> <span class="token punctuation">(</span>area<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">else</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'不能构成三角形'</span><span class="token punctuation">)</span></code></pre>
 <blockquote>
 <p><strong>说明：</strong> 上面使用的通过边长计算三角形面积的公式叫做<a href="https://zh.wikipedia.org/zh-hans/海伦公式" target="_blank" rel="noopener">海伦公式</a>。</p>
 </blockquote>
@@ -1702,7 +1694,7 @@ else:
 
             
                 &nbsp; | &nbsp;字数统计:&nbsp;
-                <span class="white-color">81.2k</span> 字
+                <span class="white-color">88.5k</span> 字
             
 
             
@@ -1874,38 +1866,6 @@ $(function () {
         
 
         <!-- 在线聊天工具   MissStar add 2019.09.11 -->
-        
-            <script src="//code.tidio.co/xfbwhpmnuosuvdgs72u7tuuxzcg74v3f.js"></script>
-            <!--  在线聊天位置自定义   MissStar add 2019.09.13  -->
-            <script> 
-                $(document).ready(function () {
-
-                    setInterval(change_Tidio, 50);  
-                    function change_Tidio() { 
-
-                        var tidio=$("#tidio-chat iframe");
-                        if(tidio.css("display")=="block"&& $(window).width()>977 ){
-                            document.getElementById("tidio-chat-iframe").style.bottom= ($("div#backTop.top-scroll").css("display")=="none" &&$(window).width()>977)>0? "-40px" : ($("div.toc-title").length&&$(window).width()>977)>0?"80px":"20px";   
-                            document.getElementById("tidio-chat-iframe").style.right="-15px";   
-                            document.getElementById("tidio-chat-iframe").style.height=parseInt(tidio.css("height"))>=520?"520px":tidio.css("height");
-                            document.getElementById("tidio-chat-iframe").style.zIndex="997";
-                        } 
-                        else if(tidio.css("display")=="block"&&$(window).width()>601 &&$(window).width()<992 ){
-                            document.getElementById("tidio-chat-iframe").style.bottom= ($("div#backTop.top-scroll").css("display")=="none" && 601< $(window).width()<992)>0? "-40px":"20px" ;   
-                            document.getElementById("tidio-chat-iframe").style.right="-15px"; 
-                            document.getElementById("tidio-chat-iframe").style.zIndex="997";
-                        }
-                        else if(tidio.css("display")=="block"&&$(window).width()<601 && parseInt(tidio.css("height"))<230){
-                            document.getElementById("tidio-chat-iframe").style.bottom= ($("div#backTop.top-scroll").css("display")=="none" && $(window).width()<601)>0? "-10px":"45px" ;   
-                            document.getElementById("tidio-chat-iframe").style.zIndex="997";
-                        }
-
-                        if( tidio.css("display")=="block"&&$(window).width()<601 && parseInt(tidio.css("height"))>=230){
-                            document.getElementById("tidio-chat-iframe").style.zIndex="998";
-                        }
-                    } 
-                }); 
-            </script>
         
 
         <!-- 背景 canvas-nest   shw 2018  add 2019.09.15-->

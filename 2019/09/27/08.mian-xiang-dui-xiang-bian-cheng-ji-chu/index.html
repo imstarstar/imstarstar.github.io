@@ -31,13 +31,6 @@
     
     <style type="text/css">
         
-            
-            code[class*="language-"],
-            pre[class*="language-"] {
-                white-space: pre !important;
-            }
-
-        
     </style>
 
     <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
@@ -71,8 +64,7 @@
         </script>
     
 
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+<link rel="stylesheet" href="/css/prism-darcula.css" type="text/css"></head>
 
     <body>
 
@@ -816,177 +808,177 @@
 <h3 id="类和对象"><a href="#类和对象" class="headerlink" title="类和对象"></a>类和对象</h3><p>简单的说，类是对象的蓝图和模板，而对象是类的实例。这个解释虽然有点像用概念在解释概念，但是从这句话我们至少可以看出，类是抽象的概念，而对象是具体的东西。在面向对象编程的世界中，一切皆为对象，对象都有属性和行为，每个对象都是独一无二的，而且对象一定属于某个类（型）。当我们把一大堆拥有共同特征的对象的静态特征（属性）和动态特征（行为）都抽取出来后，就可以定义出一个叫做“类”的东西。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/imstarstar/cdn@v1.0/loading-spinning-bubbles.svg" data-original="/images/object-feature.png" alt=""></p>
 <h3 id="定义类"><a href="#定义类" class="headerlink" title="定义类"></a>定义类</h3><p>在Python中可以使用<code>class</code>关键字定义类，然后在类中通过之前学习过的函数来定义方法，这样就可以将对象的动态特征描述出来，代码如下所示。</p>
-<pre class="line-numbers language-Python"><code class="language-Python">class Student(object):
+<pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Student</span><span class="token punctuation">(</span>object<span class="token punctuation">)</span><span class="token punctuation">:</span>
 
-    # __init__是一个特殊方法用于在创建对象时进行初始化操作
-    # 通过这个方法我们可以为学生对象绑定name和age两个属性
-    def __init__(self, name, age):
-        self.name = name
-        self.age = age
+    <span class="token comment" spellcheck="true"># __init__是一个特殊方法用于在创建对象时进行初始化操作</span>
+    <span class="token comment" spellcheck="true"># 通过这个方法我们可以为学生对象绑定name和age两个属性</span>
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> name<span class="token punctuation">,</span> age<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>name <span class="token operator">=</span> name
+        self<span class="token punctuation">.</span>age <span class="token operator">=</span> age
 
-    def study(self, course_name):
-        print('%s正在学习%s.' % (self.name, course_name))
+    <span class="token keyword">def</span> <span class="token function">study</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> course_name<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'%s正在学习%s.'</span> <span class="token operator">%</span> <span class="token punctuation">(</span>self<span class="token punctuation">.</span>name<span class="token punctuation">,</span> course_name<span class="token punctuation">)</span><span class="token punctuation">)</span>
 
-    # PEP 8要求标识符的名字用全小写多个单词用下划线连接
-    # 但是部分程序员和公司更倾向于使用驼峰命名法(驼峰标识)
-    def watch_movie(self):
-        if self.age < 18:
-            print('%s只能观看《熊出没》.' % self.name)
-        else:
-            print('%s正在观看岛国爱情大电影.' % self.name)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    <span class="token comment" spellcheck="true"># PEP 8要求标识符的名字用全小写多个单词用下划线连接</span>
+    <span class="token comment" spellcheck="true"># 但是部分程序员和公司更倾向于使用驼峰命名法(驼峰标识)</span>
+    <span class="token keyword">def</span> <span class="token function">watch_movie</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">if</span> self<span class="token punctuation">.</span>age <span class="token operator">&lt;</span> <span class="token number">18</span><span class="token punctuation">:</span>
+            <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'%s只能观看《熊出没》.'</span> <span class="token operator">%</span> self<span class="token punctuation">.</span>name<span class="token punctuation">)</span>
+        <span class="token keyword">else</span><span class="token punctuation">:</span>
+            <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'%s正在观看岛国爱情大电影.'</span> <span class="token operator">%</span> self<span class="token punctuation">.</span>name<span class="token punctuation">)</span></code></pre>
 <blockquote>
 <p><strong>说明：</strong> 写在类中的函数，我们通常称之为（对象的）方法，这些方法就是对象可以接收的消息。</p>
 </blockquote>
 <h3 id="创建和使用对象"><a href="#创建和使用对象" class="headerlink" title="创建和使用对象"></a>创建和使用对象</h3><p>当我们定义好一个类之后，可以通过下面的方式来创建对象并给对象发消息。</p>
-<pre class="line-numbers language-Python"><code class="language-Python">def main():
-    # 创建学生对象并指定姓名和年龄
-    stu1 = Student('骆昊', 38)
-    # 给对象发study消息
-    stu1.study('Python程序设计')
-    # 给对象发watch_av消息
-    stu1.watch_movie()
-    stu2 = Student('王大锤', 15)
-    stu2.study('思想品德')
-    stu2.watch_movie()
+<pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token comment" spellcheck="true"># 创建学生对象并指定姓名和年龄</span>
+    stu1 <span class="token operator">=</span> Student<span class="token punctuation">(</span><span class="token string">'骆昊'</span><span class="token punctuation">,</span> <span class="token number">38</span><span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true"># 给对象发study消息</span>
+    stu1<span class="token punctuation">.</span>study<span class="token punctuation">(</span><span class="token string">'Python程序设计'</span><span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true"># 给对象发watch_av消息</span>
+    stu1<span class="token punctuation">.</span>watch_movie<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    stu2 <span class="token operator">=</span> Student<span class="token punctuation">(</span><span class="token string">'王大锤'</span><span class="token punctuation">,</span> <span class="token number">15</span><span class="token punctuation">)</span>
+    stu2<span class="token punctuation">.</span>study<span class="token punctuation">(</span><span class="token string">'思想品德'</span><span class="token punctuation">)</span>
+    stu2<span class="token punctuation">.</span>watch_movie<span class="token punctuation">(</span><span class="token punctuation">)</span>
 
-if __name__ == '__main__':
-    main()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
+    main<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
 <h3 id="访问可见性问题"><a href="#访问可见性问题" class="headerlink" title="访问可见性问题"></a>访问可见性问题</h3><p>对于上面的代码，有C++、Java、C#等编程经验的程序员可能会问，我们给<code>Student</code>对象绑定的<code>name</code>和<code>age</code>属性到底具有怎样的访问权限（也称为可见性）。因为在很多面向对象编程语言中，我们通常会将对象的属性设置为私有的（private）或受保护的（protected），简单的说就是不允许外界访问，而对象的方法通常都是公开的（public），因为公开的方法就是对象能够接受的消息。在Python中，属性和方法的访问权限只有两种，也就是公开的和私有的，如果希望属性是私有的，在给属性命名时可以用两个下划线作为开头，下面的代码可以验证这一点。</p>
-<pre class="line-numbers language-Python"><code class="language-Python">class Test:
+<pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Test</span><span class="token punctuation">:</span>
 
-    def __init__(self, foo):
-        self.__foo = foo
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> foo<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>__foo <span class="token operator">=</span> foo
 
-    def __bar(self):
-        print(self.__foo)
-        print('__bar')
+    <span class="token keyword">def</span> <span class="token function">__bar</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>self<span class="token punctuation">.</span>__foo<span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'__bar'</span><span class="token punctuation">)</span>
 
-def main():
-    test = Test('hello')
-    # AttributeError: 'Test' object has no attribute '__bar'
-    test.__bar()
-    # AttributeError: 'Test' object has no attribute '__foo'
-    print(test.__foo)
+<span class="token keyword">def</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    test <span class="token operator">=</span> Test<span class="token punctuation">(</span><span class="token string">'hello'</span><span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true"># AttributeError: 'Test' object has no attribute '__bar'</span>
+    test<span class="token punctuation">.</span>__bar<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true"># AttributeError: 'Test' object has no attribute '__foo'</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>test<span class="token punctuation">.</span>__foo<span class="token punctuation">)</span>
 
-if __name__ == "__main__":
-    main()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">"__main__"</span><span class="token punctuation">:</span>
+    main<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
 <p>但是，Python并没有从语法上严格保证私有属性或方法的私密性，它只是给私有的属性和方法换了一个名字来妨碍对它们的访问，事实上如果你知道更换名字的规则仍然可以访问到它们，下面的代码就可以验证这一点。之所以这样设定，可以用这样一句名言加以解释，就是"<strong>We are all consenting adults here</strong>"。因为绝大多数程序员都认为开放比封闭要好，而且程序员要自己为自己的行为负责。</p>
-<pre class="line-numbers language-Python"><code class="language-Python">class Test:
+<pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Test</span><span class="token punctuation">:</span>
 
-    def __init__(self, foo):
-        self.__foo = foo
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> foo<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>__foo <span class="token operator">=</span> foo
 
-    def __bar(self):
-        print(self.__foo)
-        print('__bar')
+    <span class="token keyword">def</span> <span class="token function">__bar</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>self<span class="token punctuation">.</span>__foo<span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'__bar'</span><span class="token punctuation">)</span>
 
-def main():
-    test = Test('hello')
-    test._Test__bar()
-    print(test._Test__foo)
+<span class="token keyword">def</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    test <span class="token operator">=</span> Test<span class="token punctuation">(</span><span class="token string">'hello'</span><span class="token punctuation">)</span>
+    test<span class="token punctuation">.</span>_Test__bar<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>test<span class="token punctuation">.</span>_Test__foo<span class="token punctuation">)</span>
 
-if __name__ == "__main__":
-    main()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">"__main__"</span><span class="token punctuation">:</span>
+    main<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
 <p>在实际开发中，我们并不建议将属性设置为私有的，因为这会导致子类无法访问（后面会讲到）。所以大多数Python程序员会遵循一种命名惯例就是让属性名以单下划线开头来表示属性是受保护的，本类之外的代码在访问这样的属性时应该要保持慎重。这种做法并不是语法上的规则，单下划线开头的属性和方法外界仍然是可以访问的，所以更多的时候它是一种暗示或隐喻，关于这一点可以看看我的<a href="http://blog.csdn.net/jackfrued/article/details/79521404" target="_blank" rel="noopener">《Python - 那些年我们踩过的那些坑》</a>文章中的讲解。</p>
 <h3 id="面向对象的支柱"><a href="#面向对象的支柱" class="headerlink" title="面向对象的支柱"></a>面向对象的支柱</h3><p>面向对象有三大支柱：封装、继承和多态。后面两个概念在下一个章节中进行详细的说明，这里我们先说一下什么是封装。我自己对封装的理解是"隐藏一切可以隐藏的实现细节，只向外界暴露（提供）简单的编程接口"。我们在类中定义的方法其实就是把数据和对数据的操作封装起来了，在我们创建了对象之后，只需要给对象发送一个消息（调用方法）就可以执行方法中的代码，也就是说我们只需要知道方法的名字和传入的参数（方法的外部视图），而不需要知道方法内部的实现细节（方法的内部视图）。</p>
 <h3 id="练习"><a href="#练习" class="headerlink" title="练习"></a>练习</h3><h4 id="练习1：定义一个类描述数字时钟。"><a href="#练习1：定义一个类描述数字时钟。" class="headerlink" title="练习1：定义一个类描述数字时钟。"></a>练习1：定义一个类描述数字时钟。</h4><p>参考答案：</p>
-<pre class="line-numbers language-Python"><code class="language-Python">from time import sleep
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> time <span class="token keyword">import</span> sleep
 
-class Clock(object):
-    """数字时钟"""
+<span class="token keyword">class</span> <span class="token class-name">Clock</span><span class="token punctuation">(</span>object<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">"""数字时钟"""</span>
 
-    def __init__(self, hour=0, minute=0, second=0):
-        """初始化方法
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> hour<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span> minute<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span> second<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">"""初始化方法
 
         :param hour: 时
         :param minute: 分
         :param second: 秒
-        """
-        self._hour = hour
-        self._minute = minute
-        self._second = second
+        """</span>
+        self<span class="token punctuation">.</span>_hour <span class="token operator">=</span> hour
+        self<span class="token punctuation">.</span>_minute <span class="token operator">=</span> minute
+        self<span class="token punctuation">.</span>_second <span class="token operator">=</span> second
 
-    def run(self):
-        """走字"""
-        self._second += 1
-        if self._second == 60:
-            self._second = 0
-            self._minute += 1
-            if self._minute == 60:
-                self._minute = 0
-                self._hour += 1
-                if self._hour == 24:
-                    self._hour = 0
+    <span class="token keyword">def</span> <span class="token function">run</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">"""走字"""</span>
+        self<span class="token punctuation">.</span>_second <span class="token operator">+=</span> <span class="token number">1</span>
+        <span class="token keyword">if</span> self<span class="token punctuation">.</span>_second <span class="token operator">==</span> <span class="token number">60</span><span class="token punctuation">:</span>
+            self<span class="token punctuation">.</span>_second <span class="token operator">=</span> <span class="token number">0</span>
+            self<span class="token punctuation">.</span>_minute <span class="token operator">+=</span> <span class="token number">1</span>
+            <span class="token keyword">if</span> self<span class="token punctuation">.</span>_minute <span class="token operator">==</span> <span class="token number">60</span><span class="token punctuation">:</span>
+                self<span class="token punctuation">.</span>_minute <span class="token operator">=</span> <span class="token number">0</span>
+                self<span class="token punctuation">.</span>_hour <span class="token operator">+=</span> <span class="token number">1</span>
+                <span class="token keyword">if</span> self<span class="token punctuation">.</span>_hour <span class="token operator">==</span> <span class="token number">24</span><span class="token punctuation">:</span>
+                    self<span class="token punctuation">.</span>_hour <span class="token operator">=</span> <span class="token number">0</span>
 
-    def show(self):
-        """显示时间"""
-        return '%02d:%02d:%02d' % \
-               (self._hour, self._minute, self._second)
+    <span class="token keyword">def</span> <span class="token function">show</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">"""显示时间"""</span>
+        <span class="token keyword">return</span> <span class="token string">'%02d:%02d:%02d'</span> <span class="token operator">%</span> \
+               <span class="token punctuation">(</span>self<span class="token punctuation">.</span>_hour<span class="token punctuation">,</span> self<span class="token punctuation">.</span>_minute<span class="token punctuation">,</span> self<span class="token punctuation">.</span>_second<span class="token punctuation">)</span>
 
-def main():
-    clock = Clock(23, 59, 58)
-    while True:
-        print(clock.show())
-        sleep(1)
-        clock.run()
+<span class="token keyword">def</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    clock <span class="token operator">=</span> Clock<span class="token punctuation">(</span><span class="token number">23</span><span class="token punctuation">,</span> <span class="token number">59</span><span class="token punctuation">,</span> <span class="token number">58</span><span class="token punctuation">)</span>
+    <span class="token keyword">while</span> <span class="token boolean">True</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>clock<span class="token punctuation">.</span>show<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        sleep<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+        clock<span class="token punctuation">.</span>run<span class="token punctuation">(</span><span class="token punctuation">)</span>
 
-if __name__ == '__main__':
-    main()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
+    main<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
 <h4 id="练习2：定义一个类描述平面上的点并提供移动点和计算到另一个点距离的方法。"><a href="#练习2：定义一个类描述平面上的点并提供移动点和计算到另一个点距离的方法。" class="headerlink" title="练习2：定义一个类描述平面上的点并提供移动点和计算到另一个点距离的方法。"></a>练习2：定义一个类描述平面上的点并提供移动点和计算到另一个点距离的方法。</h4><p>参考答案：</p>
-<pre class="line-numbers language-Python"><code class="language-Python">from math import sqrt
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> math <span class="token keyword">import</span> sqrt
 
-class Point(object):
+<span class="token keyword">class</span> <span class="token class-name">Point</span><span class="token punctuation">(</span>object<span class="token punctuation">)</span><span class="token punctuation">:</span>
 
-    def __init__(self, x=0, y=0):
-        """初始化方法
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> x<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span> y<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">"""初始化方法
 
         :param x: 横坐标
         :param y: 纵坐标
-        """
-        self.x = x
-        self.y = y
+        """</span>
+        self<span class="token punctuation">.</span>x <span class="token operator">=</span> x
+        self<span class="token punctuation">.</span>y <span class="token operator">=</span> y
 
-    def move_to(self, x, y):
-        """移动到指定位置
+    <span class="token keyword">def</span> <span class="token function">move_to</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> x<span class="token punctuation">,</span> y<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">"""移动到指定位置
 
         :param x: 新的横坐标
         "param y: 新的纵坐标
-        """
-        self.x = x
-        self.y = y
+        """</span>
+        self<span class="token punctuation">.</span>x <span class="token operator">=</span> x
+        self<span class="token punctuation">.</span>y <span class="token operator">=</span> y
 
-    def move_by(self, dx, dy):
-        """移动指定的增量
+    <span class="token keyword">def</span> <span class="token function">move_by</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> dx<span class="token punctuation">,</span> dy<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">"""移动指定的增量
 
         :param dx: 横坐标的增量
         "param dy: 纵坐标的增量
-        """
-        self.x += dx
-        self.y += dy
+        """</span>
+        self<span class="token punctuation">.</span>x <span class="token operator">+=</span> dx
+        self<span class="token punctuation">.</span>y <span class="token operator">+=</span> dy
 
-    def distance_to(self, other):
-        """计算与另一个点的距离
+    <span class="token keyword">def</span> <span class="token function">distance_to</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> other<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">"""计算与另一个点的距离
 
         :param other: 另一个点
-        """
-        dx = self.x - other.x
-        dy = self.y - other.y
-        return sqrt(dx ** 2 + dy ** 2)
+        """</span>
+        dx <span class="token operator">=</span> self<span class="token punctuation">.</span>x <span class="token operator">-</span> other<span class="token punctuation">.</span>x
+        dy <span class="token operator">=</span> self<span class="token punctuation">.</span>y <span class="token operator">-</span> other<span class="token punctuation">.</span>y
+        <span class="token keyword">return</span> sqrt<span class="token punctuation">(</span>dx <span class="token operator">**</span> <span class="token number">2</span> <span class="token operator">+</span> dy <span class="token operator">**</span> <span class="token number">2</span><span class="token punctuation">)</span>
 
-    def __str__(self):
-        return '(%s, %s)' % (str(self.x), str(self.y))
+    <span class="token keyword">def</span> <span class="token function">__str__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> <span class="token string">'(%s, %s)'</span> <span class="token operator">%</span> <span class="token punctuation">(</span>str<span class="token punctuation">(</span>self<span class="token punctuation">.</span>x<span class="token punctuation">)</span><span class="token punctuation">,</span> str<span class="token punctuation">(</span>self<span class="token punctuation">.</span>y<span class="token punctuation">)</span><span class="token punctuation">)</span>
 
-def main():
-    p1 = Point(3, 5)
-    p2 = Point()
-    print(p1)
-    print(p2)
-    p2.move_by(-1, 2)
-    print(p2)
-    print(p1.distance_to(p2))
+<span class="token keyword">def</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    p1 <span class="token operator">=</span> Point<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">)</span>
+    p2 <span class="token operator">=</span> Point<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>p1<span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>p2<span class="token punctuation">)</span>
+    p2<span class="token punctuation">.</span>move_by<span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>p2<span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>p1<span class="token punctuation">.</span>distance_to<span class="token punctuation">(</span>p2<span class="token punctuation">)</span><span class="token punctuation">)</span>
 
-if __name__ == '__main__':
-    main()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
+    main<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
 <blockquote>
 <p><strong>说明：</strong> 本章中的插图来自于Grady Booch等著作的<a href="https://item.jd.com/20476561918.html" target="_blank" rel="noopener">《面向对象分析与设计》</a>一书，该书是讲解面向对象编程的经典著作，有兴趣的读者可以购买和阅读这本书来了解更多的面向对象的相关知识。</p>
 </blockquote>
@@ -1772,7 +1764,7 @@ if __name__ == '__main__':
 
             
                 &nbsp; | &nbsp;字数统计:&nbsp;
-                <span class="white-color">81.2k</span> 字
+                <span class="white-color">88.5k</span> 字
             
 
             
@@ -1944,38 +1936,6 @@ $(function () {
         
 
         <!-- 在线聊天工具   MissStar add 2019.09.11 -->
-        
-            <script src="//code.tidio.co/xfbwhpmnuosuvdgs72u7tuuxzcg74v3f.js"></script>
-            <!--  在线聊天位置自定义   MissStar add 2019.09.13  -->
-            <script> 
-                $(document).ready(function () {
-
-                    setInterval(change_Tidio, 50);  
-                    function change_Tidio() { 
-
-                        var tidio=$("#tidio-chat iframe");
-                        if(tidio.css("display")=="block"&& $(window).width()>977 ){
-                            document.getElementById("tidio-chat-iframe").style.bottom= ($("div#backTop.top-scroll").css("display")=="none" &&$(window).width()>977)>0? "-40px" : ($("div.toc-title").length&&$(window).width()>977)>0?"80px":"20px";   
-                            document.getElementById("tidio-chat-iframe").style.right="-15px";   
-                            document.getElementById("tidio-chat-iframe").style.height=parseInt(tidio.css("height"))>=520?"520px":tidio.css("height");
-                            document.getElementById("tidio-chat-iframe").style.zIndex="997";
-                        } 
-                        else if(tidio.css("display")=="block"&&$(window).width()>601 &&$(window).width()<992 ){
-                            document.getElementById("tidio-chat-iframe").style.bottom= ($("div#backTop.top-scroll").css("display")=="none" && 601< $(window).width()<992)>0? "-40px":"20px" ;   
-                            document.getElementById("tidio-chat-iframe").style.right="-15px"; 
-                            document.getElementById("tidio-chat-iframe").style.zIndex="997";
-                        }
-                        else if(tidio.css("display")=="block"&&$(window).width()<601 && parseInt(tidio.css("height"))<230){
-                            document.getElementById("tidio-chat-iframe").style.bottom= ($("div#backTop.top-scroll").css("display")=="none" && $(window).width()<601)>0? "-10px":"45px" ;   
-                            document.getElementById("tidio-chat-iframe").style.zIndex="997";
-                        }
-
-                        if( tidio.css("display")=="block"&&$(window).width()<601 && parseInt(tidio.css("height"))>=230){
-                            document.getElementById("tidio-chat-iframe").style.zIndex="998";
-                        }
-                    } 
-                }); 
-            </script>
         
 
         <!-- 背景 canvas-nest   shw 2018  add 2019.09.15-->

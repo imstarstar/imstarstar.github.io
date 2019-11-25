@@ -30,13 +30,6 @@
     
     <style type="text/css">
         
-            
-            code[class*="language-"],
-            pre[class*="language-"] {
-                white-space: pre !important;
-            }
-
-        
     </style>
 
     <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
@@ -70,8 +63,7 @@
         </script>
     
 
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+<link rel="stylesheet" href="/css/prism-darcula.css" type="text/css"></head>
 
     <body>
 
@@ -829,41 +821,41 @@
 </ul>
 <p>当然，作为一个专业的程序员，给变量（事实上应该是所有的标识符）命名时做到见名知意也是非常重要的。</p>
 <h4 id="变量的使用"><a href="#变量的使用" class="headerlink" title="变量的使用"></a>变量的使用</h4><p>下面通过几个例子来说明变量的类型和变量使用。</p>
-<pre class="line-numbers language-Python"><code class="language-Python">"""
+<pre class=" language-python"><code class="language-python"><span class="token triple-quoted-string string">"""
 使用变量保存数据并进行算术运算
 
 Version: 0.1
 Author: 骆昊
-"""
+"""</span>
 
-a = 321
-b = 123
-print(a + b)
-print(a - b)
-print(a * b)
-print(a / b)
-print(a // b)
-print(a % b)
-print(a ** b)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+a <span class="token operator">=</span> <span class="token number">321</span>
+b <span class="token operator">=</span> <span class="token number">123</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>a <span class="token operator">+</span> b<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>a <span class="token operator">-</span> b<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>a <span class="token operator">*</span> b<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>a <span class="token operator">/</span> b<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>a <span class="token operator">//</span> b<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>a <span class="token operator">%</span> b<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>a <span class="token operator">**</span> b<span class="token punctuation">)</span></code></pre>
 <p>在Python中可以使用<code>type</code>函数对变量的类型进行检查。程序设计中函数的概念跟数学上函数的概念是一致的，数学上的函数相信大家并不陌生，它包括了函数名、自变量和因变量。如果暂时不理解这个概念也不要紧，我们会在后续的章节中专门讲解函数的定义和使用。</p>
-<pre class="line-numbers language-Python"><code class="language-Python">"""
+<pre class=" language-python"><code class="language-python"><span class="token triple-quoted-string string">"""
 使用type()检查变量的类型
 
 Version: 0.1
 Author: 骆昊
 Date: 2018-02-27
-"""
+"""</span>
 
-a = 100
-b = 12.345
-c = 1 + 5j
-d = 'hello, world'
-e = True
-print(type(a)) # <class 'int'>
-print(type(b)) # <class 'float'>
-print(type(c)) # <class 'complex'>
-print(type(d)) # <class 'str'>
-print(type(e)) # <class 'bool'><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+a <span class="token operator">=</span> <span class="token number">100</span>
+b <span class="token operator">=</span> <span class="token number">12.345</span>
+c <span class="token operator">=</span> <span class="token number">1</span> <span class="token operator">+</span> <span class="token number">5j</span>
+d <span class="token operator">=</span> <span class="token string">'hello, world'</span>
+e <span class="token operator">=</span> <span class="token boolean">True</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>type<span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># &lt;class 'int'></span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>type<span class="token punctuation">(</span>b<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># &lt;class 'float'></span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>type<span class="token punctuation">(</span>c<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># &lt;class 'complex'></span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>type<span class="token punctuation">(</span>d<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># &lt;class 'str'></span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>type<span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># &lt;class 'bool'></span></code></pre>
 <p>可以使用Python中内置的函数对变量类型进行转换。</p>
 <ul>
 <li><code>int()</code>：将一个数值或字符串转换成整数，可以指定进制。</li>
@@ -873,24 +865,24 @@ print(type(e)) # <class 'bool'><span aria-hidden="true" class="line-numbers-rows
 <li><code>ord()</code>：将字符串（一个字符）转换成对应的编码（整数）。</li>
 </ul>
 <p>下面的代码通过键盘输入两个整数来实现对两个整数的算术运算。</p>
-<pre class="line-numbers language-Python"><code class="language-Python">"""
+<pre class=" language-python"><code class="language-python"><span class="token triple-quoted-string string">"""
 使用input()函数获取键盘输入(字符串)
 使用int()函数将输入的字符串转换成整数
 使用print()函数输出带占位符的字符串
 
 Version: 0.1
 Author: 骆昊
-"""
+"""</span>
 
-a = int(input('a = '))
-b = int(input('b = '))
-print('%d + %d = %d' % (a, b, a + b))
-print('%d - %d = %d' % (a, b, a - b))
-print('%d * %d = %d' % (a, b, a * b))
-print('%d / %d = %f' % (a, b, a / b))
-print('%d // %d = %d' % (a, b, a // b))
-print('%d %% %d = %d' % (a, b, a % b))
-print('%d ** %d = %d' % (a, b, a ** b))<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+a <span class="token operator">=</span> int<span class="token punctuation">(</span>input<span class="token punctuation">(</span><span class="token string">'a = '</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+b <span class="token operator">=</span> int<span class="token punctuation">(</span>input<span class="token punctuation">(</span><span class="token string">'b = '</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'%d + %d = %d'</span> <span class="token operator">%</span> <span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">,</span> a <span class="token operator">+</span> b<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'%d - %d = %d'</span> <span class="token operator">%</span> <span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">,</span> a <span class="token operator">-</span> b<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'%d * %d = %d'</span> <span class="token operator">%</span> <span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">,</span> a <span class="token operator">*</span> b<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'%d / %d = %f'</span> <span class="token operator">%</span> <span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">,</span> a <span class="token operator">/</span> b<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'%d // %d = %d'</span> <span class="token operator">%</span> <span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">,</span> a <span class="token operator">//</span> b<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'%d %% %d = %d'</span> <span class="token operator">%</span> <span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">,</span> a <span class="token operator">%</span> b<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'%d ** %d = %d'</span> <span class="token operator">%</span> <span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">,</span> a <span class="token operator">**</span> b<span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
 <blockquote>
 <p><strong>说明</strong>：上面的print函数中输出的字符串使用了占位符语法，其中<code>%d</code>是整数的占位符，<code>%f</code>是小数的占位符，<code>%%</code>表示百分号（因为百分号代表了占位符，所以带占位符的字符串中要表示百分号必须写成<code>%%</code>），字符串之后的<code>%</code>后面跟的变量值会替换掉占位符然后输出到终端中，运行上面的程序，看看程序执行结果就明白啦。</p>
 </blockquote>
@@ -963,82 +955,82 @@ print('%d ** %d = %d' % (a, b, a ** b))<span aria-hidden="true" class="line-numb
 <p><strong>说明：</strong> 在实际开发中，如果搞不清楚运算符的优先级，可以使用括号来确保运算的执行顺序。</p>
 </blockquote>
 <p>下面的例子演示了赋值运算符和复合赋值运算符的使用。</p>
-<pre class="line-numbers language-Python"><code class="language-Python">"""
+<pre class=" language-python"><code class="language-python"><span class="token triple-quoted-string string">"""
 赋值运算符和复合赋值运算符
 
 Version: 0.1
 Author: 骆昊
-"""
+"""</span>
 
-a = 10
-b = 3
-a += b # 相当于：a = a + b
-a *= a + 2 # 相当于：a = a * (a + 2)
-print(a) # 想想这里会输出什么<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+a <span class="token operator">=</span> <span class="token number">10</span>
+b <span class="token operator">=</span> <span class="token number">3</span>
+a <span class="token operator">+=</span> b <span class="token comment" spellcheck="true"># 相当于：a = a + b</span>
+a <span class="token operator">*=</span> a <span class="token operator">+</span> <span class="token number">2</span> <span class="token comment" spellcheck="true"># 相当于：a = a * (a + 2)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># 想想这里会输出什么</span></code></pre>
 <p>下面的例子演示了比较运算符（关系运算符）、逻辑运算符和身份运算符的使用。</p>
-<pre class="line-numbers language-Python"><code class="language-Python">"""
+<pre class=" language-python"><code class="language-python"><span class="token triple-quoted-string string">"""
 比较、逻辑和算身份运算符的使用
 
 Version: 0.1
 Author: 骆昊
-"""
+"""</span>
 
-flag0 = 1 == 1
-flag1 = 3 > 2
-flag2 = 2 < 1
-flag3 = flag1 and flag2
-flag4 = flag1 or flag2
-flag5 = not (1 != 2)
-print('flag0 =', flag0) # flag0 = True
-print('flag1 =', flag1) # flag1 = True
-print('flag2 =', flag2) # flag2 = False
-print('flag3 =', flag3) # flag3 = False
-print('flag4 =', flag4) # flag4 = True
-print('flag5 =', flag5) # flag5 = False
-print(flag1 is True) # True
-print(flag2 is not False) # False<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+flag0 <span class="token operator">=</span> <span class="token number">1</span> <span class="token operator">==</span> <span class="token number">1</span>
+flag1 <span class="token operator">=</span> <span class="token number">3</span> <span class="token operator">></span> <span class="token number">2</span>
+flag2 <span class="token operator">=</span> <span class="token number">2</span> <span class="token operator">&lt;</span> <span class="token number">1</span>
+flag3 <span class="token operator">=</span> flag1 <span class="token operator">and</span> flag2
+flag4 <span class="token operator">=</span> flag1 <span class="token operator">or</span> flag2
+flag5 <span class="token operator">=</span> <span class="token operator">not</span> <span class="token punctuation">(</span><span class="token number">1</span> <span class="token operator">!=</span> <span class="token number">2</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'flag0 ='</span><span class="token punctuation">,</span> flag0<span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># flag0 = True</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'flag1 ='</span><span class="token punctuation">,</span> flag1<span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># flag1 = True</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'flag2 ='</span><span class="token punctuation">,</span> flag2<span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># flag2 = False</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'flag3 ='</span><span class="token punctuation">,</span> flag3<span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># flag3 = False</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'flag4 ='</span><span class="token punctuation">,</span> flag4<span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># flag4 = True</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'flag5 ='</span><span class="token punctuation">,</span> flag5<span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># flag5 = False</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>flag1 <span class="token keyword">is</span> <span class="token boolean">True</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># True</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>flag2 <span class="token keyword">is</span> <span class="token operator">not</span> <span class="token boolean">False</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># False</span></code></pre>
 <h3 id="练习"><a href="#练习" class="headerlink" title="练习"></a>练习</h3><h4 id="练习1：华氏温度转换为摄氏温度。"><a href="#练习1：华氏温度转换为摄氏温度。" class="headerlink" title="练习1：华氏温度转换为摄氏温度。"></a>练习1：华氏温度转换为摄氏温度。</h4><blockquote>
 <p>提示：华氏温度到摄氏温度的转换公式为：$C=(F - 32) \div 1.8$。</p>
 </blockquote>
 <p>参考答案：</p>
-<pre class="line-numbers language-Python"><code class="language-Python">"""
+<pre class=" language-python"><code class="language-python"><span class="token triple-quoted-string string">"""
 将华氏温度转换为摄氏温度
 
 Version: 0.1
 Author: 骆昊
-"""
+"""</span>
 
-f = float(input('请输入华氏温度: '))
-c = (f - 32) / 1.8
-print('%.1f华氏度 = %.1f摄氏度' % (f, c))<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+f <span class="token operator">=</span> float<span class="token punctuation">(</span>input<span class="token punctuation">(</span><span class="token string">'请输入华氏温度: '</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+c <span class="token operator">=</span> <span class="token punctuation">(</span>f <span class="token operator">-</span> <span class="token number">32</span><span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token number">1.8</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'%.1f华氏度 = %.1f摄氏度'</span> <span class="token operator">%</span> <span class="token punctuation">(</span>f<span class="token punctuation">,</span> c<span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
 <h4 id="练习2：输入圆的半径计算计算周长和面积。"><a href="#练习2：输入圆的半径计算计算周长和面积。" class="headerlink" title="练习2：输入圆的半径计算计算周长和面积。"></a>练习2：输入圆的半径计算计算周长和面积。</h4><p>参考答案：</p>
-<pre class="line-numbers language-Python"><code class="language-Python">"""
+<pre class=" language-python"><code class="language-python"><span class="token triple-quoted-string string">"""
 输入半径计算圆的周长和面积
 
 Version: 0.1
 Author: 骆昊
-"""
+"""</span>
 
-import math
+<span class="token keyword">import</span> math
 
-radius = float(input('请输入圆的半径: '))
-perimeter = 2 * math.pi * radius
-area = math.pi * radius * radius
-print('周长: %.2f' % perimeter)
-print('面积: %.2f' % area)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+radius <span class="token operator">=</span> float<span class="token punctuation">(</span>input<span class="token punctuation">(</span><span class="token string">'请输入圆的半径: '</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+perimeter <span class="token operator">=</span> <span class="token number">2</span> <span class="token operator">*</span> math<span class="token punctuation">.</span>pi <span class="token operator">*</span> radius
+area <span class="token operator">=</span> math<span class="token punctuation">.</span>pi <span class="token operator">*</span> radius <span class="token operator">*</span> radius
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'周长: %.2f'</span> <span class="token operator">%</span> perimeter<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'面积: %.2f'</span> <span class="token operator">%</span> area<span class="token punctuation">)</span></code></pre>
 <h4 id="练习3：输入年份判断是不是闰年。"><a href="#练习3：输入年份判断是不是闰年。" class="headerlink" title="练习3：输入年份判断是不是闰年。"></a>练习3：输入年份判断是不是闰年。</h4><p>参考答案：</p>
-<pre class="line-numbers language-Python"><code class="language-Python">"""
+<pre class=" language-python"><code class="language-python"><span class="token triple-quoted-string string">"""
 输入年份 如果是闰年输出True 否则输出False
 
 Version: 0.1
 Author: 骆昊
-"""
+"""</span>
 
-year = int(input('请输入年份: '))
-# 如果代码太长写成一行不便于阅读 可以使用\对代码进行折行
-is_leap = (year % 4 == 0 and year % 100 != 0) or \
-           year % 400 == 0
-print(is_leap)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+year <span class="token operator">=</span> int<span class="token punctuation">(</span>input<span class="token punctuation">(</span><span class="token string">'请输入年份: '</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 如果代码太长写成一行不便于阅读 可以使用\对代码进行折行</span>
+is_leap <span class="token operator">=</span> <span class="token punctuation">(</span>year <span class="token operator">%</span> <span class="token number">4</span> <span class="token operator">==</span> <span class="token number">0</span> <span class="token operator">and</span> year <span class="token operator">%</span> <span class="token number">100</span> <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token operator">or</span> \
+           year <span class="token operator">%</span> <span class="token number">400</span> <span class="token operator">==</span> <span class="token number">0</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>is_leap<span class="token punctuation">)</span></code></pre>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -1822,7 +1814,7 @@ print(is_leap)<span aria-hidden="true" class="line-numbers-rows"><span></span><s
 
             
                 &nbsp; | &nbsp;字数统计:&nbsp;
-                <span class="white-color">81.2k</span> 字
+                <span class="white-color">88.5k</span> 字
             
 
             
@@ -1994,38 +1986,6 @@ $(function () {
         
 
         <!-- 在线聊天工具   MissStar add 2019.09.11 -->
-        
-            <script src="//code.tidio.co/xfbwhpmnuosuvdgs72u7tuuxzcg74v3f.js"></script>
-            <!--  在线聊天位置自定义   MissStar add 2019.09.13  -->
-            <script> 
-                $(document).ready(function () {
-
-                    setInterval(change_Tidio, 50);  
-                    function change_Tidio() { 
-
-                        var tidio=$("#tidio-chat iframe");
-                        if(tidio.css("display")=="block"&& $(window).width()>977 ){
-                            document.getElementById("tidio-chat-iframe").style.bottom= ($("div#backTop.top-scroll").css("display")=="none" &&$(window).width()>977)>0? "-40px" : ($("div.toc-title").length&&$(window).width()>977)>0?"80px":"20px";   
-                            document.getElementById("tidio-chat-iframe").style.right="-15px";   
-                            document.getElementById("tidio-chat-iframe").style.height=parseInt(tidio.css("height"))>=520?"520px":tidio.css("height");
-                            document.getElementById("tidio-chat-iframe").style.zIndex="997";
-                        } 
-                        else if(tidio.css("display")=="block"&&$(window).width()>601 &&$(window).width()<992 ){
-                            document.getElementById("tidio-chat-iframe").style.bottom= ($("div#backTop.top-scroll").css("display")=="none" && 601< $(window).width()<992)>0? "-40px":"20px" ;   
-                            document.getElementById("tidio-chat-iframe").style.right="-15px"; 
-                            document.getElementById("tidio-chat-iframe").style.zIndex="997";
-                        }
-                        else if(tidio.css("display")=="block"&&$(window).width()<601 && parseInt(tidio.css("height"))<230){
-                            document.getElementById("tidio-chat-iframe").style.bottom= ($("div#backTop.top-scroll").css("display")=="none" && $(window).width()<601)>0? "-10px":"45px" ;   
-                            document.getElementById("tidio-chat-iframe").style.zIndex="997";
-                        }
-
-                        if( tidio.css("display")=="block"&&$(window).width()<601 && parseInt(tidio.css("height"))>=230){
-                            document.getElementById("tidio-chat-iframe").style.zIndex="998";
-                        }
-                    } 
-                }); 
-            </script>
         
 
         <!-- 背景 canvas-nest   shw 2018  add 2019.09.15-->

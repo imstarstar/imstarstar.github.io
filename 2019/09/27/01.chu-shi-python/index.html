@@ -32,13 +32,6 @@
     
     <style type="text/css">
         
-            
-            code[class*="language-"],
-            pre[class*="language-"] {
-                white-space: pre !important;
-            }
-
-        
     </style>
 
     <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
@@ -72,8 +65,7 @@
         </script>
     
 
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+<link rel="stylesheet" href="/css/prism-darcula.css" type="text/css"></head>
 
     <body>
 
@@ -834,73 +826,73 @@
 <ol>
 <li>安装依赖库（因为没有这些依赖库可能在源代码构件安装时因为缺失底层依赖库而失败）。</li>
 </ol>
-<pre class="line-numbers language-Shell"><code class="language-Shell">yum -y install wget gcc zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel gdbm-devel db4-devel libpcap-devel xz-devel libffi-devel<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class=" language-shell"><code class="language-shell">yum -y install wget gcc zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel gdbm-devel db4-devel libpcap-devel xz-devel libffi-devel</code></pre>
 <ol start="2">
 <li>下载Python源代码并解压缩到指定目录。</li>
 </ol>
-<pre class="line-numbers language-Shell"><code class="language-Shell">wget https://www.python.org/ftp/python/3.7.3/Python-3.7.3.tgz
+<pre class=" language-shell"><code class="language-shell">wget https://www.python.org/ftp/python/3.7.3/Python-3.7.3.tgz
 xz -d Python-3.7.3.tar.xz
-tar -xvf Python-3.7.3.tar<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+tar -xvf Python-3.7.3.tar</code></pre>
 <ol start="3">
 <li>切换至Python源代码目录并执行下面的命令进行配置和安装。</li>
 </ol>
-<pre class="line-numbers language-Shell"><code class="language-Shell">cd Python-3.7.3
+<pre class=" language-shell"><code class="language-shell">cd Python-3.7.3
 ./configure --prefix=/usr/local/python37 --enable-optimizations
-make && make install<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+make && make install</code></pre>
 <ol start="4">
 <li>修改用户主目录下名为.bash_profile的文件，配置PATH环境变量并使其生效。</li>
 </ol>
-<pre class="line-numbers language-Shell"><code class="language-Shell">cd ~
-vim .bash_profile<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<pre class="line-numbers language-Shell"><code class="language-Shell"># ... 此处省略上面的代码 ...
+<pre class=" language-shell"><code class="language-shell">cd ~
+vim .bash_profile</code></pre>
+<pre class=" language-shell"><code class="language-shell"># ... 此处省略上面的代码 ...
 
 export PATH=$PATH:/usr/local/python37/bin
 
-# ... 此处省略下面的代码 ...<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+# ... 此处省略下面的代码 ...</code></pre>
 <ol start="5">
 <li>激活环境变量。</li>
 </ol>
-<pre class="line-numbers language-Shell"><code class="language-Shell">source .bash_profile<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class=" language-shell"><code class="language-shell">source .bash_profile</code></pre>
 <h4 id="macOS环境"><a href="#macOS环境" class="headerlink" title="macOS环境"></a>macOS环境</h4><p>macOS也自带了Python 2.x版本，可以通过<a href="https://www.python.org" target="_blank" rel="noopener">Python的官方网站</a>提供的安装文件（pkg文件）安装Python 3.x的版本。默认安装完成后，可以通过在终端执行<code>python</code>命令来启动2.x版本的Python解释器，启动3.x版本的Python解释器需要执行<code>python3</code>命令。</p>
 <h3 id="运行Python程序"><a href="#运行Python程序" class="headerlink" title="运行Python程序"></a>运行Python程序</h3><h4 id="确认Python的版本"><a href="#确认Python的版本" class="headerlink" title="确认Python的版本"></a>确认Python的版本</h4><p>可以Windows的命令行提示符中键入下面的命令。</p>
-<pre class="line-numbers language-Shell"><code class="language-Shell">python --version<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class=" language-shell"><code class="language-shell">python --version</code></pre>
 <p>或者是在Linux或macOS系统的终端中键入下面的命令。</p>
-<pre class="line-numbers language-Shell"><code class="language-Shell">python3 --version<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class=" language-shell"><code class="language-shell">python3 --version</code></pre>
 <p>当然也可以先输入python或python3进入交互式环境，再执行以下的代码检查Python的版本。</p>
-<pre class="line-numbers language-Python"><code class="language-Python">import sys
+<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> sys
 
-print(sys.version_info)
-print(sys.version)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token keyword">print</span><span class="token punctuation">(</span>sys<span class="token punctuation">.</span>version_info<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>sys<span class="token punctuation">.</span>version<span class="token punctuation">)</span></code></pre>
 <h4 id="编写Python源代码"><a href="#编写Python源代码" class="headerlink" title="编写Python源代码"></a>编写Python源代码</h4><p>可以用文本编辑工具（推荐使用<a href="https://www.sublimetext.com/" target="_blank" rel="noopener">Sublime</a>、<a href="https://code.visualstudio.com/" target="_blank" rel="noopener">Visual Studio Code</a>等高级文本编辑工具）编写Python源代码并用py作为后缀名保存该文件，代码内容如下所示。</p>
-<pre class="line-numbers language-Python"><code class="language-Python">print('hello, world!')<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'hello, world!'</span><span class="token punctuation">)</span></code></pre>
 <h4 id="运行程序"><a href="#运行程序" class="headerlink" title="运行程序"></a>运行程序</h4><p>切换到源代码所在的目录并执行下面的命令，看看屏幕上是否输出了”hello, world!”。</p>
-<pre class="line-numbers language-Shell"><code class="language-Shell">python hello.py<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class=" language-shell"><code class="language-shell">python hello.py</code></pre>
 <p>或</p>
-<pre class="line-numbers language-Shell"><code class="language-Shell">python3 hello.py<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class=" language-shell"><code class="language-shell">python3 hello.py</code></pre>
 <h4 id="代码中的注释"><a href="#代码中的注释" class="headerlink" title="代码中的注释"></a>代码中的注释</h4><p>注释是编程语言的一个重要组成部分，用于在源代码中解释代码的作用从而增强程序的可读性和可维护性，当然也可以将源代码中不需要参与运行的代码段通过注释来去掉，这一点在调试程序的时候经常用到。注释在随源代码进入预处理器或编译时会被移除，不会在目标代码中保留也不会影响程序的执行结果。</p>
 <ol>
 <li>单行注释 - 以#和空格开头的部分</li>
 <li>多行注释 - 三个引号开头，三个引号结尾</li>
 </ol>
-<pre class="line-numbers language-Python"><code class="language-Python">"""
+<pre class=" language-python"><code class="language-python"><span class="token triple-quoted-string string">"""
 第一个Python程序 - hello, world!
 向伟大的Dennis M. Ritchie先生致敬
 
 Version: 0.1
 Author: 骆昊
-"""
+"""</span>
 
-print('hello, world!')
-# print("你好,世界！")
-print('你好', '世界')
-print('hello', 'world', sep=', ', end='!')
-print('goodbye, world', end='!\n')<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'hello, world!'</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># print("你好,世界！")</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'你好'</span><span class="token punctuation">,</span> <span class="token string">'世界'</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'hello'</span><span class="token punctuation">,</span> <span class="token string">'world'</span><span class="token punctuation">,</span> sep<span class="token operator">=</span><span class="token string">', '</span><span class="token punctuation">,</span> end<span class="token operator">=</span><span class="token string">'!'</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'goodbye, world'</span><span class="token punctuation">,</span> end<span class="token operator">=</span><span class="token string">'!\n'</span><span class="token punctuation">)</span></code></pre>
 <h3 id="Python开发工具"><a href="#Python开发工具" class="headerlink" title="Python开发工具"></a>Python开发工具</h3><h4 id="IDLE-自带的集成开发工具"><a href="#IDLE-自带的集成开发工具" class="headerlink" title="IDLE - 自带的集成开发工具"></a>IDLE - 自带的集成开发工具</h4><p>IDLE是安装Python环境时自带的集成开发工具，如下图所示。但是由于IDLE的用户体验并不是那么好所以很少在实际开发中被采用。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/imstarstar/cdn@v1.0/loading-spinning-bubbles.svg" data-original="/images/python-idle.png" alt=""></p>
 <h4 id="IPython-更好的交互式编程工具"><a href="#IPython-更好的交互式编程工具" class="headerlink" title="IPython - 更好的交互式编程工具"></a>IPython - 更好的交互式编程工具</h4><p>IPython是一种基于Python的交互式解释器。相较于原生的Python交互式环境，IPython提供了更为强大的编辑和交互功能。可以通过Python的包管理工具pip安装IPython和Jupyter，具体的操作如下所示。</p>
-<pre class="line-numbers language-Shell"><code class="language-Shell">pip install ipython<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class=" language-shell"><code class="language-shell">pip install ipython</code></pre>
 <p>或</p>
-<pre class="line-numbers language-Shell"><code class="language-Shell">pip3 install ipython<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class=" language-shell"><code class="language-shell">pip3 install ipython</code></pre>
 <p>安装成功后，可以通过下面的ipython命令启动IPython，如下图所示。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/imstarstar/cdn@v1.0/loading-spinning-bubbles.svg" data-original="/images/python-ipython.png" alt=""></p>
 <h4 id="Sublime-Text-高级文本编辑器"><a href="#Sublime-Text-高级文本编辑器" class="headerlink" title="Sublime Text - 高级文本编辑器"></a>Sublime Text - 高级文本编辑器</h4><p><img src="https://cdn.jsdelivr.net/gh/imstarstar/cdn@v1.0/loading-spinning-bubbles.svg" data-original="/images/python-sublime.png" alt=""></p>
@@ -914,11 +906,11 @@ print('goodbye, world', end='!\n')<span aria-hidden="true" class="line-numbers-r
 <ul>
 <li>Sublime 3</li>
 </ul>
-<pre class="line-numbers language-Python"><code class="language-Python">import  urllib.request,os;pf='Package Control.sublime-package';ipp=sublime.installed_packages_path();urllib.request.install_opener(urllib.request.build_opener(urllib.request.ProxyHandler()));open(os.path.join(ipp,pf),'wb').write(urllib.request.urlopen('http://sublime.wbond.net/'+pf.replace(' ','%20')).read())<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span>  urllib<span class="token punctuation">.</span>request<span class="token punctuation">,</span>os<span class="token punctuation">;</span>pf<span class="token operator">=</span><span class="token string">'Package Control.sublime-package'</span><span class="token punctuation">;</span>ipp<span class="token operator">=</span>sublime<span class="token punctuation">.</span>installed_packages_path<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>urllib<span class="token punctuation">.</span>request<span class="token punctuation">.</span>install_opener<span class="token punctuation">(</span>urllib<span class="token punctuation">.</span>request<span class="token punctuation">.</span>build_opener<span class="token punctuation">(</span>urllib<span class="token punctuation">.</span>request<span class="token punctuation">.</span>ProxyHandler<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>open<span class="token punctuation">(</span>os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>join<span class="token punctuation">(</span>ipp<span class="token punctuation">,</span>pf<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token string">'wb'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>write<span class="token punctuation">(</span>urllib<span class="token punctuation">.</span>request<span class="token punctuation">.</span>urlopen<span class="token punctuation">(</span><span class="token string">'http://sublime.wbond.net/'</span><span class="token operator">+</span>pf<span class="token punctuation">.</span>replace<span class="token punctuation">(</span><span class="token string">' '</span><span class="token punctuation">,</span><span class="token string">'%20'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
 <ul>
 <li>Sublime 2</li>
 </ul>
-<pre class="line-numbers language-Python"><code class="language-Python">import  urllib2,os;pf='Package Control.sublime-package';ipp=sublime.installed_packages_path();os.makedirs(ipp)ifnotos.path.exists(ipp)elseNone;urllib2.install_opener(urllib2.build_opener(urllib2.ProxyHandler()));open(os.path.join(ipp,pf),'wb').write(urllib2.urlopen('http://sublime.wbond.net/'+pf.replace(' ','%20')).read());print('Please restart Sublime Text to finish installation')<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span>  urllib2<span class="token punctuation">,</span>os<span class="token punctuation">;</span>pf<span class="token operator">=</span><span class="token string">'Package Control.sublime-package'</span><span class="token punctuation">;</span>ipp<span class="token operator">=</span>sublime<span class="token punctuation">.</span>installed_packages_path<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>os<span class="token punctuation">.</span>makedirs<span class="token punctuation">(</span>ipp<span class="token punctuation">)</span>ifnotos<span class="token punctuation">.</span>path<span class="token punctuation">.</span>exists<span class="token punctuation">(</span>ipp<span class="token punctuation">)</span>elseNone<span class="token punctuation">;</span>urllib2<span class="token punctuation">.</span>install_opener<span class="token punctuation">(</span>urllib2<span class="token punctuation">.</span>build_opener<span class="token punctuation">(</span>urllib2<span class="token punctuation">.</span>ProxyHandler<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>open<span class="token punctuation">(</span>os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>join<span class="token punctuation">(</span>ipp<span class="token punctuation">,</span>pf<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token string">'wb'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>write<span class="token punctuation">(</span>urllib2<span class="token punctuation">.</span>urlopen<span class="token punctuation">(</span><span class="token string">'http://sublime.wbond.net/'</span><span class="token operator">+</span>pf<span class="token punctuation">.</span>replace<span class="token punctuation">(</span><span class="token string">' '</span><span class="token punctuation">,</span><span class="token string">'%20'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'Please restart Sublime Text to finish installation'</span><span class="token punctuation">)</span></code></pre>
 <ol start="2">
 <li>在浏览器中输入  <a href="https://sublime.wbond.net/Package%20Control.sublime-package" target="_blank" rel="noopener">https://sublime.wbond.net/Package%20Control.sublime-package</a> 下载包管理工具的安装包，并找到安装Sublime目录下名为"Installed Packages"的目录，把刚才下载的文件放到这个文件加下，然后重启Sublime Text就搞定了。</li>
 </ol>
@@ -940,7 +932,7 @@ print('goodbye, world', end='!\n')<span aria-hidden="true" class="line-numbers-r
 <p><img src="https://cdn.jsdelivr.net/gh/imstarstar/cdn@v1.0/loading-spinning-bubbles.svg" data-original="/images/python-pycharm.png" alt=""></p>
 <h3 id="练习"><a href="#练习" class="headerlink" title="练习"></a>练习</h3><ol>
 <li><p>在Python交互式环境中输入下面的代码并查看结果，请尝试将看到的内容翻译成中文。</p>
-<pre class="line-numbers language-Python"><code class="language-Python"> import this<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class=" language-python"><code class="language-python"> <span class="token keyword">import</span> this</code></pre>
 <blockquote>
 <p>说明：输入上面的代码，在Python的交互式环境中可以看到Tim Peter撰写的<a href="../Python之禅.md">“Python之禅”</a>，里面讲述的道理不仅仅适用于Python，也适用于其他编程语言。</p>
 </blockquote>
@@ -949,20 +941,20 @@ print('goodbye, world', end='!\n')<span aria-hidden="true" class="line-numbers-r
 <blockquote>
 <p>说明：turtle是Python内置的一个非常有趣的模块，特别适合对计算机程序设计进行初体验的小伙伴，它最早是Logo语言的一部分，Logo语言是Wally Feurzig和Seymour Papert在1966发明的编程语言。</p>
 </blockquote>
-<pre class="line-numbers language-Python"><code class="language-Python"> import turtle
+<pre class=" language-python"><code class="language-python"> <span class="token keyword">import</span> turtle
 
- turtle.pensize(4)
- turtle.pencolor('red')
+ turtle<span class="token punctuation">.</span>pensize<span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span>
+ turtle<span class="token punctuation">.</span>pencolor<span class="token punctuation">(</span><span class="token string">'red'</span><span class="token punctuation">)</span>
 
- turtle.forward(100)
- turtle.right(90)
- turtle.forward(100)
- turtle.right(90)
- turtle.forward(100)
- turtle.right(90)
- turtle.forward(100)
+ turtle<span class="token punctuation">.</span>forward<span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span>
+ turtle<span class="token punctuation">.</span>right<span class="token punctuation">(</span><span class="token number">90</span><span class="token punctuation">)</span>
+ turtle<span class="token punctuation">.</span>forward<span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span>
+ turtle<span class="token punctuation">.</span>right<span class="token punctuation">(</span><span class="token number">90</span><span class="token punctuation">)</span>
+ turtle<span class="token punctuation">.</span>forward<span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span>
+ turtle<span class="token punctuation">.</span>right<span class="token punctuation">(</span><span class="token number">90</span><span class="token punctuation">)</span>
+ turtle<span class="token punctuation">.</span>forward<span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span>
 
- turtle.mainloop()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+ turtle<span class="token punctuation">.</span>mainloop<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
 <blockquote>
 <p>提示：本章提供的代码中还有画国旗和画小猪佩奇的代码，有兴趣的读者请自行研究。</p>
 </blockquote>
@@ -1753,7 +1745,7 @@ print('goodbye, world', end='!\n')<span aria-hidden="true" class="line-numbers-r
 
             
                 &nbsp; | &nbsp;字数统计:&nbsp;
-                <span class="white-color">81.2k</span> 字
+                <span class="white-color">88.5k</span> 字
             
 
             
@@ -1925,38 +1917,6 @@ $(function () {
         
 
         <!-- 在线聊天工具   MissStar add 2019.09.11 -->
-        
-            <script src="//code.tidio.co/xfbwhpmnuosuvdgs72u7tuuxzcg74v3f.js"></script>
-            <!--  在线聊天位置自定义   MissStar add 2019.09.13  -->
-            <script> 
-                $(document).ready(function () {
-
-                    setInterval(change_Tidio, 50);  
-                    function change_Tidio() { 
-
-                        var tidio=$("#tidio-chat iframe");
-                        if(tidio.css("display")=="block"&& $(window).width()>977 ){
-                            document.getElementById("tidio-chat-iframe").style.bottom= ($("div#backTop.top-scroll").css("display")=="none" &&$(window).width()>977)>0? "-40px" : ($("div.toc-title").length&&$(window).width()>977)>0?"80px":"20px";   
-                            document.getElementById("tidio-chat-iframe").style.right="-15px";   
-                            document.getElementById("tidio-chat-iframe").style.height=parseInt(tidio.css("height"))>=520?"520px":tidio.css("height");
-                            document.getElementById("tidio-chat-iframe").style.zIndex="997";
-                        } 
-                        else if(tidio.css("display")=="block"&&$(window).width()>601 &&$(window).width()<992 ){
-                            document.getElementById("tidio-chat-iframe").style.bottom= ($("div#backTop.top-scroll").css("display")=="none" && 601< $(window).width()<992)>0? "-40px":"20px" ;   
-                            document.getElementById("tidio-chat-iframe").style.right="-15px"; 
-                            document.getElementById("tidio-chat-iframe").style.zIndex="997";
-                        }
-                        else if(tidio.css("display")=="block"&&$(window).width()<601 && parseInt(tidio.css("height"))<230){
-                            document.getElementById("tidio-chat-iframe").style.bottom= ($("div#backTop.top-scroll").css("display")=="none" && $(window).width()<601)>0? "-10px":"45px" ;   
-                            document.getElementById("tidio-chat-iframe").style.zIndex="997";
-                        }
-
-                        if( tidio.css("display")=="block"&&$(window).width()<601 && parseInt(tidio.css("height"))>=230){
-                            document.getElementById("tidio-chat-iframe").style.zIndex="998";
-                        }
-                    } 
-                }); 
-            </script>
         
 
         <!-- 背景 canvas-nest   shw 2018  add 2019.09.15-->
