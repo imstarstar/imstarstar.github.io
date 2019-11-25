@@ -1,0 +1,540 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>MissStar的博客</title>
+  
+  <subtitle>MissStar的博客</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="https://zyx.mr666.top/"/>
+  <updated>2019-11-25T07:29:18.231Z</updated>
+  <id>https://zyx.mr666.top/</id>
+  
+  <author>
+    <name>MissStar</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>NoSQL入门</title>
+    <link href="https://zyx.mr666.top/2019/09/27/39-40.nosql-ru-men/"/>
+    <id>https://zyx.mr666.top/2019/09/27/39-40.nosql-ru-men/</id>
+    <published>2019-09-27T06:48:03.000Z</published>
+    <updated>2019-11-25T07:29:18.231Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;NoSQL入门&quot;&gt;&lt;a href=&quot;#NoSQL入门&quot; class=&quot;headerlink&quot; title=&quot;NoSQL入门&quot;&gt;&lt;/a&gt;NoSQL入门&lt;/h2&gt;&lt;h3 id=&quot;NoSQL概述&quot;&gt;&lt;a href=&quot;#NoSQL概述&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="转载" scheme="https://zyx.mr666.top/categories/%E8%BD%AC%E8%BD%BD/"/>
+    
+    
+      <category term="python" scheme="https://zyx.mr666.top/tags/python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>关系数据库入门</title>
+    <link href="https://zyx.mr666.top/2019/09/27/36-38.guan-xi-xing-shu-ju-ku-mysql/"/>
+    <id>https://zyx.mr666.top/2019/09/27/36-38.guan-xi-xing-shu-ju-ku-mysql/</id>
+    <published>2019-09-27T06:47:03.000Z</published>
+    <updated>2019-11-25T07:26:10.991Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;关系数据库入门&quot;&gt;&lt;a href=&quot;#关系数据库入门&quot; class=&quot;headerlink&quot; title=&quot;关系数据库入门&quot;&gt;&lt;/a&gt;关系数据库入门&lt;/h2&gt;&lt;h3 id=&quot;关系数据库概述&quot;&gt;&lt;a href=&quot;#关系数据库概述&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="转载" scheme="https://zyx.mr666.top/categories/%E8%BD%AC%E8%BD%BD/"/>
+    
+    
+      <category term="python" scheme="https://zyx.mr666.top/tags/python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>玩转Linux操作系统</title>
+    <link href="https://zyx.mr666.top/2019/09/27/31-35.wan-zhuan-linux-cao-zuo-xi-tong/"/>
+    <id>https://zyx.mr666.top/2019/09/27/31-35.wan-zhuan-linux-cao-zuo-xi-tong/</id>
+    <published>2019-09-27T06:46:03.000Z</published>
+    <updated>2019-11-25T07:25:51.374Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;玩转Linux操作系统&quot;&gt;&lt;a href=&quot;#玩转Linux操作系统&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="转载" scheme="https://zyx.mr666.top/categories/%E8%BD%AC%E8%BD%BD/"/>
+    
+    
+      <category term="python" scheme="https://zyx.mr666.top/tags/python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Web前端概述</title>
+    <link href="https://zyx.mr666.top/2019/09/27/21-30.web-qian-duan-gai-shu/"/>
+    <id>https://zyx.mr666.top/2019/09/27/21-30.web-qian-duan-gai-shu/</id>
+    <published>2019-09-27T06:45:03.000Z</published>
+    <updated>2019-11-25T07:29:18.168Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;Web前端概述&quot;&gt;&lt;a href=&quot;#Web前端概述&quot; class=&quot;headerlink&quot; title=&quot;Web前端概述&quot;&gt;&lt;/a&gt;Web前端概述&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;说明：本文使用的部分插图来自&lt;em&gt;Jon
+        
+      
+    
+    </summary>
+    
+      <category term="转载" scheme="https://zyx.mr666.top/categories/%E8%BD%AC%E8%BD%BD/"/>
+    
+    
+      <category term="python" scheme="https://zyx.mr666.top/tags/python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Python语言进阶</title>
+    <link href="https://zyx.mr666.top/2019/09/27/16-20.python-yu-yan-jin-jie/"/>
+    <id>https://zyx.mr666.top/2019/09/27/16-20.python-yu-yan-jin-jie/</id>
+    <published>2019-09-27T05:45:03.000Z</published>
+    <updated>2019-11-25T07:22:58.480Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;Python语言进阶&quot;&gt;&lt;a href=&quot;#Python语言进阶&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="转载" scheme="https://zyx.mr666.top/categories/%E8%BD%AC%E8%BD%BD/"/>
+    
+    
+      <category term="python" scheme="https://zyx.mr666.top/tags/python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>图像和办公文档处理</title>
+    <link href="https://zyx.mr666.top/2019/09/27/15.tu-xiang-he-ban-gong-wen-dang-chu-li/"/>
+    <id>https://zyx.mr666.top/2019/09/27/15.tu-xiang-he-ban-gong-wen-dang-chu-li/</id>
+    <published>2019-09-27T04:45:03.000Z</published>
+    <updated>2019-11-25T07:05:52.752Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;图像和办公文档处理&quot;&gt;&lt;a href=&quot;#图像和办公文档处理&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="转载" scheme="https://zyx.mr666.top/categories/%E8%BD%AC%E8%BD%BD/"/>
+    
+    
+      <category term="python" scheme="https://zyx.mr666.top/tags/python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>网络编程入门</title>
+    <link href="https://zyx.mr666.top/2019/09/27/14.wang-luo-bian-cheng-ru-men-he-wang-luo-ying-yong-kai-fa/"/>
+    <id>https://zyx.mr666.top/2019/09/27/14.wang-luo-bian-cheng-ru-men-he-wang-luo-ying-yong-kai-fa/</id>
+    <published>2019-09-27T04:44:03.000Z</published>
+    <updated>2019-11-25T07:05:52.737Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;网络编程入门&quot;&gt;&lt;a href=&quot;#网络编程入门&quot; class=&quot;headerlink&quot; title=&quot;网络编程入门&quot;&gt;&lt;/a&gt;网络编程入门&lt;/h2&gt;&lt;h3 id=&quot;计算机网络基础&quot;&gt;&lt;a href=&quot;#计算机网络基础&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="转载" scheme="https://zyx.mr666.top/categories/%E8%BD%AC%E8%BD%BD/"/>
+    
+    
+      <category term="python" scheme="https://zyx.mr666.top/tags/python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>进程和线程</title>
+    <link href="https://zyx.mr666.top/2019/09/27/13.jin-cheng-he-xian-cheng/"/>
+    <id>https://zyx.mr666.top/2019/09/27/13.jin-cheng-he-xian-cheng/</id>
+    <published>2019-09-27T04:43:03.000Z</published>
+    <updated>2019-11-25T07:05:52.756Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;进程和线程&quot;&gt;&lt;a href=&quot;#进程和线程&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="转载" scheme="https://zyx.mr666.top/categories/%E8%BD%AC%E8%BD%BD/"/>
+    
+    
+      <category term="python" scheme="https://zyx.mr666.top/tags/python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>使用正则表达式</title>
+    <link href="https://zyx.mr666.top/2019/09/27/12.zi-fu-chuan-he-zheng-ze-biao-da-shi/"/>
+    <id>https://zyx.mr666.top/2019/09/27/12.zi-fu-chuan-he-zheng-ze-biao-da-shi/</id>
+    <published>2019-09-27T04:42:03.000Z</published>
+    <updated>2019-11-25T07:29:18.237Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;使用正则表达式&quot;&gt;&lt;a href=&quot;#使用正则表达式&quot; class=&quot;headerlink&quot; title=&quot;使用正则表达式&quot;&gt;&lt;/a&gt;使用正则表达式&lt;/h2&gt;&lt;h3 id=&quot;正则表达式相关知识&quot;&gt;&lt;a href=&quot;#正则表达式相关知识&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="转载" scheme="https://zyx.mr666.top/categories/%E8%BD%AC%E8%BD%BD/"/>
+    
+    
+      <category term="python" scheme="https://zyx.mr666.top/tags/python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>文件和异常</title>
+    <link href="https://zyx.mr666.top/2019/09/27/11.wen-jian-he-yi-chang/"/>
+    <id>https://zyx.mr666.top/2019/09/27/11.wen-jian-he-yi-chang/</id>
+    <published>2019-09-27T04:41:03.000Z</published>
+    <updated>2019-11-25T07:29:18.203Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;文件和异常&quot;&gt;&lt;a href=&quot;#文件和异常&quot; class=&quot;headerlink&quot; title=&quot;文件和异常&quot;&gt;&lt;/a&gt;文件和异常&lt;/h2&gt;&lt;p&gt;实际开发中常常会遇到对数据进行&lt;a
+        
+      
+    
+    </summary>
+    
+      <category term="转载" scheme="https://zyx.mr666.top/categories/%E8%BD%AC%E8%BD%BD/"/>
+    
+    
+      <category term="python" scheme="https://zyx.mr666.top/tags/python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>图形用户界面和游戏开发</title>
+    <link href="https://zyx.mr666.top/2019/09/27/10.tu-xing-yong-hu-jie-mian-he-you-xi-kai-fa/"/>
+    <id>https://zyx.mr666.top/2019/09/27/10.tu-xing-yong-hu-jie-mian-he-you-xi-kai-fa/</id>
+    <published>2019-09-27T04:40:03.000Z</published>
+    <updated>2019-11-25T07:29:18.213Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;图形用户界面和游戏开发&quot;&gt;&lt;a href=&quot;#图形用户界面和游戏开发&quot; class=&quot;headerlink&quot; title=&quot;图形用户界面和游戏开发&quot;&gt;&lt;/a&gt;图形用户界面和游戏开发&lt;/h2&gt;&lt;h3 id=&quot;基于tkinter模块的GUI&quot;&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+      <category term="转载" scheme="https://zyx.mr666.top/categories/%E8%BD%AC%E8%BD%BD/"/>
+    
+    
+      <category term="python" scheme="https://zyx.mr666.top/tags/python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>面向对象进阶</title>
+    <link href="https://zyx.mr666.top/2019/09/27/09.mian-xiang-dui-xiang-jin-jie/"/>
+    <id>https://zyx.mr666.top/2019/09/27/09.mian-xiang-dui-xiang-jin-jie/</id>
+    <published>2019-09-27T03:49:03.000Z</published>
+    <updated>2019-11-25T07:29:18.175Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;面向对象进阶&quot;&gt;&lt;a href=&quot;#面向对象进阶&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="转载" scheme="https://zyx.mr666.top/categories/%E8%BD%AC%E8%BD%BD/"/>
+    
+    
+      <category term="python" scheme="https://zyx.mr666.top/tags/python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>面向对象编程基础</title>
+    <link href="https://zyx.mr666.top/2019/09/27/08.mian-xiang-dui-xiang-bian-cheng-ji-chu/"/>
+    <id>https://zyx.mr666.top/2019/09/27/08.mian-xiang-dui-xiang-bian-cheng-ji-chu/</id>
+    <published>2019-09-27T03:48:03.000Z</published>
+    <updated>2019-11-25T07:29:18.158Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;面向对象编程基础&quot;&gt;&lt;a href=&quot;#面向对象编程基础&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="转载" scheme="https://zyx.mr666.top/categories/%E8%BD%AC%E8%BD%BD/"/>
+    
+    
+      <category term="python" scheme="https://zyx.mr666.top/tags/python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>字符串和常用数据结构</title>
+    <link href="https://zyx.mr666.top/2019/09/27/07.zi-fu-chuan-he-chang-yong-shu-ju-jie-gou/"/>
+    <id>https://zyx.mr666.top/2019/09/27/07.zi-fu-chuan-he-chang-yong-shu-ju-jie-gou/</id>
+    <published>2019-09-27T03:47:03.000Z</published>
+    <updated>2019-11-25T07:29:18.192Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;字符串和常用数据结构&quot;&gt;&lt;a href=&quot;#字符串和常用数据结构&quot; class=&quot;headerlink&quot; title=&quot;字符串和常用数据结构&quot;&gt;&lt;/a&gt;字符串和常用数据结构&lt;/h2&gt;&lt;h3 id=&quot;使用字符串&quot;&gt;&lt;a href=&quot;#使用字符串&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="转载" scheme="https://zyx.mr666.top/categories/%E8%BD%AC%E8%BD%BD/"/>
+    
+    
+      <category term="python" scheme="https://zyx.mr666.top/tags/python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>函数和模块的使用</title>
+    <link href="https://zyx.mr666.top/2019/09/27/06.han-shu-he-mo-kuai-de-shi-yong/"/>
+    <id>https://zyx.mr666.top/2019/09/27/06.han-shu-he-mo-kuai-de-shi-yong/</id>
+    <published>2019-09-27T03:46:03.000Z</published>
+    <updated>2019-11-25T07:05:52.747Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;函数和模块的使用&quot;&gt;&lt;a href=&quot;#函数和模块的使用&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="转载" scheme="https://zyx.mr666.top/categories/%E8%BD%AC%E8%BD%BD/"/>
+    
+    
+      <category term="python" scheme="https://zyx.mr666.top/tags/python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>构造程序逻辑</title>
+    <link href="https://zyx.mr666.top/2019/09/27/05.gou-zao-cheng-xu-luo-ji/"/>
+    <id>https://zyx.mr666.top/2019/09/27/05.gou-zao-cheng-xu-luo-ji/</id>
+    <published>2019-09-27T03:45:03.000Z</published>
+    <updated>2019-11-25T07:29:18.181Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;构造程序逻辑&quot;&gt;&lt;a href=&quot;#构造程序逻辑&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="转载" scheme="https://zyx.mr666.top/categories/%E8%BD%AC%E8%BD%BD/"/>
+    
+    
+      <category term="python" scheme="https://zyx.mr666.top/tags/python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>循环结构</title>
+    <link href="https://zyx.mr666.top/2019/09/27/04.xun-huan-jie-gou/"/>
+    <id>https://zyx.mr666.top/2019/09/27/04.xun-huan-jie-gou/</id>
+    <published>2019-09-27T03:44:03.000Z</published>
+    <updated>2019-11-25T07:29:18.208Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;循环结构&quot;&gt;&lt;a href=&quot;#循环结构&quot; class=&quot;headerlink&quot; title=&quot;循环结构&quot;&gt;&lt;/a&gt;循环结构&lt;/h2&gt;&lt;h3 id=&quot;应用场景&quot;&gt;&lt;a href=&quot;#应用场景&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="转载" scheme="https://zyx.mr666.top/categories/%E8%BD%AC%E8%BD%BD/"/>
+    
+    
+      <category term="python" scheme="https://zyx.mr666.top/tags/python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>分支结构</title>
+    <link href="https://zyx.mr666.top/2019/09/27/03.fen-zhi-jie-gou/"/>
+    <id>https://zyx.mr666.top/2019/09/27/03.fen-zhi-jie-gou/</id>
+    <published>2019-09-27T03:43:03.000Z</published>
+    <updated>2019-11-25T07:29:18.187Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;分支结构&quot;&gt;&lt;a href=&quot;#分支结构&quot; class=&quot;headerlink&quot; title=&quot;分支结构&quot;&gt;&lt;/a&gt;分支结构&lt;/h2&gt;&lt;h3 id=&quot;应用场景&quot;&gt;&lt;a href=&quot;#应用场景&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="转载" scheme="https://zyx.mr666.top/categories/%E8%BD%AC%E8%BD%BD/"/>
+    
+    
+      <category term="python" scheme="https://zyx.mr666.top/tags/python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>语言元素</title>
+    <link href="https://zyx.mr666.top/2019/09/27/02.yu-yan-yuan-su/"/>
+    <id>https://zyx.mr666.top/2019/09/27/02.yu-yan-yuan-su/</id>
+    <published>2019-09-27T03:42:03.000Z</published>
+    <updated>2019-11-25T07:29:18.225Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;语言元素&quot;&gt;&lt;a href=&quot;#语言元素&quot; class=&quot;headerlink&quot; title=&quot;语言元素&quot;&gt;&lt;/a&gt;语言元素&lt;/h2&gt;&lt;h4 id=&quot;指令和程序&quot;&gt;&lt;a href=&quot;#指令和程序&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="转载" scheme="https://zyx.mr666.top/categories/%E8%BD%AC%E8%BD%BD/"/>
+    
+    
+      <category term="python" scheme="https://zyx.mr666.top/tags/python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>初识Python</title>
+    <link href="https://zyx.mr666.top/2019/09/27/01.chu-shi-python/"/>
+    <id>https://zyx.mr666.top/2019/09/27/01.chu-shi-python/</id>
+    <published>2019-09-27T03:41:03.000Z</published>
+    <updated>2019-11-25T07:01:27.437Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;初识Python&quot;&gt;&lt;a href=&quot;#初识Python&quot; class=&quot;headerlink&quot; title=&quot;初识Python&quot;&gt;&lt;/a&gt;初识Python&lt;/h2&gt;&lt;h3 id=&quot;Python简介&quot;&gt;&lt;a href=&quot;#Python简介&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="转载" scheme="https://zyx.mr666.top/categories/%E8%BD%AC%E8%BD%BD/"/>
+    
+    
+      <category term="python" scheme="https://zyx.mr666.top/tags/python/"/>
+    
+  </entry>
+  
+</feed>
