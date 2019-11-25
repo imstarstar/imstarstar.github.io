@@ -852,20 +852,20 @@
 >>> image.format, image.size, image.mode
 ('JPEG', (500, 750), 'RGB')
 >>> image.show()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/images/image-show.png" alt=""></p>
+<p><img src="https://cdn.jsdelivr.net/gh/imstarstar/cdn@v1.0/loading-spinning-bubbles.svg" data-original="/images/image-show.png" alt=""></p>
 <ol>
 <li><p>剪裁图像</p>
 <pre class="line-numbers language-Python"><code class="language-Python">>>> image = Image.open('./res/guido.jpg')
 >>> rect = 80, 20, 310, 360
 >>> image.crop(rect).show()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/images/image-crop.png" alt=""></p>
+<p><img src="https://cdn.jsdelivr.net/gh/imstarstar/cdn@v1.0/loading-spinning-bubbles.svg" data-original="/images/image-crop.png" alt=""></p>
 </li>
 <li><p>生成缩略图</p>
 <pre class="line-numbers language-Python"><code class="language-Python">>>> image = Image.open('./res/guido.jpg')
 >>> size = 128, 128
 >>> image.thumbnail(size)
 >>> image.show()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/images/image-thumbnail.png" alt=""></p>
+<p><img src="https://cdn.jsdelivr.net/gh/imstarstar/cdn@v1.0/loading-spinning-bubbles.svg" data-original="/images/image-thumbnail.png" alt=""></p>
 </li>
 <li><p>缩放和黏贴图像</p>
 <pre class="line-numbers language-Python"><code class="language-Python">>>> image1 = Image.open('./res/luohao.png')
@@ -874,14 +874,14 @@
 >>> guido_head = image2.crop(rect)
 >>> width, height = guido_head.size
 >>> image1.paste(guido_head.resize((int(width / 1.5), int(height / 1.5))), (172, 40))<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/images/image-paste.png" alt=""></p>
+<p><img src="https://cdn.jsdelivr.net/gh/imstarstar/cdn@v1.0/loading-spinning-bubbles.svg" data-original="/images/image-paste.png" alt=""></p>
 </li>
 <li><p>旋转和翻转</p>
 <pre class="line-numbers language-Python"><code class="language-Python">>>> image = Image.open('./res/guido.png')
 >>> image.rotate(180).show()
 >>> image.transpose(Image.FLIP_LEFT_RIGHT).show()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/images/image-rotate.png" alt=""></p>
-<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/images/image-transpose.png" alt=""></p>
+<p><img src="https://cdn.jsdelivr.net/gh/imstarstar/cdn@v1.0/loading-spinning-bubbles.svg" data-original="/images/image-rotate.png" alt=""></p>
+<p><img src="https://cdn.jsdelivr.net/gh/imstarstar/cdn@v1.0/loading-spinning-bubbles.svg" data-original="/images/image-transpose.png" alt=""></p>
 </li>
 <li><p>操作像素</p>
 <pre class="line-numbers language-Python"><code class="language-Python">>>> image = Image.open('./res/guido.jpg')
@@ -890,14 +890,14 @@
 ...         image.putpixel((x, y), (128, 128, 128))
 ... 
 >>> image.show()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/images/image-putpixel.png" alt=""></p>
+<p><img src="https://cdn.jsdelivr.net/gh/imstarstar/cdn@v1.0/loading-spinning-bubbles.svg" data-original="/images/image-putpixel.png" alt=""></p>
 </li>
 <li><p>滤镜效果</p>
 <pre class="line-numbers language-Python"><code class="language-Python">>>> from PIL import Image, ImageFilter
 >>>
 >>> image = Image.open('./res/guido.jpg')
 >>> image.filter(ImageFilter.CONTOUR).show()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="/images/image-filter.png" alt=""></p>
+<p><img src="https://cdn.jsdelivr.net/gh/imstarstar/cdn@v1.0/loading-spinning-bubbles.svg" data-original="/images/image-filter.png" alt=""></p>
 </li>
 </ol>
 <h3 id="处理Excel电子表格"><a href="#处理Excel电子表格" class="headerlink" title="处理Excel电子表格"></a>处理Excel电子表格</h3><p>Python的openpyxl模块让我们可以在Python程序中读取和修改Excel电子表格，当然实际工作中，我们可能会用LibreOffice Calc和OpenOffice Calc来处理Excel的电子表格文件，这就意味着openpyxl模块也能处理来自这些软件生成的电子表格。关于openpyxl的使用手册和使用文档可以查看它的<a href="https://openpyxl.readthedocs.io/en/stable/#" target="_blank" rel="noopener">官方文档</a>。</p>
