@@ -4,7 +4,7 @@
   
     
     <entry>
-      <title>NoSQL入门</title>
+      <title>day39_40NoSQL入门</title>
       <link href="/2019/09/27/39-40.nosql-ru-men/"/>
       <url>/2019/09/27/39-40.nosql-ru-men/</url>
       
@@ -31,7 +31,7 @@
     
     
     <entry>
-      <title>关系数据库入门</title>
+      <title>day36_38关系数据库入门</title>
       <link href="/2019/09/27/36-38.guan-xi-xing-shu-ju-ku-mysql/"/>
       <url>/2019/09/27/36-38.guan-xi-xing-shu-ju-ku-mysql/</url>
       
@@ -58,7 +58,7 @@
     
     
     <entry>
-      <title>玩转Linux操作系统</title>
+      <title>day31_35玩转Linux操作系统</title>
       <link href="/2019/09/27/31-35.wan-zhuan-linux-cao-zuo-xi-tong/"/>
       <url>/2019/09/27/31-35.wan-zhuan-linux-cao-zuo-xi-tong/</url>
       
@@ -85,7 +85,7 @@
     
     
     <entry>
-      <title>Web前端概述</title>
+      <title>day21_30Web前端概述</title>
       <link href="/2019/09/27/21-30.web-qian-duan-gai-shu/"/>
       <url>/2019/09/27/21-30.web-qian-duan-gai-shu/</url>
       
@@ -112,7 +112,7 @@
     
     
     <entry>
-      <title>Python语言进阶</title>
+      <title>day16_20Python语言进阶</title>
       <link href="/2019/09/27/16-20.python-yu-yan-jin-jie/"/>
       <url>/2019/09/27/16-20.python-yu-yan-jin-jie/</url>
       
@@ -139,7 +139,7 @@
     
     
     <entry>
-      <title>图像和办公文档处理</title>
+      <title>day15图像和办公文档处理</title>
       <link href="/2019/09/27/15.tu-xiang-he-ban-gong-wen-dang-chu-li/"/>
       <url>/2019/09/27/15.tu-xiang-he-ban-gong-wen-dang-chu-li/</url>
       
@@ -166,7 +166,7 @@
     
     
     <entry>
-      <title>网络编程入门</title>
+      <title>day14网络编程入门</title>
       <link href="/2019/09/27/14.wang-luo-bian-cheng-ru-men-he-wang-luo-ying-yong-kai-fa/"/>
       <url>/2019/09/27/14.wang-luo-bian-cheng-ru-men-he-wang-luo-ying-yong-kai-fa/</url>
       
@@ -193,7 +193,7 @@
     
     
     <entry>
-      <title>进程和线程</title>
+      <title>day13进程和线程</title>
       <link href="/2019/09/27/13.jin-cheng-he-xian-cheng/"/>
       <url>/2019/09/27/13.jin-cheng-he-xian-cheng/</url>
       
@@ -220,7 +220,7 @@
     
     
     <entry>
-      <title>使用正则表达式</title>
+      <title>day12使用正则表达式</title>
       <link href="/2019/09/27/12.zi-fu-chuan-he-zheng-ze-biao-da-shi/"/>
       <url>/2019/09/27/12.zi-fu-chuan-he-zheng-ze-biao-da-shi/</url>
       
@@ -247,7 +247,7 @@
     
     
     <entry>
-      <title>文件和异常</title>
+      <title>day11文件和异常</title>
       <link href="/2019/09/27/11.wen-jian-he-yi-chang/"/>
       <url>/2019/09/27/11.wen-jian-he-yi-chang/</url>
       
@@ -274,7 +274,7 @@
     
     
     <entry>
-      <title>图形用户界面和游戏开发</title>
+      <title>day10图形用户界面和游戏开发</title>
       <link href="/2019/09/27/10.tu-xing-yong-hu-jie-mian-he-you-xi-kai-fa/"/>
       <url>/2019/09/27/10.tu-xing-yong-hu-jie-mian-he-you-xi-kai-fa/</url>
       
@@ -301,7 +301,7 @@
     
     
     <entry>
-      <title>面向对象进阶</title>
+      <title>day09面向对象进阶</title>
       <link href="/2019/09/27/09.mian-xiang-dui-xiang-jin-jie/"/>
       <url>/2019/09/27/09.mian-xiang-dui-xiang-jin-jie/</url>
       
@@ -328,7 +328,7 @@
     
     
     <entry>
-      <title>面向对象编程基础</title>
+      <title>day08面向对象编程基础</title>
       <link href="/2019/09/27/08.mian-xiang-dui-xiang-bian-cheng-ji-chu/"/>
       <url>/2019/09/27/08.mian-xiang-dui-xiang-bian-cheng-ji-chu/</url>
       
@@ -355,7 +355,7 @@
     
     
     <entry>
-      <title>字符串和常用数据结构</title>
+      <title>day07字符串和常用数据结构</title>
       <link href="/2019/09/27/07.zi-fu-chuan-he-chang-yong-shu-ju-jie-gou/"/>
       <url>/2019/09/27/07.zi-fu-chuan-he-chang-yong-shu-ju-jie-gou/</url>
       
@@ -382,7 +382,7 @@
     
     
     <entry>
-      <title>函数和模块的使用</title>
+      <title>day06函数和模块的使用</title>
       <link href="/2019/09/27/06.han-shu-he-mo-kuai-de-shi-yong/"/>
       <url>/2019/09/27/06.han-shu-he-mo-kuai-de-shi-yong/</url>
       
@@ -409,7 +409,7 @@
     
     
     <entry>
-      <title>构造程序逻辑</title>
+      <title>day05构造程序逻辑</title>
       <link href="/2019/09/27/05.gou-zao-cheng-xu-luo-ji/"/>
       <url>/2019/09/27/05.gou-zao-cheng-xu-luo-ji/</url>
       
@@ -436,7 +436,7 @@
     
     
     <entry>
-      <title>循环结构</title>
+      <title>day04循环结构</title>
       <link href="/2019/09/27/04.xun-huan-jie-gou/"/>
       <url>/2019/09/27/04.xun-huan-jie-gou/</url>
       
@@ -463,7 +463,7 @@
     
     
     <entry>
-      <title>分支结构</title>
+      <title>day03分支结构</title>
       <link href="/2019/09/27/03.fen-zhi-jie-gou/"/>
       <url>/2019/09/27/03.fen-zhi-jie-gou/</url>
       
@@ -490,7 +490,7 @@
     
     
     <entry>
-      <title>语言元素</title>
+      <title>day02语言元素</title>
       <link href="/2019/09/27/02.yu-yan-yuan-su/"/>
       <url>/2019/09/27/02.yu-yan-yuan-su/</url>
       
@@ -517,7 +517,7 @@
     
     
     <entry>
-      <title>初识Python</title>
+      <title>day01初识Python</title>
       <link href="/2019/09/27/01.chu-shi-python/"/>
       <url>/2019/09/27/01.chu-shi-python/</url>
       
